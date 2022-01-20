@@ -1,5 +1,5 @@
 #+title: Versuch
-#+hugo_base_dir: /home/vitus/Schreibtisch/hugo/
+#+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
 #+OPTIONS: tex:imagemagick
 
 * Markup
