@@ -1,0 +1,19 @@
+#+title: Versuch
+#+date: 2022-01-20
+#+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
+#+OPTIONS: tex:dvisvgm
+#+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
+
+The concept of open source is a great one: Everyone, no matter who, has access to the content and can change it for their own needs, point out problems with it or contribute themselves. 
+
+but it only works if we all pull together. 
+
+People who offer free and open source content put a lot of time and elbow grease into their projects because they are convinced that it is the right way to do it. 
+
+* Local Variables                                                 :noexport:
+Local Variables:
+org-preview-latex-image-directory: "/home/vitus/Schreibtisch/hugo/imgs"
+ispell-change-dictionary: "en_US"
+flyspell-mode: t
+End:
+
