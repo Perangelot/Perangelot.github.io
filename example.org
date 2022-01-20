@@ -2,20 +2,28 @@
 #+hugo_base_dir: /home/vitus/Schreibtisch/hugo/
 #+OPTIONS: tex:imagemagick
 
-* Das hier ist ein Versuch
-Hugo bro
-Ist das *fett*?
-Ist das _kursiv_?
-Ist das _unterstrichen_?
-Hugo-kompatibel?
+* Markup
+Is this *bold*?
+Is this /in italics/?
+Is this _underlined_?
+* LaTeX
+Here are 4 LaTeX .svg images
 $r \lor a$
 $lel$
 $p \to q$ 
 $q \to r$
 
-lel
+Did anything get printed?
+* Source Code
+** elisp
 #+BEGIN_src elisp
 (defun i try my best ())
+#+END_src
+** LaTeX
+#+BEGIN_src LaTeX
+\begin{document}
+\titlepage
+\end{document}
 #+END_src
 
 * Local Variables                                                 :noexport:
