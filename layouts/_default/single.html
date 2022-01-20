@@ -82,10 +82,10 @@
       {{ end }}
     {{ end }}
 
-    {{ if not (eq .Params.Comments "false") }}
-      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
-        {{ partial "comments.html" . }}
-      {{ end }}
+{{ if (eq .Params.Comments "true") }}
+       {{ partial "comments/giscus.html"}}
     {{ end }}
   </div>
 {{ end }}
+
+
