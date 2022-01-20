@@ -1,9 +1,11 @@
-baseURL="Perangelot.github.io"
+baseURL="//Perangelot.github.io"
 theme="hugo-theme-hello-friend"
 languageCode = "en-us"
 title = "opensource-philosophy"
 subtitle="A philosopher's blog"
 description="Philosophy, Logic, and Open Source"
+lastModDisplay = "Modified last on"
+enableGitInfo=true
 [languages.en.params.logo]
   logoText = "opensource-philosophy"
   logoHomeLink = "/"
