@@ -3,6 +3,7 @@ theme="hugo-theme-hello-friend"
 languageCode = "en-us"
 title = "opensource-philosophy"
 subtitle="A philosopher's blog"
+description="Philosophy, Logic, and Open Source"
 [languages.en.params.logo]
   logoText = "opensource-philosophy"
   logoHomeLink = "/"
