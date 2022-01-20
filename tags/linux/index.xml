@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on opensource-philosophy</title><link>http:opensource-philosophy.com/tags/linux/</link><description>Recent content in Linux on opensource-philosophy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="http:opensource-philosophy.com/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>A Test Post</title><link>http:opensource-philosophy.com/posts/example/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>http:opensource-philosophy.com/posts/example/</guid><description>
+Description and so on.
+Markup Is this bold? Is this in italics? Is this underlined? Is this verbatim? Is this code? Is this strike-through?
+Quotes Are these &amp;ldquo;quotes&amp;rdquo; right?
+This is just a random attempt at looking whether the quote environment works.
+Attachments See attached document for more information: &amp;lt;/Hinter den Kulissen von K-AL 2.pdf&amp;gt;
+Linking Does this link to Quotes? See the main page
+Referencing &amp;lt;&amp;amp;zermelo2010&amp;gt;
+LaTeX Inline Formuals Source Blocks Did anything get printed?</description></item></channel></rss>
