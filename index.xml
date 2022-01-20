@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>opensource-philosophy</title><link>Perangelot.github.io/</link><description>Recent content on opensource-philosophy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="Perangelot.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>A Test Post</title><link>Perangelot.github.io/posts/example/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>Perangelot.github.io/posts/example/</guid><description>
-Description and so on.
-Markup Is this bold? Is this in italics? Is this underlined? Is this verbatim? Is this code? Is this strike-through?
-Quotes Are these &amp;ldquo;quotes&amp;rdquo; right?
-This is just a random attempt at looking whether the quote environment works.
-Attachments See attached document for more information: &amp;lt;/Hinter den Kulissen von K-AL 2.pdf&amp;gt;
-Linking Does this link to Quotes? See the main page
-Referencing &amp;lt;&amp;amp;zermelo2010&amp;gt;
-LaTeX Inline Formuals Source Blocks Did anything get printed?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>opensource-philosophy</title><link>Perangelot.github.io/</link><description>Recent content on opensource-philosophy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="Perangelot.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>Perangelot.github.io/posts/example/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>Perangelot.github.io/posts/example/</guid><description>
+Here is my **post summary**.
+And this can be over _multiple lines_ too!</description></item><item><title/><link>Perangelot.github.io/posts/home/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>Perangelot.github.io/posts/home/</guid><description>
+Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy &amp;ndash; and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
+As its name suggests, this blog features both of these topics &amp;ndash; philosophy and open source &amp;ndash;, and I have deliberately chosen it to allow divergent interpretations as to what it actually is about.</description></item></channel></rss>
