@@ -1,3 +1,54 @@
 theme="hugo-theme-hello-friend"
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+languageCode = "en-us"
+title = "opensource-philosophy"
+subtitle="A philosopher's blog"
+[languages.en.params.logo]
+  logoText = "opensource-philosophy"
+  logoHomeLink = "/"
+# or
+#
+# path = "/img/your-example-logo.svg"
+# alt = "Your example logo alt text"
+
+  [params]
+  # if you set this to 0, only submenu trigger will be visible
+showMenuItems = 2
+menuMore = "More"
+
+[languages.en.menu]
+
+[[languages.en.menu.main]]
+identifier = "home"
+name = "Home"
+url = "/home"
+weight = 1
+
+[[languages.en.menu.main]]
+identifier = "Posts"
+name = "Posts"
+url = "Posts"
+weight = 2
+
+
+[[languages.en.menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects"
+weight = 3
+
+[[languages.en.menu.main]]
+identifier = "about"
+name = "About Me"
+url = "about"
+weight = 4
+[[languages.en.menu.main]]
+identifier = "donate"
+name = "Donate"
+url = "donate"
+weight = 5
+
+[[languages.en.menu.main]]
+identifier = "logic"
+name = "Logic"
+url = "logic"
+parent = "posts"

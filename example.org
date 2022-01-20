@@ -1,23 +1,45 @@
 #+title: Versuch
+#+date: 2022-01-20
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
-#+OPTIONS: tex:imagemagick
-
+#+OPTIONS: tex:dvisvgm
+#+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
+ 
 * Markup
 Is this *bold*?
 Is this /in italics/?
 Is this _underlined_?
+Is this =verbatim=?
+Is this ~code~?
+Is this +strike-through+?
+* Quotes
+Are these "quotes" right?
+#+BEGIN_QUOTE
+This is just a random attempt at looking whether the =quote= environment works.
+#+END_QUOTE
+* Attachments
+See attached document for more information: [[attachment:/media/storage/sciebo privat/opensource-philosophy/static/Hinter den Kulissen von K-AL 2.pdf]]
+* Linking
+Does this link to [[Quotes][Quotes]]?
+See the [[http://localhost:1313/][main page]]
+* Referencing
+[[cite:&zermelo2010]]
 * LaTeX
-Here are 4 LaTeX .svg images
+** Inline Formuals
 $r \lor a$
 $lel$
 $p \to q$ 
 $q \to r$
-
+** Source Blocks
+#+BEGIN_EXPORT latex
+\Latex \LaTeX anything?
+#+END_EXPORT
 Did anything get printed?
 * Source Code
 ** elisp
 #+BEGIN_src elisp
-(defun i try my best ())
+(defun get-things-working ()
+"Get things working!"
+(and (my-custom-function) (another-function)))
 #+END_src
 ** LaTeX
 #+BEGIN_src LaTeX
@@ -25,7 +47,33 @@ Did anything get printed?
 \titlepage
 \end{document}
 #+END_src
+** Try
 
+   #+BEGIN_EXPORT html
+<pre>
+\begin{document}
+\titlepage
+\end{document}
+</pre>
+   #+END_EXPORT
+
+
+
+* Tables
+Is this exported as an html table?
+
+| / | < |           | < |                  | < |              |   |
+|   |   | Uhrzeit   |   | Altklausur       |   | Tutor:in     |   |
+|---+---+-----------+---+------------------+---+--------------+---|
+|   |   | 10-12 Uhr |   | Altklausur 16/17 |   | Luca, Marvin |   |
+|   |   | 12-14 Uhr |   | Altklausur 17/18 |   | Tobias       |   |
+|   |   | 14-16 Uhr |   | Altklausur 18/19 |   | Lena         |   |
+|   |   | 16-18 Uhr |   | Altklausur 19/20 |   | Vitus        |   |
+
+| And  | this | table? |
+|------+------+--------|
+| Try  | out  | here   |
+| next | line |        |
 * Local Variables                                                 :noexport:
 Local Variables:
 org-preview-latex-image-directory: "/home/vitus/Schreibtisch/hugo/imgs"
