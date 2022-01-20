@@ -1,3 +1,4 @@
+baseURL="https://perangelot.github.io"
 theme="hugo-theme-hello-friend"
 languageCode = "en-us"
 title = "opensource-philosophy"
