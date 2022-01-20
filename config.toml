@@ -1,4 +1,4 @@
-baseURL="http:opensource-philosophy.com/"
+baseURL="perangelot.github.io"
 theme="hugo-theme-hello-friend"
 languageCode = "en-us"
 title = "opensource-philosophy"
