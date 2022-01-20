@@ -3,6 +3,7 @@
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
 #+OPTIONS: tex:dvisvgm
 #+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
+#+filetags: emacs LaTeX
 
 * Description                                                       :ignore:
 #+begin_description

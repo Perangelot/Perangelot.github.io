@@ -5,6 +5,7 @@ description = """
   And this can be over _multiple lines_ too!
   """
 date = 2022-01-20
+tags = ["emacs", "LaTeX"]
 draft = false
 +++
 
