@@ -1,11 +1,12 @@
 +++
+description = """
+  Here is my **post summary**.
+
+  And this can be over _multiple lines_ too!
+  """
 date = 2022-01-20
 draft = false
-title = "A Test Post"
-tags = ['Emacs', 'LaTeX', 'Linux', 'Logic' , 'Philosophy']
 +++
-
-Description and so on.
 
 ## Markup {#markup}
 
@@ -16,12 +17,42 @@ Is this `verbatim`?
 Is this `code`?
 Is this ~~strike-through~~?
 
+<mark>This sentence is marked.</mark>
 
-## Quotes {#quotes}
 
-Are these "quotes" right?
+## Special Blocks {#special-blocks}
 
-> This is just a random attempt at looking whether the `quote` environment works.
+<div class="BLOCKTAG">
+
+something
+
+</div>
+
+<aside>
+
+Some content for the `aside` block.
+
+</aside>
+
+<details>
+<summary>This is summary.</summary>
+<div class="details">
+
+Here are the details.
+</div>
+</details>
+
+<script type="text/tikz">
+  \begin{tikzpicture}
+\draw (0,0) circle (1in);
+\end{tikzpicture}
+</script>
+
+<div class="katex">
+
+E = -J \sum\_{i=1}^N s\_i s\_{i+1}
+
+</div>
 
 
 ## Attachments {#attachments}
@@ -31,11 +62,13 @@ See attached document for more information: </Hinter den Kulissen von K-AL 2.pdf
 
 ## Linking {#linking}
 
-Does this link to [Quotes](#quotes)?
+Does this link to [LaTeX](#latex)?
 See the [main page](http://localhost:1313/)
 
 
 ## Referencing {#referencing}
+
+> This is just a random attempt at looking whether the `quote` environment works.
 
 <&zermelo2010>
 

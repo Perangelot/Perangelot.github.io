@@ -3,6 +3,13 @@
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
 #+OPTIONS: tex:dvisvgm
 #+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
+
+* Description :ignore:
+#+begin_description
+Here is my *post summary*.
+
+And this can be over /multiple lines/ too!
+#+end_description
  
 * Markup
 Is this *bold*?
@@ -11,17 +18,38 @@ Is this _underlined_?
 Is this =verbatim=?
 Is this ~code~?
 Is this +strike-through+?
-* Quotes
-Are these "quotes" right?
-#+BEGIN_QUOTE
-This is just a random attempt at looking whether the =quote= environment works.
-#+END_QUOTE
+#+begin_mark
+This sentence is marked.
+#+end_mark
+* Special Blocks 
+#+begin_BLOCKTAG
+something
+#+end_BLOCKTAG
+#+begin_aside
+Some content for the ~aside~ block.
+#+end_aside
+#+begin_details
+#+begin_summary
+This is summary.
+#+end_summary
+Here are the details.
+#+end_details
+
+#+begin_tikzjax
+\draw (0,0) circle (1in);
+#+end_tikzjax
+#+begin_katex
+E = -J \sum\_{i=1}^N s\_i s\_{i+1}
+#+end_katex
 * Attachments
 See attached document for more information: [[attachment:/media/storage/sciebo privat/opensource-philosophy/static/Hinter den Kulissen von K-AL 2.pdf]]
 * Linking
-Does this link to [[Quotes][Quotes]]?
+Does this link to [[LaTeX][LaTeX]]?
 See the [[http://localhost:1313/][main page]]
 * Referencing
+#+BEGIN_QUOTE
+This is just a random attempt at looking whether the =quote= environment works.
+#+END_QUOTE
 [[cite:&zermelo2010]]
 * LaTeX
 ** Inline Formuals
