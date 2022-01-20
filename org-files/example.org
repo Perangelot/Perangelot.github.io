@@ -103,6 +103,10 @@ Is this exported as an html table?
 |------+------+--------|
 | Try  | out  | here   |
 | next | line |        |
+* Syntax Highlighting
+- darcula
+- fruity
+- monokai
 * Local Variables                                                 :noexport:
 Local Variables:
 org-preview-latex-image-directory: "/home/vitus/Schreibtisch/hugo/imgs"
