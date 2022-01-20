@@ -1,4 +1,4 @@
-#+title: Versuch
+#+title: Example
 #+date: 2022-01-20
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
 #+OPTIONS: tex:dvisvgm
