@@ -1,0 +1,26 @@
+#+title: Versuch
+#+hugo_base_dir: /home/vitus/Schreibtisch/hugo/
+#+OPTIONS: tex:imagemagick
+
+* Das hier ist ein Versuch
+Hugo bro
+Ist das *fett*?
+Ist das _kursiv_?
+Ist das _unterstrichen_?
+Hugo-kompatibel?
+$r \lor a$
+$lel$
+$p \to q$ 
+$q \to r$
+
+lel
+#+BEGIN_src elisp
+(defun i try my best ())
+#+END_src
+
+* Local Variables                                                 :noexport:
+Local Variables:
+org-preview-latex-image-directory: "/home/vitus/Schreibtisch/hugo/imgs"
+flyspell-mode: t
+End:
+
