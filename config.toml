@@ -1,4 +1,4 @@
-baseURL="https://perangelot.github.io"
+baseURL="http:opensource-philosophy.com/"
 theme="hugo-theme-hello-friend"
 languageCode = "en-us"
 title = "opensource-philosophy"
@@ -15,6 +15,19 @@ subtitle="A philosopher's blog"
   # if you set this to 0, only submenu trigger will be visible
 showMenuItems = 2
 menuMore = "More"
+
+enableGitInfo = true
+lastmod = ":git"
+publishDate = 'publishDate'
+dateFormatSingle = "Jan 02, 2006"
+dateFormatList = "Jan 02, 2006"
+
+
+
+
+
+
+# Menus
 
 [languages.en.menu]
 
