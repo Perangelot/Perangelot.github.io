@@ -1,7 +1,7 @@
 +++
 title = "About Me"
 layout = "list"
-url = "about"
+url = "/about/"
 parent="/"
 type = "archive"
 +++
