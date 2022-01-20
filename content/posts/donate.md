@@ -5,6 +5,7 @@ title = "Donate"
 layout = "list"
 url = "/donate/"
 parent = "/"
+type = "archive"
 +++
 
 The concept of open source is a great one: Everyone, no matter who, has access to the content and can change it for their own needs, point out problems with it or contribute themselves.
