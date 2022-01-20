@@ -4,7 +4,7 @@
 #+OPTIONS: tex:dvisvgm
 #+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
 
-* Description :ignore:
+* Description                                                       :ignore:
 #+begin_description
 Here is my *post summary*.
 
