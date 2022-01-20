@@ -1,11 +1,11 @@
-#+title: Versuch
+#+title: home
 #+date: 2022-01-20
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
 #+OPTIONS: tex:dvisvgm
 #+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
-#+hugo_custom_front_matter: :title "About Me" :layout "list" :url "/about/" :parent "/" :type "archive"
-
-
+#+hugo_custom_front_matter: :title "twerk" :layout "list"  :type "archive"
+#+hugo_section: posts
+#+slug: about
 
 #+attr_html: :class inset :width 1px
 [[file:../../org-mode/Bilder/latest.png]]

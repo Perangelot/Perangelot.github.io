@@ -1,9 +1,13 @@
 baseURL="//Perangelot.github.io"
 theme="hugo-theme-hello-friend"
 languageCode = "en-us"
+
 title = "opensource-philosophy"
 subtitle="A philosopher's blog"
 description="Philosophy, Logic, and Open Source"
+
+linenos = true
+
 lastModDisplay = "Modified last on"
 enableGitInfo=true
 [languages.en.params.logo]
@@ -38,37 +42,37 @@ weight = 1
 [[languages.en.menu.main]]
 identifier = "Posts"
 name = "Posts"
-url = "Posts"
+url = "/posts/"
 weight = 2
 
 
 [[languages.en.menu.main]]
 identifier = "projects"
 name = "Projects"
-url = "/projects"
+url = "/projects/"
 weight = 3
 
 [[languages.en.menu.main]]
 identifier = "about"
 name = "About Me"
-url = "about"
+url = "/about/"
 weight = 4
 [[languages.en.menu.main]]
 identifier = "donate"
 name = "Donate"
-url = "donate"
+url = "/donate/"
 weight = 5
 
 [[languages.en.menu.main]]
 identifier = "logic"
 name = "Logic"
-url = "logic"
+url = "/logic/"
 parent = "posts"
 
 [[languages.en.menu.main]]
 identifier = "tags"
 name = "Tags"
-url = "tags"
+url = "/tags/"
 parent = "/"
 
 # Tags and Categories
