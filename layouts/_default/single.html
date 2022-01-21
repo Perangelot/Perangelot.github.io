@@ -81,10 +81,9 @@
         </div>
       {{ end }}
     {{ end }}
-
-{{ if (eq .Params.Comments "true") }}
-       {{ partial "comments/giscus.html"}}
-    {{ end }}
+        {{ if eq .Type "post"}}
+        {{ partial "comments/giscus.html" . }}
+        {{ end }}
   </div>
 {{ end }}
 
