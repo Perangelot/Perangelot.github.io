@@ -2,10 +2,9 @@
 date = 2022-01-20
 draft = false
 title = "About Me"
-layout = "list"
 url = "/about/"
 parent = "/"
-type = "archive"
+type = "post"
 +++
 
 {{< figure src="/ox-hugo/latest.png" class="inset" width="1px" >}}
