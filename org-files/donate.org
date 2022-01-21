@@ -1,9 +1,7 @@
 #+title: Versuch
 #+date: 2022-01-20
 #+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
-#+OPTIONS: tex:dvisvgm
-#+bibliography: /media/storage/sciebo privat/opensource-philosophy/data/AK Mengenlehre und Typentheorie.bib
-#+hugo_custom_front_matter: :title "Donate" :layout "list" :url "/donate/" :parent "/"
+#+hugo_custom_front_matter: :title "Donate!" :type "archive" :url "/donate/"
 
 The concept of open source is a great one: Everyone, no matter who, has access to the content and can change it for their own needs, point out problems with it or contribute themselves. 
 

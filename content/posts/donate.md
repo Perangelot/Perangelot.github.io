@@ -1,10 +1,9 @@
 +++
 date = 2022-01-20
 draft = false
-title = "Donate"
-layout = "list"
+title = "Donate!"
 type = "archive"
-slug = "avoiding-tailwinds-cdn-limitations"
+url = "/donate/"
 +++
 
 The concept of open source is a great one: Everyone, no matter who, has access to the content and can change it for their own needs, point out problems with it or contribute themselves.

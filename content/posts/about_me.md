@@ -2,12 +2,11 @@
 date = 2022-01-20
 draft = false
 title = "About Me"
-url = "/about/"
-parent = "/"
-type = "post"
+type = "archive"
+url = "about_me"
 +++
 
-{{< figure src="/ox-hugo/latest.png" class="inset" width="1px" >}}
+{{< figure src="/ox-hugo/latest.png" class="center" width="1px" >}}
 
 Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy -- and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
 

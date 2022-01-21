@@ -2,12 +2,13 @@
 description = """
   Here is my **post summary**.
 
-  And this can be over _multiple lines_ too!
+  Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy -- and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
   """
 date = 2022-01-20
 tags = ["emacs", "LaTeX"]
-type = "post"
 draft = false
+title = "Example!"
+type = "post"
 +++
 
 ## Markup {#markup}
@@ -80,14 +81,10 @@ See the [main page](http://localhost:1313/)
 
 ### Inline Formuals {#inline-formuals}
 
-<object type="image/svg+xml" data="file:///home/vitus/Schreibtisch/hugo/imgs/example_1305c7e5d25a7547d11b2c66ad2bbb9b08e42e4f.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
-<object type="image/svg+xml" data="file:///home/vitus/Schreibtisch/hugo/imgs/example_bd90d936541c6d8adddf0709ed79c17ea2dc5be9.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
-<object type="image/svg+xml" data="file:///home/vitus/Schreibtisch/hugo/imgs/example_fb891be1504b6682adbe8388482fcc9a420fc8a7.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
-<object type="image/svg+xml" data="file:///home/vitus/Schreibtisch/hugo/imgs/example_1b8aa0e63af76143da3313712766b0df2141fdc2.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+\\(r \lor a\\)
+\\(lel\\)
+\\(p \to q\\)
+\\(q \to r\\)
 
 
 ### Source Blocks {#source-blocks}
