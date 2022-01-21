@@ -1,5 +1,4 @@
 +++
-title="Example"
 description = """
   Here is my **post summary**.
 

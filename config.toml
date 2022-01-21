@@ -5,7 +5,6 @@ languageCode = "en-us"
 title = "opensource-philosophy"
 subtitle="A philosopher's blog"
 description="Philosophy, Logic, and Open Source"
-
 linenos = true
 
 lastModDisplay = "Modified last on"
@@ -22,6 +21,7 @@ enableGitInfo=true
 # if you set this to 0, only submenu trigger will be visible
 showMenuItems = 2
 menuMore = "More"
+contentTypeName = "post"
 
 enableGitInfo = true
 lastmod = ":git"
