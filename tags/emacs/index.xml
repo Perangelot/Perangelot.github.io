@@ -1,3 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on opensource-philosophy</title><link>//Perangelot.github.io/tags/emacs/</link><description>Recent content in emacs on opensource-philosophy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//Perangelot.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>Example!</title><link>//Perangelot.github.io/posts/example/</link><pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate><guid>//Perangelot.github.io/posts/example/</guid><description>
-Here is my **post summary**.
-Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy -- and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on opensource-philosophy</title>
+    
+    
+    
+    <link>//Perangelot.github.io/tags/emacs/</link>
+    <description>Recent content in emacs on opensource-philosophy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="//Perangelot.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>//Perangelot.github.io/posts/example/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//Perangelot.github.io/posts/example/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+            Here is my **post summary**.
+
+  And this can be over _multiple lines_ too!
+  
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
