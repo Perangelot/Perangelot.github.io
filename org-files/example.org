@@ -1,9 +1,9 @@
 #+title: Example
 #+date: 2022-01-20
-#+hugo_base_dir: /media/storage/sciebo privat/opensource-philosophy/
+#+hugo_base_dir: ../
+#+hugo_type: post
 #+filetags: emacs LaTeX
-#+hugo_custom_front_matter: :title "Example!" :type "post"
-* Description                                                       :ignore:
+* Description                                                        :ignore:
 #+begin_description
 Here is my *post summary*.
 
@@ -41,8 +41,8 @@ Here are the details.
 #+begin_katex
 E = -J \sum\_{i=1}^N s\_i s\_{i+1}
 #+end_katex
-* Attachments
-See attached document for more information: [[attachment:/media/storage/sciebo privat/opensource-philosophy/static/Hinter den Kulissen von K-AL 2.pdf]]
+* TODO Attachments
+
 * Linking
 Does this link to [[LaTeX][LaTeX]]?
 See the [[http://localhost:1313/][main page]]
@@ -104,6 +104,14 @@ Is this exported as an html table?
 | next | line |        |
 * Syntax Highlighting
 - darcula
+#+begin_src python
+print("Oh hi Mark")
+
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+#+end_src
 - fruity
 - monokai
 * Local Variables                                                 :noexport:

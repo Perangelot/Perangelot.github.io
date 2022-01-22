@@ -1,15 +1,18 @@
 +++
+title = "Example"
+author = ["Jacob Hilker"]
 description = """
   Here is my **post summary**.
 
   Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy -- and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
   """
 date = 2022-01-20
-tags = ["emacs", "LaTeX"]
-draft = false
-title = "Example!"
 type = "post"
+draft = false
 +++
+
+## Description {#description}
+
 
 ## Markup {#markup}
 
@@ -26,41 +29,60 @@ Is this ~~strike-through~~?
 ## Special Blocks {#special-blocks}
 
 <div class="BLOCKTAG">
+  <div></div>
 
 something
 
 </div>
 
 <aside>
+  <aside></aside>
 
 Some content for the `aside` block.
 
 </aside>
 
-<details>
-<summary>This is summary.</summary>
-<div class="details">
+<details class="code-details"
+                 style ="padding: 1em;
+                          background-color: #e5f5e5;
+                          /* background-color: pink; */
+                          border-radius: 15px;
+                          color: hsl(157 75%);
+                          font-size: 0.9em;
+                          box-shadow: 0.05em 0.1em 5px 0.01em  #00000057;">
+                  <summary>
+                    <strong>
+                      <font face="Courier" size="3" color="green">
+                         Details
+                      </font>
+                    </strong>
+                  </summary>
+
+<summary>
+This is summary.
+</summary>
 
 Here are the details.
-</div>
+
+
 </details>
 
-<script type="text/tikz">
-  \begin{tikzpicture}
+<div class="tikzjax">
+  <div></div>
+
 \draw (0,0) circle (1in);
-\end{tikzpicture}
-</script>
+
+</div>
 
 <div class="katex">
+  <div></div>
 
-E = -J \sum\_{i=1}^N s\_i s\_{i+1}
+E = -J &sum;\\<sub>i=1</sub>^N s\\\_i s\\<sub>i+1</sub>
 
 </div>
 
 
-## Attachments {#attachments}
-
-See attached document for more information: </Hinter den Kulissen von K-AL 2.pdf>
+## <span class="org-todo todo TODO">TODO</span> Attachments {#attachments}
 
 
 ## Linking {#linking}
@@ -142,5 +164,17 @@ Is this exported as an html table?
 ## Syntax Highlighting {#syntax-highlighting}
 
 -   darcula
+
+<!--listend-->
+
+```python
+print("Oh hi Mark")
+
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+```
+
 -   fruity
 -   monokai
