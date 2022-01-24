@@ -19,7 +19,8 @@
 <!-- Custom CSS to override theme properties (/static/style.css) -->
 <link rel="stylesheet" href="{{ "style.css" | absURL }}" />
 <!-- My syntax highlighting css -->
-<link rel="stylesheet" href="{{ "assets/css/syntax_highlighting.css" | absURL }}" />
+{{ $syntax := resources.Get "css/syntax_highlighting.css"}}
+<link rel="stylesheet" href="{{$syntax.RelPermalink}}">
 
 <!-- Icons -->
 <link
@@ -50,3 +51,4 @@
 
 <!-- head custom -->
 {{- partial "extended_head.html" . }}
+{{ partial "math.html" . }}

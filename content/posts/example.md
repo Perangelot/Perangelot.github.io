@@ -28,6 +28,8 @@ Is this ~~strike-through~~?
 
 ## Special Blocks {#special-blocks}
 
+Oh look some special block content.
+
 <div class="BLOCKTAG">
   <div></div>
 
@@ -117,7 +119,7 @@ Did anything get printed?
 ## Source Code {#source-code}
 
 
-### elisp {#elisp}
+### Elisp {#elisp}
 
 ```elisp
 (defun get-things-working ()
@@ -163,18 +165,41 @@ Is this exported as an html table?
 
 ## Syntax Highlighting {#syntax-highlighting}
 
--   darcula
 
-<!--listend-->
+### Dracula {#dracula}
 
-```python
-print("Oh hi Mark")
+{{<highlight python "linenos=table,style=dracula">}}
+import os
 
+print("Oh Hi Mark")
 x = 3
 x = x+2
 print("What Is X?")
 print("x=5")
-```
+{{</highlight>}}
 
--   fruity
--   monokai
+
+### Fruity {#fruity}
+
+{{<highlight python "linenos=table,style=fruity">}}
+import os
+
+print("Oh Hi Mark")
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+{{</highlight>}}
+
+
+### Monokai {#monokai}
+
+{{<highlight python "linenos=table,style=monokai">}}
+import os
+
+print("Oh Hi Mark")
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+{{</highlight>}}

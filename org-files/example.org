@@ -3,6 +3,7 @@
 #+hugo_base_dir: ../
 #+hugo_type: post
 #+filetags: emacs LaTeX
+
 * Description                                                        :ignore:
 #+begin_description
 Here is my *post summary*.
@@ -10,6 +11,8 @@ Here is my *post summary*.
 
 Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy -- and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
 #+end_description
+
+
  
 * Markup
 Is this *bold*?
@@ -18,10 +21,14 @@ Is this _underlined_?
 Is this =verbatim=?
 Is this ~code~?
 Is this +strike-through+?
+
 #+begin_mark
 This sentence is marked.
 #+end_mark
-* Special Blocks 
+
+* Special Blocks
+Oh look some special block content.
+
 #+begin_BLOCKTAG
 something
 #+end_BLOCKTAG
@@ -62,13 +69,16 @@ $q \to r$
 \Latex \LaTeX anything?
 #+END_EXPORT
 Did anything get printed?
+
+
 * Source Code
-** elisp
-#+BEGIN_src elisp
+** Elisp
+#+begin_src elisp
 (defun get-things-working ()
 "Get things working!"
 (and (my-custom-function) (another-function)))
-#+END_src
+#+end_src
+
 ** LaTeX
 #+BEGIN_src LaTeX
 \begin{document}
@@ -77,7 +87,7 @@ Did anything get printed?
 #+END_src
 ** Try
 
-   #+BEGIN_EXPORT html
+#+BEGIN_EXPORT html
 <pre>
 \begin{document}
 \titlepage
@@ -102,19 +112,45 @@ Is this exported as an html table?
 |------+------+--------|
 | Try  | out  | here   |
 | next | line |        |
-* Syntax Highlighting
-- darcula
-#+begin_src python
-print("Oh hi Mark")
 
+
+* Syntax Highlighting
+** Dracula
+{{<highlight python "linenos=table,style=dracula">}}
+import os
+
+print("Oh Hi Mark")
 x = 3
 x = x+2
 print("What Is X?")
 print("x=5")
-#+end_src
-- fruity
-- monokai
-* Local Variables                                                 :noexport:
+{{</highlight>}}
+
+** Fruity
+{{<highlight python "linenos=table,style=fruity">}}
+import os
+
+print("Oh Hi Mark")
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+{{</highlight>}}
+
+** Monokai
+{{<highlight python "linenos=table,style=monokai">}}
+import os
+
+print("Oh Hi Mark")
+x = 3
+x = x+2
+print("What Is X?")
+print("x=5")
+{{</highlight>}}
+
+
+
+* Local Variables                                                  :noexport:
 Local Variables:
 org-preview-latex-image-directory: "/home/vitus/Schreibtisch/hugo/imgs"
 flyspell-mode: t
