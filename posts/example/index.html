@@ -7,18 +7,19 @@ opensource-philosophy
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Description Markup Is this bold? Is this in italics? Is this underlined? Is this verbatim? Is this code? Is this strike-through?
-This sentence is marked.Special Blocks something
-Some content for the aside block.
-Here are the details.
-\draw (0,0) circle (1in);
-E = -J ∑\i=1^N s\_i s\i+1TODOAttachments Linking Does this link to LaTeX? See the main page
-Referencing  This is just a random attempt at looking whether the quote environment works.">
+This sentence is marked.
+Special Blocks Oh look some special block content.
+ something
+   Some content for the aside block.
+   Details     This is summary.  Here are the details.
+  \draw (0,0) circle (1in);
+  E = -J ∑\i=1^N s\_i s\i+1">
 <meta name=keywords content>
 <meta name=robots content="noodp">
 <link rel=canonical href=https://Perangelot.github.io/posts/example/>
 <link rel=stylesheet href=https://Perangelot.github.io/assets/style.css>
 <link rel=stylesheet href=https://Perangelot.github.io/style.css>
-<link rel=stylesheet href=https://Perangelot.github.io/assets/css/syntax_highlighting.css>
+<link rel=stylesheet href=/css/syntax_highlighting.css>
 <link rel=apple-touch-icon-precomposed sizes=144x144 href=https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png>
 <link rel="shortcut icon" href=https://Perangelot.github.io/img/favicon.png>
 <link href=https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2 rel=preload type=font/woff2 as=font crossorigin>
@@ -41,7 +42,7 @@ Referencing  This is just a random attempt at looking whether the quote environm
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://Perangelot.github.io/posts/example/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-01-20T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-01-22T14:18:43-05:00">
+<meta property="article:modified_time" content="2022-01-24T15:06:39-05:00">
 </head>
 <body class=dark-theme>
 <div class=container>
@@ -100,18 +101,43 @@ Jan 20, 2022
 <h2 id=markup>Markup</h2>
 <p>Is this <strong>bold</strong>?
 Is this <em>in italics</em>?
-Is this underlined?
+Is this <span class=underline>underlined</span>?
 Is this <code>verbatim</code>?
 Is this <code>code</code>?
 Is this <del>strike-through</del>?</p>
-<p>This sentence is marked.</p>
+<p><mark>This sentence is marked.</mark></p>
 <h2 id=special-blocks>Special Blocks</h2>
+<p>Oh look some special block content.</p>
+<div class=BLOCKTAG>
+<div></div>
 <p>something</p>
+</div>
+<aside>
+<aside></aside>
 <p>Some content for the <code>aside</code> block.</p>
+</aside>
+<details class=code-details style="padding:1em;background-color:#e5f5e5;border-radius:15px;color:hsl(157 75%);font-size:.9em;box-shadow:.05em .1em 5px .01em #00000057">
+<summary>
+<strong>
+<font face=Courier size=3 color=green>
+Details
+</font>
+</strong>
+</summary>
+<summary>
+This is summary.
+</summary>
 <p>Here are the details.</p>
+</details>
+<div class=tikzjax>
+<div></div>
 <p>\draw (0,0) circle (1in);</p>
-<p>E = -J ∑\i=1^N s\_i s\i+1</p>
-<h2 id=attachments>TODO Attachments</h2>
+</div>
+<div class=katex>
+<div></div>
+<p>E = -J ∑\<sub>i=1</sub>^N s\_i s\<sub>i+1</sub></p>
+</div>
+<h2 id=attachments><span class="org-todo todo TODO">TODO</span> Attachments</h2>
 <h2 id=linking>Linking</h2>
 <p>Does this link to <a href=#latex>LaTeX</a>?
 See the <a href=http://localhost:1313/>main page</a></p>
@@ -129,7 +155,7 @@ See the <a href=http://localhost:1313/>main page</a></p>
 <h3 id=source-blocks>Source Blocks</h3>
 <p>Did anything get printed?</p>
 <h2 id=source-code>Source Code</h2>
-<h3 id=elisp>elisp</h3>
+<h3 id=elisp>Elisp</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elisp data-lang=elisp>(defun get-things-working ()
 <span style=color:#e6db74>&#34;Get things working!&#34;</span>
 (and (my-custom-function) (another-function)))
@@ -138,6 +164,11 @@ See the <a href=http://localhost:1313/>main page</a></p>
 <span style=color:#66d9ef>\titlepage</span>
 <span style=color:#66d9ef>\end</span>{document}
 </code></pre></div><h3 id=try>Try</h3>
+<pre>
+\begin{document}
+\titlepage
+\end{document}
+</pre>
 <h2 id=tables>Tables</h2>
 <p>Is this exported as an html table?</p>
 <p>| | Uhrzeit || | Altklausur || | Tutor:in | |
@@ -168,19 +199,69 @@ See the <a href=http://localhost:1313/>main page</a></p>
 </tbody>
 </table>
 <h2 id=syntax-highlighting>Syntax Highlighting</h2>
-<ul>
-<li>darcula</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;Oh hi Mark&#34;</span>)
+<h3 id=dracula>Dracula</h3>
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>import</span> os
 
+<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;Oh Hi Mark&#34;</span>)
+x <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>3</span>
+x <span style=color:#ff79c6>=</span> x<span style=color:#ff79c6>+</span><span style=color:#bd93f9>2</span>
+<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;What Is X?&#34;</span>)
+<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id=fruity>Fruity</h3>
+<div class=highlight><div style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#fb660a;font-weight:700>import</span> os
+
+print(<span style=color:#0086d2>&#34;Oh Hi Mark&#34;</span>)
+x = <span style=color:#0086f7;font-weight:700>3</span>
+x = x+<span style=color:#0086f7;font-weight:700>2</span>
+print(<span style=color:#0086d2>&#34;What Is X?&#34;</span>)
+print(<span style=color:#0086d2>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id=monokai>Monokai</h3>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+
+print(<span style=color:#e6db74>&#34;Oh Hi Mark&#34;</span>)
 x <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
 x <span style=color:#f92672>=</span> x<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>
 print(<span style=color:#e6db74>&#34;What Is X?&#34;</span>)
-print(<span style=color:#e6db74>&#34;x=5&#34;</span>)
-</code></pre></div><ul>
-<li>fruity</li>
-<li>monokai</li>
-</ul>
+print(<span style=color:#e6db74>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class=pagination>
 <div class=pagination__title>
@@ -222,7 +303,6 @@ print(<span style=color:#e6db74>&#34;x=5&#34;</span>)
 </div>
 </footer>
 <script src=https://Perangelot.github.io/assets/main.js></script>
-<script src=https://Perangelot.github.io/assets/prism.js></script>
 </div>
 </body>
 </html>
