@@ -165,10 +165,7 @@ Is this exported as an html table?
 
 ## Syntax Highlighting {#syntax-highlighting}
 
-
-### Dracula {#dracula}
-
-{{<highlight python "linenos=table,style=dracula">}}
+```python
 import os
 
 print("Oh Hi Mark")
@@ -176,30 +173,4 @@ x = 3
 x = x+2
 print("What Is X?")
 print("x=5")
-{{</highlight>}}
-
-
-### Fruity {#fruity}
-
-{{<highlight python "linenos=table,style=fruity">}}
-import os
-
-print("Oh Hi Mark")
-x = 3
-x = x+2
-print("What Is X?")
-print("x=5")
-{{</highlight>}}
-
-
-### Monokai {#monokai}
-
-{{<highlight python "linenos=table,style=monokai">}}
-import os
-
-print("Oh Hi Mark")
-x = 3
-x = x+2
-print("What Is X?")
-print("x=5")
-{{</highlight>}}
+```

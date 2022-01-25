@@ -115,8 +115,7 @@ Is this exported as an html table?
 
 
 * Syntax Highlighting
-** Dracula
-{{<highlight python "linenos=table,style=dracula">}}
+#+begin_src python
 import os
 
 print("Oh Hi Mark")
@@ -124,31 +123,7 @@ x = 3
 x = x+2
 print("What Is X?")
 print("x=5")
-{{</highlight>}}
-
-** Fruity
-{{<highlight python "linenos=table,style=fruity">}}
-import os
-
-print("Oh Hi Mark")
-x = 3
-x = x+2
-print("What Is X?")
-print("x=5")
-{{</highlight>}}
-
-** Monokai
-{{<highlight python "linenos=table,style=monokai">}}
-import os
-
-print("Oh Hi Mark")
-x = 3
-x = x+2
-print("What Is X?")
-print("x=5")
-{{</highlight>}}
-
-
+#+end_src
 
 * Local Variables                                                  :noexport:
 Local Variables:

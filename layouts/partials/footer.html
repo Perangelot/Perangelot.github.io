@@ -18,6 +18,11 @@
   </div>
 </footer>
 
-<script src="{{ "assets/main.js" | absURL }}"></script>
+{{ $mainJs := resources.Get "js/main.js"}}
+<script src="{{ $mainJs.RelPermalink }}"></script>
 
-{{- partial "extended_footer.html" . }}
+{{ $prismJs := resources.Get "js/prism.js"}}
+<script src="{{ $prismJs.RelPermalink }}"></script>
+
+
+
