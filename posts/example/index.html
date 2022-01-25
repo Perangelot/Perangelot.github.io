@@ -17,9 +17,8 @@ Special Blocks Oh look some special block content.
 <meta name=keywords content>
 <meta name=robots content="noodp">
 <link rel=canonical href=https://Perangelot.github.io/posts/example/>
-<link rel=stylesheet href=https://Perangelot.github.io/assets/style.css>
-<link rel=stylesheet href=https://Perangelot.github.io/style.css>
-<link rel=stylesheet href=/css/syntax_highlighting.css>
+<link rel=stylesheet href=/assets/style.css>
+<link rel=stylesheet src=/css/prism.css>
 <link rel=apple-touch-icon-precomposed sizes=144x144 href=https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png>
 <link rel="shortcut icon" href=https://Perangelot.github.io/img/favicon.png>
 <link href=https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2 rel=preload type=font/woff2 as=font crossorigin>
@@ -42,7 +41,7 @@ Special Blocks Oh look some special block content.
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://Perangelot.github.io/posts/example/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-01-20T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-01-24T15:06:39-05:00">
+<meta property="article:modified_time" content="2022-01-25T14:40:19-05:00">
 </head>
 <body class=dark-theme>
 <div class=container>
@@ -87,7 +86,7 @@ More
 </span>
 </span>
 </header>
-<div class=content>
+<div class="content line-numbers">
 <div class=post>
 <h1 class=post-title>Example</h1>
 <div class=post-meta>
@@ -199,69 +198,14 @@ See the <a href=http://localhost:1313/>main page</a></p>
 </tbody>
 </table>
 <h2 id=syntax-highlighting>Syntax Highlighting</h2>
-<h3 id=dracula>Dracula</h3>
-<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#ff79c6>import</span> os
-
-<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;Oh Hi Mark&#34;</span>)
-x <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>3</span>
-x <span style=color:#ff79c6>=</span> x<span style=color:#ff79c6>+</span><span style=color:#bd93f9>2</span>
-<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;What Is X?&#34;</span>)
-<span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id=fruity>Fruity</h3>
-<div class=highlight><div style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#fff;background-color:#111;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#fb660a;font-weight:700>import</span> os
-
-print(<span style=color:#0086d2>&#34;Oh Hi Mark&#34;</span>)
-x = <span style=color:#0086f7;font-weight:700>3</span>
-x = x+<span style=color:#0086f7;font-weight:700>2</span>
-print(<span style=color:#0086d2>&#34;What Is X?&#34;</span>)
-print(<span style=color:#0086d2>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id=monokai>Monokai</h3>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
 
 print(<span style=color:#e6db74>&#34;Oh Hi Mark&#34;</span>)
 x <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
 x <span style=color:#f92672>=</span> x<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>
 print(<span style=color:#e6db74>&#34;What Is X?&#34;</span>)
-print(<span style=color:#e6db74>&#34;x=5&#34;</span>)</code></pre></td></tr></table>
-</div>
-</div>
+print(<span style=color:#e6db74>&#34;x=5&#34;</span>)
+</code></pre></div>
 </div>
 <div class=pagination>
 <div class=pagination__title>
@@ -302,7 +246,8 @@ print(<span style=color:#e6db74>&#34;x=5&#34;</span>)</code></pre></td></tr></ta
 </div>
 </div>
 </footer>
-<script src=https://Perangelot.github.io/assets/main.js></script>
+<script src=/js/main.js></script>
+<script src=/js/prism.js></script>
 </div>
 </body>
 </html>
