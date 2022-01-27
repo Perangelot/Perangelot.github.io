@@ -29,10 +29,13 @@ publishDate = 'publishDate'
 dateFormatSingle = "Jan 02, 2006"
 dateFormatList = "Jan 02, 2006"
 
+indexImg = "https://via.placeholder.com/150"
 [markup.goldmark.renderer]
 unsafe= true # Enables Raw HTML in org-posts, but could be insecure.
 
-
+[languages.en]
+dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
 # Menus
 
 [languages.en.menu]

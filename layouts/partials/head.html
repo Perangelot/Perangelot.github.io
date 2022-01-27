@@ -18,10 +18,12 @@
 <link rel="stylesheet" href="{{ "assets/style.css" | relURL }}" />
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
+{{ $custom := resources.Get "css/custom.css"}}
+ <link rel="stylesheet" href="{{$custom.RelPermalink}}">
 
 <!-- My syntax highlighting css -->
 {{ $syntax := resources.Get "css/prism.css"}}
-<link rel="stylesheet" src="{{$syntax.RelPermalink}}">
+<link rel="stylesheet" href="{{$syntax.RelPermalink}}">
 
 <!-- Icons -->
 <link
