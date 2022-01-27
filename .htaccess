@@ -1,7 +1,0 @@
-ErrorDocument 404 http://opensource-philosophy.com/404.html
-
-RewriteEngine On
-RewriteBase /
-
-RewriteCond %{REQUEST_URI} ^/404/$
-RewriteRule ^(.*)$ /404.html [L]
