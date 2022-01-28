@@ -18,6 +18,11 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 <mark>This is an example custom block.</mark>
 
 
+### <span class="org-todo todo TODO">TODO</span> Details {#details}
+
+Details are nice.
+
+
 ## Source Code {#source-code}
 
 
@@ -37,3 +42,18 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 \titlepage
 \end{document}
 ```
+
+
+## LaTeX Highlighting {#latex-highlighting}
+
+
+### Inline {#inline}
+
+-   \\(r \lor a\\)
+-   &Delta; &notin; &Alpha;
+
+
+### Blocks {#blocks}
+
+-   \\[r \lor a\\]
+-   \\[\Delta \notin \Alpha\\\]
