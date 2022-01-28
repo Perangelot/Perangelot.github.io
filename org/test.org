@@ -1,0 +1,33 @@
+#+title: Example Post
+#+date: <2022-01-27 Thu 13:49>
+#+hugo_base_dir: ../
+#+hugo_section: post
+#+hugo_type: post
+#+hugo_lastmod: <2022-01-28 Fri 14:00>
+
+#+hugo_tags: test example "syntax highlighting"
+
+* Markup
+Is this *bold*? Is this /italic/? Is this _underlined_? Is this =verbatim=? Is this ~code~? Is this +struck through+?
+
+* Special Blocks
+#+begin_mark
+This is an example custom block.
+#+end_mark
+
+
+* Source Code
+** Elisp
+#+begin_src elisp
+(defun get-things-working ()
+"Get things working!"
+(and (my-custom-function) (another-function)))
+#+end_src
+
+** Latex
+#+begin_src latex
+\begin{document}
+\titlepage
+\end{document}
+#+end_src
+

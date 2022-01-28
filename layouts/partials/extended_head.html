@@ -1,0 +1,5 @@
+{{ partial "math.html" . }}
+
+{{ $prism := resources.Get "css/prism.css"}}
+
+<link href="{{$prism.RelPermalink}}" rel="stylesheet"/>

@@ -1,5 +1,38 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://Perangelot.github.io'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'opensource-philosophy'
+subtitle = "A philosopher's blog"
+description = "Philosophy, Logic, and Open Source"
 theme = "hello-friend"
 
+[params]
+# if you set this to 0, only submenu trigger will be visible
+showMenuItems = 2
+menuMore = "More"
+contentTypeName = "post"
+
+lastmod = ":lastmod"
+
+lastModDisplay = "Modified last on"
+
+publishDate = 'publishDate'
+dateFormatSingle = "January 02, 2006"
+dateFormatList = "January 02, 2006"
+
+[params.math]
+enable = true
+
+
+[languages.en.params.logo]
+  logoText = "opensource-philosophy"
+  logoHomeLink = "/"
+# or
+#
+# path = "/img/your-example-logo.svg"
+# alt = "Your example logo alt text"
+
+
+
+
+[markup.goldmark.renderer]
+unsafe= true # Enables Raw HTML in org-posts, but could be insecure.
