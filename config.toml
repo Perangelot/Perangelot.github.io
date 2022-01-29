@@ -36,3 +36,18 @@ enable = true
 
 [markup.goldmark.renderer]
 unsafe= true # Enables Raw HTML in org-posts, but could be insecure.
+
+[languages.en.menu]
+
+[[languages.en.menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[languages.en.menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/post/"
+weight = 2
+
