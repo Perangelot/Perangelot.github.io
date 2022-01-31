@@ -5,6 +5,9 @@ subtitle = "A philosopher's blog"
 description = "Philosophy, Logic, and Open Source"
 theme = "hello-friend"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [params]
 # if you set this to 0, only submenu trigger will be visible
 showMenuItems = 2
@@ -50,4 +53,6 @@ identifier = "posts"
 name = "Posts"
 url = "/post/"
 weight = 2
+
+search=true
 
