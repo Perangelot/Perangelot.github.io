@@ -13,11 +13,16 @@ contentTypeName = "post"
 
 lastmod = ":lastmod"
 
-lastModDisplay = "Modified last on"
+lastModDisplay = "Last updated: "
 
 publishDate = 'publishDate'
-dateFormatSingle = "January 02, 2006"
-dateFormatList = "January 02, 2006"
+dateFormatSingle = "02 Jan. 2006"
+dateFormatList = "02 Jan. 2006"
+
+indexImg = "https://via.placeholder.com/200" # the image used on the index page.
+indexCnt = 3 # number of posts/content to show on index.
+
+
 
 [params.math]
 enable = true
@@ -51,3 +56,20 @@ name = "Posts"
 url = "/post/"
 weight = 2
 
+[[languages.en.menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
+weight = 3
+
+[[languages.en.menu.main]]
+identifier = "about_me"
+name = "About Me"
+url = "/about_me/"
+weight = 4
+
+[[languages.en.menu.main]]
+identifier = "donate"
+name = "Donate"
+url = "/donate/"
+weight = 5

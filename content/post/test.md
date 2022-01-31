@@ -1,6 +1,7 @@
 +++
 title = "Example Post"
 author = ["Jacob Hilker"]
+description = "This post is an example of org-mode syntax highlighting being exported to hugo markdown."
 date = 2022-01-27T13:49:00-05:00
 lastmod = 2022-01-28T14:00:00-05:00
 tags = ["test", "example", "syntax highlighting"]

@@ -2,3 +2,10 @@
     text-decoration: underline;
 }
 
+.indexImg {
+    border-radius: 50%;
+}
+
+.index-content {
+    width: 80ch;
+}

@@ -4,8 +4,10 @@
 #+hugo_section: post
 #+hugo_type: post
 #+hugo_lastmod: <2022-01-28 Fri 14:00>
-
 #+hugo_tags: test example "syntax highlighting"
+
+#+description: This post is an example of org-mode syntax highlighting being exported to hugo markdown.
+
 
 * Markup
 Is this *bold*? Is this /italic/? Is this _underlined_? Is this =verbatim=? Is this ~code~? Is this +struck through+?
