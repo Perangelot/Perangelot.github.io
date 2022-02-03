@@ -15,7 +15,6 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 
 
 ## Special Blocks {#special-blocks}
-
 <mark>This is an example custom block.</mark>
 
 
@@ -58,3 +57,17 @@ Details are nice.
 
 -   \\[r \lor a\\]
 -   \\[\Delta \notin \Alpha\\\]
+
+
+## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
+
+This is a circle drawing.
+
+<figure>
+<script type="text/tikz">
+  \begin{tikzpicture}
+\draw (0,0) circle (1in);
+\end{tikzpicture}
+</script>
+<figcaption>Picture of a circle</figcaption>
+</figure>

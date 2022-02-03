@@ -48,3 +48,10 @@ Details are nice.
 - $$r \lor a$$
 - \[\Delta \notin \Alpha\\]
 
+* TikzJax Rendered SVGs
+This is a circle drawing.
+
+#+attr_html: :caption Picture of a circle
+#+begin_tikzjax
+\draw (0,0) circle (1in); 
+#+end_tikzjax
