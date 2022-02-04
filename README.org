@@ -2,4 +2,6 @@
 #+title: opensource-philosophy
 
 
+This is a website being built with hugo and ox-hugo.
+
 
