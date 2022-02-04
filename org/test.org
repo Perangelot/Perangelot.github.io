@@ -41,19 +41,7 @@ Details are nice.
 
 
 * LaTeX Highlighting
-Here's a cool math formula: $b^{2}-4ac$. And once more with the parenthesis: \(b^{2}-4ac\).
-
-Here's the quadratic formula with the brackets:
-
-\[
-\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}
-\]
-
-And finally, with the 2 dollar signs:
-$$
-\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}
-$$
-
+Here's a cool math formula: $\rm{b^{2}-4ac}$. And once more with the parenthesis: \(b^{2}-4ac\).
 
 * TikzJax Rendered SVGs
 This is a circle drawing.
