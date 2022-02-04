@@ -9,7 +9,13 @@
   {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) $.Site.Params.indexCnt}}
 
 <img src="{{.Site.Params.indexImg}}" class="indexImg"/>
-
+  <div class="socials">
+ {{ range .Site.Params.socials}}
+  <a href='{{index . "url"}}'>
+  <i class='{{index . "icon"}}'></i>
+  </a>
+  {{end}}
+  </div>
   {{ if .Content }}
     <div class="index-content {{ if .Params.framed -}}framed{{- end -}}">
       {{ .Content }}

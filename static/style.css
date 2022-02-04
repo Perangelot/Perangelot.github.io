@@ -9,3 +9,17 @@
 .index-content {
     width: 80ch;
 }
+
+.socials {
+    margin-top: 1rem;
+}
+
+.socials > a  {
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.socials > a:hover {
+    color: #fe5186;
+}

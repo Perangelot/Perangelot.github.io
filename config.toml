@@ -27,6 +27,20 @@ indexCnt = 3 # number of posts/content to show on index.
 [params.math]
 enable = true
 
+[[params.socials]]
+icon = "fab fa-gitlab"
+title = "GitLab"
+url = "#"
+
+[[params.socials]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "#"
+
+[[params.socials]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "#"
 
 [languages.en.params.logo]
   logoText = "opensource-philosophy"
