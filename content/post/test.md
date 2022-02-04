@@ -15,6 +15,7 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 
 
 ## Special Blocks {#special-blocks}
+
 <mark>This is an example custom block.</mark>
 
 
@@ -46,28 +47,27 @@ Details are nice.
 
 ## LaTeX Highlighting {#latex-highlighting}
 
+Here's a cool math formula: \\(b^{2}-4ac\\). And once more with the parenthesis: \\(b^{2}-4ac\\).
 
-### Inline {#inline}
+Here's the quadratic formula with the brackets:
 
--   \\(r \lor a\\)
--   &Delta; &notin; &Alpha;
+\\[
+\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}
+\\]
 
-
-### Blocks {#blocks}
-
--   \\[r \lor a\\]
--   \\[\Delta \notin \Alpha\\\]
+And finally, with the 2 dollar signs:
+\\[
+\frac{-b \pm \sqrt{b^{2}-4ac}}{2a}
+\\]
 
 
 ## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
 
 This is a circle drawing.
 
-<figure>
-<script type="text/tikz">
-  \begin{tikzpicture}
+<div caption="Picture of a circle" class="tikzjax">
+  <div></div>
+
 \draw (0,0) circle (1in);
-\end{tikzpicture}
-</script>
-<figcaption>Picture of a circle</figcaption>
-</figure>
+
+</div>
