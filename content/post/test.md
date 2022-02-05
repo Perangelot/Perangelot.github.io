@@ -47,7 +47,13 @@ Details are nice.
 
 ## LaTeX Highlighting {#latex-highlighting}
 
-Here's a cool math formula: \\(\rm{b^{2}-4ac}\\). And once more with the parenthesis: \\(b^{2}-4ac\\).
+Examples of inline math formulae:  \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \  \\& \  q }\\).
+
+Examples of block equations:
+
+\\[
+p \to q \lor r
+\\]
 
 
 ## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
