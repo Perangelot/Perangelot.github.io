@@ -1,0 +1,6 @@
+#+title: Search
+#+hugo_base_dir: ..
+#+hugo_section: 
+#+hugo_layout: search
+
+Sed id ligula quis est convallis tempor.  hi

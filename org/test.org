@@ -3,11 +3,11 @@
 #+hugo_base_dir: ../
 #+hugo_section: post
 #+hugo_type: post
+#+HUGO_CUSTOM_FRONT_MATTER: :tikzjax true
 #+hugo_lastmod: <2022-01-28 Fri 14:00>
 #+hugo_tags: test example "syntax highlighting"
 
 #+description: This post is an example of org-mode syntax highlighting being exported to hugo markdown.
-
 
 * Markup
 Is this *bold*? Is this /italic/? Is this _underlined_? Is this =verbatim=? Is this ~code~? Is this +struck through+?
@@ -41,20 +41,24 @@ Details are nice.
 
 
 * LaTeX Highlighting
-Examples of inline math formulae:  $\rm{ax^{2}+bx+c}$, \(\rm{p \  \& \  q }\).
+Examples of inline math formulae: $\rm{ax^{2}+bx+c}$, \(\rm{p \  \to q \lor r}\).
 
 Examples of block equations:
 
 $$
+\rm{
 p \to q \lor r
+}
 $$
 
 
 
 * TikzJax Rendered SVGs
-This is a circle drawing.
-
-#+attr_html: :caption Picture of a circle
+Here's a picture of a circle.
+<<circle>>
+#+attr_html: :caption A cool circle.
 #+begin_tikzjax
-\draw (0,0) circle (1in); 
+\draw[red] (0,0) circle (1in);
 #+end_tikzjax
+
+A link to the [[circle][circle]].

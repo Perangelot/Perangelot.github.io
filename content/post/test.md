@@ -7,6 +7,7 @@ lastmod = 2022-01-28T14:00:00-05:00
 tags = ["test", "example", "syntax highlighting"]
 type = "post"
 draft = false
+tikzjax = true
 +++
 
 ## Markup {#markup}
@@ -15,7 +16,6 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 
 
 ## Special Blocks {#special-blocks}
-
 <mark>This is an example custom block.</mark>
 
 
@@ -47,22 +47,29 @@ Details are nice.
 
 ## LaTeX Highlighting {#latex-highlighting}
 
-Examples of inline math formulae:  \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \  \\& \  q }\\).
+Examples of inline math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \  \to q \lor r}\\).
 
 Examples of block equations:
 
 \\[
+\rm{
 p \to q \lor r
+}
 \\]
 
 
 ## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
 
-This is a circle drawing.
+Here's a picture of a circle.
+<span class="org-target" id="org-target--circle"></span>
 
-<div caption="Picture of a circle" class="tikzjax">
-  <div></div>
+<figure>
+<script type="text/tikz">
+  \begin{tikzpicture}
+\draw[red] (0,0) circle (1in);
+\end{tikzpicture}
+</script>
+<figcaption>A cool circle.</figcaption>
+</figure>
 
-\draw (0,0) circle (1in);
-
-</div>
+A link to the [circle](#org-target--circle).
