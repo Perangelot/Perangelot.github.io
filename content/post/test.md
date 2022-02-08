@@ -14,6 +14,8 @@ tikzjax = true
 
 Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this `code`? Is this ~~struck through~~?
 
+And now, a deterministic proof: Sed diam.  Sed bibendum.  Pellentesque tristique imperdiet tortor.
+
 
 ## Special Blocks {#special-blocks}
 <mark>This is an example custom block.</mark>

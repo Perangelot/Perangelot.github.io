@@ -1,13 +1,14 @@
 
-summaryInclude = 60;
+summaryInclude = 100;
 // https://fusejs.io/api/options.html
 var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
-  threshold: 0.0,
+  threshold: 0.4,
   tokenize: true,
-  location: 0,
-  distance: 100,
+  ignoreLocation: true,
+  //location: 0,
+  distance: 1000,
   maxPatternLength: 32,
   minMatchCharLength: 1,
   keys: [
