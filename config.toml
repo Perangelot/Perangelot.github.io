@@ -42,6 +42,11 @@ icon = "fab fa-linkedin"
 title = "Linkedin"
 url = "#"
 
+[[params.socials]]
+icon = "ai ai-academia"
+title = "Academia"
+url = "#"
+
 [languages.en.params.logo]
   logoText = "opensource-philosophy"
   logoHomeLink = "/"
