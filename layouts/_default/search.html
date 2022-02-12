@@ -11,35 +11,24 @@
   </div>
 </section>
 <script id="search-result-template" type="text/x-js-template">
-    <li class="post_item">
-      <div id="summary-${key}" class="excerpt">
-        <div class="excerpt_header">
-          <h3 class="post_link">
-            <a href="${link}" title="${title}">${title}</a>
-          </h3>
+      <div class="excerpt">
+      <div id="summary-${key}" class="post on-list">
+      <h3 class="post-title"><a href="${link}">${title}</a></h1>
+      <div class="post-meta">
+          <span class="post-date">
+            ${date} (Last updated: ${lastmod})
+          </span>
         </div>
-        <div class="excerpt_footer">
-          <div class="matched-content">
-            <p>
-                ${snippet}
-            </p>
-            <p>
-                ${ isset tags }Tags: ${tags}${ end }
-            </p>
-
-            <p>
-
-                ${ isset categories }Categories: ${categories}${ end }
-
-            </p>
-
-          </div>
-
+        <div class="matched-content">
+        <span class="post-tags">${tags}</span>
+        <p>
+          ${snippet}
+        </p>
         </div>
 
+        <div><a class="read-more button" href="${link}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
       </div>
-
-    </li>
+    </div>
 
 </script>
 

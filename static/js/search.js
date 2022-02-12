@@ -81,7 +81,7 @@ function populateResults(result) {
     //replace values
     var commaSeparatedTags = (value.item.tags) ? value.item.tags.join(', ') : "";
     var commaSeparatedCategories = (value.item.categories) ? value.item.categories.join(', ') : ""; 
-    var output = render(templateDefinition, { key: key, title: value.item.title, link: value.item.permalink, tags: commaSeparatedTags, categories: commaSeparatedCategories, snippet: snippet });
+    var output = render(templateDefinition, { key: key, title: value.item.title, link: value.item.permalink, tags: commaSeparatedTags, categories: commaSeparatedCategories, snippet: snippet, date: value.item.date, lastmod: value.item.lastmod});
 
     $('#search-results').append(output);
   });
