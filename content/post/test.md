@@ -1,35 +1,34 @@
 +++
 title = "Example Post"
-author = ["Jacob Hilker"]
 description = "This post is an example of org-mode syntax highlighting being exported to hugo markdown."
-date = 2022-01-27T13:49:00-05:00
-lastmod = 2022-01-28T14:00:00-05:00
+date = 2022-01-27T13:49:00+01:00
+lastmod = 2022-01-28T14:00:00+01:00
 tags = ["test", "example", "syntax highlighting"]
 type = "post"
 draft = false
 tikzjax = true
 +++
 
-## Markup {#markup}
+## <span class="section-num">1</span> Markup {#markup}
 
-Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this `code`? Is this ~~struck through~~?
+Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this <kbd>code</kbd>? Is this ~~struck through~~?
 
-And now, a deterministic proof: Sed diam.  Sed bibendum.  Pellentesque tristique imperdiet tortor.
+And now, a deterministic proof: Sed diam. Sed bibendum. Pellentesque tristique imperdiet tortor.
 
 
-## Special Blocks {#special-blocks}
+## <span class="section-num">2</span> Special Blocks {#special-blocks}
 <mark>This is an example custom block.</mark>
 
 
-### <span class="org-todo todo TODO">TODO</span> Details {#details}
+### <span class="org-todo todo TODO">TODO</span> <span class="section-num">2.1</span> Details {#details}
 
 Details are nice.
 
 
-## Source Code {#source-code}
+## <span class="section-num">3</span> Source Code {#source-code}
 
 
-### Elisp {#elisp}
+### <span class="section-num">3.1</span> Elisp {#elisp}
 
 ```elisp
 (defun get-things-working ()
@@ -38,32 +37,47 @@ Details are nice.
 ```
 
 
-### Latex {#latex}
-
-```latex
-\begin{document}
-\titlepage
-\end{document}
-```
+### <span class="section-num">3.2</span> Latex {#latex}
 
 
-## LaTeX Highlighting {#latex-highlighting}
+## <span class="section-num">4</span> LaTeX Highlighting {#latex-highlighting}
 
-Examples of inline math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \  \to q \lor r}\\).
+Examples of inline math formulae: \rm{ax<sup>2</sup>+bx+c}, \\(\rm{p \ \to q \lor r}\\).
 
 Examples of block equations:
 
-\\[
-\rm{
-p \to q \lor r
-}
-\\]
+\rm{ p &rarr; q &or; r }
 
 
-## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
+## <span class="section-num">5</span> Table of contents {#table-of-contents}
 
-Here's a picture of a circle.
-<span class="org-target" id="org-target--circle"></span>
+<style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- <span class="section-num">1</span> [Markup](#markup)
+- <span class="section-num">2</span> [Special Blocks](#special-blocks)
+    - <span class="section-num">2.1</span> [<span class="org-todo todo TODO">TODO</span> Details](#details)
+- <span class="section-num">3</span> [Source Code](#source-code)
+    - <span class="section-num">3.1</span> [Elisp](#elisp)
+    - <span class="section-num">3.2</span> [Latex](#latex)
+- <span class="section-num">4</span> [LaTeX Highlighting](#latex-highlighting)
+- <span class="section-num">5</span> [Table of contents](#table-of-contents)
+- <span class="section-num">6</span> [TikzJax Rendered SVGs](#tikzjax-rendered-svgs)
+- <span class="section-num">7</span> [Citing](#citing)
+
+</div>
+<!--endtoc-->
+
+
+## <span class="section-num">6</span> TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
+
+Here's a picture of a circle. <span class="org-target" id="org-target--circle"></span>
 
 <figure>
 <script type="text/tikz">
@@ -75,3 +89,15 @@ Here's a picture of a circle.
 </figure>
 
 A link to the [circle](#org-target--circle).
+
+
+## <span class="section-num">7</span> Citing {#citing}
+
+Here are some cite commands I may want to use:
+
+| **cite command** | **result**                                                    |
+|------------------|---------------------------------------------------------------|
+| in-text          | <a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>   |
+| with parentheses | (<a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>) |
+| author           | <a href="#citeproc_bib_item_1">Howard &#38; Rubin</a>         |
+| year             | <a href="#citeproc_bib_item_1">1998</a>                       |
