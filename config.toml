@@ -27,25 +27,22 @@ indexCnt = 3 # number of posts/content to show on index.
 [params.math]
 enable = true
 
-[[params.socials]]
-icon = "fab fa-gitlab"
-title = "GitLab"
-url = "#"
 
 [[params.socials]]
 icon = "fab fa-github"
 title = "GitHub"
-url = "#"
-
-[[params.socials]]
-icon = "fab fa-linkedin"
-title = "Linkedin"
-url = "#"
+url = "https://github.com/Perangelot/Perangelot.github.io"
 
 [[params.socials]]
 icon = "ai ai-academia"
 title = "Academia"
-url = "#"
+url = "https://uni-m.academia.edu/VitusSch%C3%A4fftlein"
+
+[[params.socials]]
+icon = "fas fa-envelope"
+title = "E-Mail"
+url = "mailto:vitus.schaefftlein@opensource-philosophy.com"
+
 
 [languages.en.params.logo]
   logoText = "opensource-philosophy"
@@ -72,7 +69,7 @@ weight = 1
 [[languages.en.menu.main]]
 identifier = "posts"
 name = "Posts"
-url = "/post/"
+url = "/posts/"
 weight = 2
 
 [[languages.en.menu.main]]

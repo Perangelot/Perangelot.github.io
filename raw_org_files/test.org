@@ -1,7 +1,7 @@
 #+title: Example Post
 #+date: <2022-01-27 Thu 13:49>
 #+hugo_base_dir: ../
-#+hugo_section: post
+#+hugo_section: posts
 #+hugo_type: post
 #+hugo_custom_front_matter: :tikzjax true
 #+hugo_lastmod: <2022-01-28 Fri 14:00>
