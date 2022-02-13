@@ -11,7 +11,7 @@ tikzjax = true
 
 ## <span class="section-num">1</span> Markup {#markup}
 
-Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this <kbd>code</kbd>? Is this ~~struck through~~?
+Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this <kbd>Ctrl+A</kbd>? Is this ~~struck through~~?
 
 And now, a deterministic proof: Sed diam. Sed bibendum. Pellentesque tristique imperdiet tortor.
 
@@ -42,11 +42,11 @@ Details are nice.
 
 ## <span class="section-num">4</span> LaTeX Highlighting {#latex-highlighting}
 
-Examples of inline math formulae: \rm{ax<sup>2</sup>+bx+c}, \\(\rm{p \ \to q \lor r}\\).
+Examples of inline math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \ \to q \lor r}\\).
 
 Examples of block equations:
 
-\rm{ p &rarr; q &or; r }
+\\(\rm{p \to q \lor r}\\)
 
 
 ## <span class="section-num">5</span> Table of contents {#table-of-contents}
@@ -88,7 +88,7 @@ Here's a picture of a circle. <span class="org-target" id="org-target--circle"><
 <figcaption>A cool circle.</figcaption>
 </figure>
 
-A link to the [circle](#org-target--circle).
+A link to the[^fn:1] [circle](#org-target--circle).
 
 
 ## <span class="section-num">7</span> Citing {#citing}
@@ -101,3 +101,11 @@ Here are some cite commands I may want to use:
 | with parentheses | (<a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>) |
 | author           | <a href="#citeproc_bib_item_1">Howard &#38; Rubin</a>         |
 | year             | <a href="#citeproc_bib_item_1">1998</a>                       |
+
+<p>You can also create a new document by pressing <kbd><kbd class="key">Ctrl</kbd>+<kbd class="key">N</kbd></kbd>.</p>
+
+<kbd class="key">code</kb>
+
+<a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>
+
+[^fn:1]: And this is a footnote.
