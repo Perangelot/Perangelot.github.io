@@ -16,6 +16,8 @@
 Is this *bold*? Is this /italic/? Is this _underlined_? Is this =verbatim=? Is this ~Ctrl+A~? Is this +struck through+?
 
 And now, a deterministic proof: Sed diam.  Sed bibendum.  Pellentesque tristique imperdiet tortor.  
+
+I'd also like to link to a [[file:/PDF/try.pdf][file]].
 * Special Blocks
 #+begin_mark
 This is an example custom block.
