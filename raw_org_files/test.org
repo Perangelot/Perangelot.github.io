@@ -40,7 +40,7 @@ Details are nice.
 #+end_src
 
 * LaTeX Highlighting
-Examples of inline math formulae: $\rm{ax^{2}+bx+c}$, \(\rm{p \  \to q \lor r}\).
+Examples of inline[fn:2] math formulae: $\rm{ax^{2}+bx+c}$, \(\rm{p \  \to q \lor r}\).
 
 Examples of block equations:
 
@@ -63,13 +63,13 @@ A link to the[fn:1] [[circle][circle]].
 * Citing
 Here are some cite commands I may want to use:
 
-| *cite command*     | *result*                 |
-|------------------+------------------------|
-| in-text          | [[cite:&howard1998]]       |
-| with parentheses | [[parencite:&howard1998]]  |
-| author           | [[citeauthor:&howard1998]] |
-| year             | [[citeyear:&howard1998]]   |
-
+| *cite command* | *result*                 |
+|--------------+------------------------|
+| cite         | [[cite:&howard1998]]       |
+| parencite    | [[parencite:&howard1998]]  |
+| citeauthor   | [[citeauthor:&howard1998]] |
+| citeyear     | [[citeyear:&howard1998]]   |
+| citetitle    | citetitle:&howard1998  |
 
 #+BEGIN_EXPORT html
 <p>You can also create a new document by pressing <kbd><kbd class="key">Ctrl</kbd>+<kbd class="key">N</kbd></kbd>.</p>
@@ -80,8 +80,12 @@ Here are some cite commands I may want to use:
 
 
 [[cite:&howard1998]]
+
+
+[[bibliography:../static/blog.bib]]
+
 * Footnotes
 
-[fn:1] And this is a footnote. 
+[fn:2] Footnote! 
 
-bibliography:../static/blog.bib
+[fn:1] And this is another footnote. 

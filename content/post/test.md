@@ -42,7 +42,7 @@ Details are nice.
 
 ## <span class="section-num">4</span> LaTeX Highlighting {#latex-highlighting}
 
-Examples of inline math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \ \to q \lor r}\\).
+Examples of inline[^fn:1] math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \ \to q \lor r}\\).
 
 Examples of block equations:
 
@@ -88,7 +88,7 @@ Here's a picture of a circle. <span class="org-target" id="org-target--circle"><
 <figcaption>A cool circle.</figcaption>
 </figure>
 
-A link to the[^fn:1] [circle](#org-target--circle).
+A link to the[^fn:2] [circle](#org-target--circle).
 
 
 ## <span class="section-num">7</span> Citing {#citing}
@@ -97,10 +97,11 @@ Here are some cite commands I may want to use:
 
 | **cite command** | **result**                                                    |
 |------------------|---------------------------------------------------------------|
-| in-text          | <a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>   |
-| with parentheses | (<a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>) |
-| author           | <a href="#citeproc_bib_item_1">Howard &#38; Rubin</a>         |
-| year             | <a href="#citeproc_bib_item_1">1998</a>                       |
+| cite             | <a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>   |
+| parencite        | (<a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>) |
+| citeauthor       | <a href="#citeproc_bib_item_1">Howard &#38; Rubin</a>         |
+| citeyear         | <a href="#citeproc_bib_item_1">1998</a>                       |
+| citetitle        | <a href="#citeproc_bib_item_1">1998</a>                       |
 
 <p>You can also create a new document by pressing <kbd><kbd class="key">Ctrl</kbd>+<kbd class="key">N</kbd></kbd>.</p>
 
@@ -108,4 +109,11 @@ Here are some cite commands I may want to use:
 
 <a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>
 
-[^fn:1]: And this is a footnote.
+## Bibliography
+
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Howard, P., &#38; Rubin, J. E. (1998). <i>Consequences of the axiom of choice</i>. American Mathematical Society.</div>
+</div>
+
+[^fn:1]: Footnote!
+[^fn:2]: And this is another footnote.
