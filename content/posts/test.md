@@ -1,34 +1,37 @@
 +++
 title = "Example Post"
+author = ["Jacob Hilker"]
 description = "This post is an example of org-mode syntax highlighting being exported to hugo markdown."
-date = 2022-01-27T13:49:00+01:00
-lastmod = 2022-01-28T14:00:00+01:00
+date = 2022-01-27T13:49:00-05:00
+lastmod = 2022-01-28T14:00:00-05:00
 tags = ["test", "example", "syntax highlighting"]
 type = "post"
 draft = false
 tikzjax = true
 +++
 
-## <span class="section-num">1</span> Markup {#markup}
+## Markup {#markup}
 
 Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</span>? Is this `verbatim`? Is this <kbd>Ctrl+A</kbd>? Is this ~~struck through~~?
 
-And now, a deterministic proof: Sed diam. Sed bibendum. Pellentesque tristique imperdiet tortor.
+And now, a deterministic proof: Sed diam.  Sed bibendum.  Pellentesque tristique imperdiet tortor.
+
+I'd also like to link to a [file](/PDF/try.pdf).
 
 
-## <span class="section-num">2</span> Special Blocks {#special-blocks}
+## Special Blocks {#special-blocks}
 <mark>This is an example custom block.</mark>
 
 
-### <span class="org-todo todo TODO">TODO</span> <span class="section-num">2.1</span> Details {#details}
+### <span class="org-todo todo TODO">TODO</span> Details {#details}
 
 Details are nice.
 
 
-## <span class="section-num">3</span> Source Code {#source-code}
+## Source Code {#source-code}
 
 
-### <span class="section-num">3.1</span> Elisp {#elisp}
+### Elisp {#elisp}
 
 ```elisp
 (defun get-things-working ()
@@ -37,47 +40,49 @@ Details are nice.
 ```
 
 
-### <span class="section-num">3.2</span> Latex {#latex}
+### Latex {#latex}
+
+```latex
+\begin{document}
+\titlepage
+\end{document}
+```
 
 
-## <span class="section-num">4</span> LaTeX Highlighting {#latex-highlighting}
+## LaTeX Highlighting {#latex-highlighting}
 
-Examples of inline[^fn:1] math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \ \to q \lor r}\\).
+Examples of inline[^fn:1] math formulae: \\(\rm{ax^{2}+bx+c}\\), \\(\rm{p \  \to q \lor r}\\).
 
 Examples of block equations:
 
 \\(\rm{p \to q \lor r}\\)
 
 
-## <span class="section-num">5</span> Table of contents {#table-of-contents}
+## Table of contents {#table-of-contents}
 
-<style>
-  .ox-hugo-toc ul {
-    list-style: none;
-  }
-</style>
 <div class="ox-hugo-toc toc">
 
 <div class="heading">Table of Contents</div>
 
-- <span class="section-num">1</span> [Markup](#markup)
-- <span class="section-num">2</span> [Special Blocks](#special-blocks)
-    - <span class="section-num">2.1</span> [<span class="org-todo todo TODO">TODO</span> Details](#details)
-- <span class="section-num">3</span> [Source Code](#source-code)
-    - <span class="section-num">3.1</span> [Elisp](#elisp)
-    - <span class="section-num">3.2</span> [Latex](#latex)
-- <span class="section-num">4</span> [LaTeX Highlighting](#latex-highlighting)
-- <span class="section-num">5</span> [Table of contents](#table-of-contents)
-- <span class="section-num">6</span> [TikzJax Rendered SVGs](#tikzjax-rendered-svgs)
-- <span class="section-num">7</span> [Citing](#citing)
+- [Markup](#markup)
+- [Special Blocks](#special-blocks)
+    - [<span class="org-todo todo TODO">TODO</span> Details](#details)
+- [Source Code](#source-code)
+    - [Elisp](#elisp)
+    - [Latex](#latex)
+- [LaTeX Highlighting](#latex-highlighting)
+- [Table of contents](#table-of-contents)
+- [TikzJax Rendered SVGs](#tikzjax-rendered-svgs)
+- [Citing](#citing)
 
 </div>
 <!--endtoc-->
 
 
-## <span class="section-num">6</span> TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
+## TikzJax Rendered SVGs {#tikzjax-rendered-svgs}
 
-Here's a picture of a circle. <span class="org-target" id="org-target--circle"></span>
+Here's a picture of a circle.
+<span class="org-target" id="org-target--circle"></span>
 
 <figure>
 <script type="text/tikz">
@@ -91,7 +96,7 @@ Here's a picture of a circle. <span class="org-target" id="org-target--circle"><
 A link to the[^fn:2] [circle](#org-target--circle).
 
 
-## <span class="section-num">7</span> Citing {#citing}
+## Citing {#citing}
 
 Here are some cite commands I may want to use:
 
@@ -108,8 +113,6 @@ Here are some cite commands I may want to use:
 <kbd class="key">code</kb>
 
 <a href="#citeproc_bib_item_1">Howard &#38; Rubin, 1998</a>
-
-## Bibliography
 
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Howard, P., &#38; Rubin, J. E. (1998). <i>Consequences of the axiom of choice</i>. American Mathematical Society.</div>
