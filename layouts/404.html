@@ -7,11 +7,13 @@
       <p>
       The page you requested does not exist. But how can we talk about it if it does not exist? Might it be there, although it does not exist? Okay, we're starting to get side-tracked here!
       </p>
+        <p>
+          Before you lose yourself in the ontology room (it's hard to get out of, I can tell!), how about we keep it with existent things, first?
+        </p>
       <form action="{{ "search" | absURL }}" class="search-form">
       <input id="search-query" name="search-query" type="text"/>
     </form>
     <div id="search-results">
-     <h3>Matching pages</h3>
     </div>
   </div>
 </section>
@@ -19,9 +21,6 @@
   <a href=${link}><h3>${title}</h3></a>
   </script>
       {{ if .Site.Taxonomies.tags }}
-        <p>
-          "Before you lose yourself in the ontology room (it's hard to get out of, I can tell!), how about we keep it with existent things, first?
-        </p>
         <h2>Tags</h2>
         <div class="terms">
           <ul class="terms__list">
