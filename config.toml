@@ -19,7 +19,7 @@ publishDate = 'publishDate'
 dateFormatSingle = "02 Jan. 2006"
 dateFormatList = "02 Jan. 2006"
 
-indexImg = "try.jpg" # the image used on the index page.
+indexImg = "try.JPG" # the image used on the index page.
 indexCnt = 3 # number of posts/content to show on index.
 
 [params.math]

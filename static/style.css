@@ -4,11 +4,23 @@
 
 .indexImg {
     border-radius: 50%;
+    max-width: 20%;
 }
 
-.index-content {
-    width: 80ch;
+@media (max-width: 767px) {
+    .index-content {
+        padding: 0.75rem;
+    }
 }
+
+
+@media (min-width: 768px) {
+    .index-content {
+        width: 80ch;
+    }
+}
+
+
 
 .socials {
     margin-top: 1rem;
