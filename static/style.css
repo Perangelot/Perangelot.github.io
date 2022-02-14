@@ -1,3 +1,9 @@
+:root {
+    --pink: #fe5186;
+    --gray: #AAA7B3;
+    --black: #292a2d;
+}
+
 .underline {
     text-decoration: underline;
 }
@@ -57,4 +63,17 @@ kbd {
 
 footer :target {
   background: yellow;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dark-theme #search-query {
+        background-color: var(--black); 
+        color:  var(--gray);
+
+    }
+}
+
+
+li[role="doc-endnote"]::marker{
+    color: var(--pink);
 }
