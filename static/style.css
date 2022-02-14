@@ -26,7 +26,11 @@
     }
 }
 
-
+.index-content {
+    padding: 20px auto;
+    margin: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
 
 .socials {
     margin-top: 1rem;
@@ -88,3 +92,4 @@ li[role="doc-endnote"]:target::marker {
     color: var(--gray);
 }
 }
+
