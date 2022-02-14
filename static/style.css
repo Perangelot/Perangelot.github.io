@@ -27,8 +27,7 @@
 }
 
 .index-content {
-    padding: 20px auto;
-    margin: 20px;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
 }
 
