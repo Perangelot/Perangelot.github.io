@@ -19,10 +19,8 @@ publishDate = 'publishDate'
 dateFormatSingle = "02 Jan. 2006"
 dateFormatList = "02 Jan. 2006"
 
-indexImg = "https://via.placeholder.com/200" # the image used on the index page.
+indexImg = "try.jpg" # the image used on the index page.
 indexCnt = 3 # number of posts/content to show on index.
-
-
 
 [params.math]
 enable = true
