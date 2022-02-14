@@ -22,16 +22,15 @@ dateFormatList = "02 Jan. 2006"
 indexImg = "try.JPG" # the image used on the index page.
 indexCnt = 3 # number of posts/content to show on index.
 
-bmac = "#" # buy-me-a-coffee link
+bmac = "https://www.buymeacoffee.com/vitus" # buy-me-a-coffee link
 
 [params.math]
 enable = true
 
-
 [[params.socials]]
-icon = "fab fa-github"
-title = "GitHub"
-url = "https://github.com/Perangelot/Perangelot.github.io"
+icon = "fas fa-envelope"
+title = "E-Mail"
+url = "mailto:vitus.schaefftlein@opensource-philosophy.com"
 
 [[params.socials]]
 icon = "ai ai-academia"
@@ -39,9 +38,10 @@ title = "Academia"
 url = "https://uni-m.academia.edu/VitusSch%C3%A4fftlein"
 
 [[params.socials]]
-icon = "fas fa-envelope"
-title = "E-Mail"
-url = "mailto:vitus.schaefftlein@opensource-philosophy.com"
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/Perangelot/Perangelot.github.io"
+
 
 
 [languages.en.params.logo]
