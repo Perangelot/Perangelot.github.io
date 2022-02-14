@@ -5,12 +5,22 @@
     </h1>
     <div class="post-content">
       <p>
-        {{ "The page you requested does not exist. But how can we talk about it if it does not exist? Might it be there, although it does not exist? Okay, we're starting to get side-tracked here!" | markdownify }}
+      The page you requested does not exist. But how can we talk about it if it does not exist? Might it be there, although it does not exist? Okay, we're starting to get side-tracked here!
       </p>
-
+      <form action="{{ "search" | absURL }}" class="search-form">
+      <input id="search-query" name="search-query" type="text"/>
+    </form>
+    <div id="search-results">
+     <h3>Matching pages</h3>
+    </div>
+  </div>
+</section>
+<script id="search-result-template" type="text/x-js-template">
+  <a href=${link}><h3>${title}</h3></a>
+  </script>
       {{ if .Site.Taxonomies.tags }}
         <p>
-          {{ "Before you lose yourself in the ontology room (it's hard to get out of, I can tell!), how about browsing my posts?" | emojify }}
+          "Before you lose yourself in the ontology room (it's hard to get out of, I can tell!), how about browsing my posts?
         </p>
         <h2>Tags</h2>
         <div class="terms">
@@ -26,4 +36,12 @@
       {{ end }}
     </div>
   </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js" integrity="sha512-KnvCNMwWBGCfxdOtUpEtYgoM59HHgjHnsVGSxxgz7QH1DYeURk+am9p3J+gsOevfE29DV0V+/Dd52ykTKxN5fA==" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+
+<script src="{{ "js/search.js" | absURL }}"></script>
+
 {{ end }}
