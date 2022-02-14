@@ -65,15 +65,26 @@ footer :target {
   background: yellow;
 }
 
-@media (prefers-color-scheme: dark) {
-    .dark-theme #search-query {
-        background-color: var(--black); 
-        color:  var(--gray);
 
-    }
+a[role="doc-noteref"] {
+    color: var(--pink);
 }
 
-
-li[role="doc-endnote"]::marker{
+li[role="doc-endnote"]:target {
     color: var(--pink);
+}
+
+li[role="doc-endnote"]:target::marker {
+    color: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+    #search-query {
+        background-color: var(--black); 
+        color:  var(--gray);
+    }
+
+li[role="doc-endnote"]:target::marker {
+    color: var(--gray);
+}
 }
