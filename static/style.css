@@ -92,3 +92,10 @@ li[role="doc-endnote"]:target::marker {
 }
 }
 
+.index-content {
+  text-align: left;
+}
+
+.post-content {
+  text-align: left;
+}
