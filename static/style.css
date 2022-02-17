@@ -95,6 +95,12 @@ li[role="doc-endnote"]:target::marker {
   text-align: left;
 }
 
+
+.index-content > p:last-child {
+    margin: 0 0 5%;
+}
+
 .post-content {
   text-align: left;
 }
+
