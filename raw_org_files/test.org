@@ -16,7 +16,7 @@ Is this *bold*? Is this /italic/? Is this _underlined_? Is this =verbatim=? Is t
 
 And now, a deterministic proof: Sed diam.  Sed bibendum.  Pellentesque tristique imperdiet tortor.  
 
-I'd also like to link to a [[file:/PDF/try.pdf][file]].
+I'd also like to link to a [[/Downloads/[Linux] notes.el][file]]. [[/Downloads/\[Linux\] notes.el][file]] 
 * Special Blocks
 #+begin_mark
 This is an example custom block.
@@ -44,7 +44,6 @@ Details are nice.
 Examples of inline[fn:2] math formulae: $\rm{ax^{2}+bx+c}$, \(\rm{p \  \to q \lor r}\).
 
 Examples of block equations:
-
 
 $\rm{p \to q \lor r}$
 

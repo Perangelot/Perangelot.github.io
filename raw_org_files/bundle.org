@@ -1,4 +1,0 @@
-#+title: Downloads
-#+hugo_base_dir: ..
-#+hugo_section: 
-#+hugo_bundle: downloads

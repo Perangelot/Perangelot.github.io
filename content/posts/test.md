@@ -15,7 +15,7 @@ Is this **bold**? Is this _italic_? Is this <span class="underline">underlined</
 
 And now, a deterministic proof: Sed diam. Sed bibendum. Pellentesque tristique imperdiet tortor.
 
-I'd also like to link to a [file](/PDF/try.pdf).
+I'd also like to link to a [[/Downloads/[Linux] notes.el][file]]. [file](</Downloads/[Linux] notes.el>)
 
 
 ## <span class="section-num">2</span> Special Blocks {#special-blocks}
