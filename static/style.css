@@ -70,8 +70,12 @@ footer :target {
 
 a[role="doc-noteref"] {
     color: var(--pink);
+    text-decoration: none;
 }
 
+a[role="doc-noteref"]:hover {
+    text-decoration: underline;
+}
 li[role="doc-endnote"]:target {
     color: var(--pink);
 }
