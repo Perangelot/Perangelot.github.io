@@ -1,0 +1,299 @@
+#+title: Example Post
+#+date: <2022-01-27 Thu 13:49>
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+hugo_custom_front_matter: :tikzjax true
+#+hugo_lastmod: <2022-01-28 Fri 14:00>
+#+hugo_tags: test example "syntax highlighting"
+#+csl-style: ../static/apa.csl
+#+csl-locale: en-us
+
+#+description: In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have.
+
+* The Problem with emacs on Windows
+Originally, emacs was developed in [[https://www.jwz.org/doc/emacs-timeline.html][1976]] and has been developed ever
+since, so it is no wonder it is available for all major operating
+systems. Nonetheless, it depends on packages which are not natively
+available on Windows, so by default, quite some features of emacs
+available on Linux do not work for the Windows Version.
+
+This should be one more reason [Link] for you to consider changing to
+an open-source operating system such as Linux. Please do not just
+gloss over this point, there are compelling arguments -- both
+politcal and ethical -- why you should not support big-tech companies.
+
+That being said, some people depend on Windows if they like it or not
+(although many people only think this is the case, esepecially in
+academia [Link]), and if they want to use an open-source text editor
+instead of Word, this is a big plus already. So, let's get into 
+* The Solution to the Problem
+Since Windows is not capable of providing a satisfactory emacs
+experience but Linux is, we simply import all the necessary linux
+libraries to windows. There are many ways to achieve this, but the one
+preferred by me is using =msys2=. =msys2= is an open-source software based
+on =cygwin= which does exactly what we need: Provide the necessary tools
+to build Linux software natively in Windows. So let's install it!
+
+1. Visit the [[https://www.msys2.org/][website]] of =msys2= and download the latest windows
+installer. Double-click it and follow the steps of the installation
+wizard, making sure that it is installed in =C:\msys64=. 
+
+2. Go to =C:\msys64\home\<user>= and open =.bash.rc= with =notepad= by
+   double-clicking on the fill and, if necessary, selecting the
+   notepad among the list of programs. Then, add the following code to
+   the end of the file:
+#+BEGIN_EXPORT bash
+if [ $(uname -o) == 'Msys' ]; then
+    export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/c\// {next} {print}' | sed 's/:*$//'`
+fi
+#+END_EXPORT
+This code snippet makes sure that issuing a command in =msys2= which
+happens to have the same name as a windows command won't cause problems.
+
+3. Now =msys2= is configured! Go back to =C:\msys64= and open
+   =mingw64.exe=. 
+
+Warning: Do /not/ open any other of the =.exe= files. Following the below
+steps with the wrong executable opened will cause problems.
+
+4.
+
+
+
+
+1. install msys2 (https://www.msys2.org/)
+2. add to C:\msys64\home\Vitus\bash.rc:
+#+BEGIN_EXPORT bash
+# Remove '/c/*' from PATH if running under Msys to avoid possible 
+# interference from programs already installed on system. Removal 
+# with awk is copied from http://stackoverflow.com/a/370192.
+if [ $(uname -o) == 'Msys' ]; then
+    export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/c\// {next} {print}' | sed 's/:*$//'`
+fi
+#+END_EXPORT
+3. start mingw64.exe (and no other program!).
+4. Install build dependencies:
+#+BEGIN_EXPORT latex
+pacman -Syu
+pacman -Sy
+pacman -Sy\
+    --needed \
+    filesystem \
+    msys2-runtime \
+    bash \
+    libreadline \
+    libiconv \
+    libarchive \
+    libgpgme \
+    libcurl \
+    pacman \
+    ncurses \
+    libintl
+#+END_EXPORT
+5. Install emacs dependencies:
+#+BEGIN_EXPORT bash
+pacman -Syu
+pacman -Sy
+pacman -Sy\
+    --needed \
+    filesystem \
+    msys2-runtime \
+    bash \
+    libreadline \
+    libiconv \
+    libarchive \
+    libgpgme \
+    libcurl \
+    pacman \
+    ncurses \
+    libintl
+#+END_EXPORT
+6. Clone emacs source code from github
+
+#+BEGIN_EXPORT bash
+git clone http://git.savannah.gnu.org/r/emacs.git
+# git config core.autocrlf false
+#+END_EXPORT
+
+7. Configure emacs the same way as a packaged one
+#+BEGIN_EXPORT bash
+export PATH=/mingw64/bin:$PATH
+./autogen.sh
+./configure \
+    --prefix=C:/Users/Vitus/AppData/Roaming
+    --host=x86_64-w64-mingw32 \
+    --target=x86_64-w64-mingw32 \
+    --build=x86_64-w64-mingw32 \
+    --with-native-compilation \
+    --with-gnutls \
+    --with-imagemagick \
+    --with-jpeg \
+    --with-json \
+    --with-png \
+    --with-rsvg \
+    --with-tiff \
+    --with-wide-int \
+    --with-xft \
+    --with-xml2 \
+    --with-xpm \
+    'CFLAGS=-I/mingw64/include/noX'
+
+8. make and install emacs
+#+BEGIN_EXPORT bash
+make
+make install 
+#+END_EXPORT
+9. Install dlls
+https://www.exefiles.com/de/dll/libdbus-1-3-dll/
+
+10. Set Paths
+- for msys + bin/ + mingw64/
+11. in den Überordner von bin/ .emacs packen
+12. eventuell pakete nachinstallieren
+
+
+#+BEGIN_EXPORT bash
+mingw64/mingw-w64-x86_64-poppler
+#+END_EXPORT
+mingw64/mingw-w64-x86_64-poppler
+
+ 
+
+
+# Only needed for standalone dist (wo MSYS2 env)
+# cp /mingw64/bin/*.dll $target
+
+#+END_EXPORT
+
+
+
+Scoop installieren 
+Powershell als Administrator öffnen 
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser eingeben und für alle bestätigen 
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh') eingeben 
+scoop install git git installieren 
+scoop update scoop updaten 
+Emacs installieren 
+scoop bucket add extras 
+scoop install emacs 
+msys2 installieren 
+scoop install msys2 
+msys2 
+Powershell neustarten 
+Graphviz installieren (für org-roam-graph): scoop install graphviz 
+Msys2-Installationen: 
+Hunspell (für Rechtschreibprüfung): 
+Powershell: msys2 
+pacman -S mingw-w64-x86_64-hunspell mingw-w64-x86_64-hunspell-en  
+Deutsches Wörterbuch hinzufügen (DE_Frami) 
+TeXLive (für LaTeX): pacman -S mingw-w64-x86_64-texlive-full 
+C-Compiler (für org-roam): pacman -S gcc (über cmd → mingw64 RET) 
+System → Umgebungsvariable → Neu → Name: HOME, Pfad: C:\Users\Vitus\scoop 
+Msys zum Pfad hinzufügen:  
+C:\Users\Vitus\scoop\apps\msys2\2021-06-04\mingw64 
+C:\Users\Vitus\scoop\apps\msys2\2021-06-04\mingw64\bin (auch nötig!) 
+C:\Users\Vitus\scoop\apps\msys2\2021-06-04\usr\bin (für gcc für org-roam!) 
+Fonts installieren: Computer Modern, Fira Code Retina 
+customize-themes → spacemacs-themes 
+C:\Users\Vitus\scoop\apps\msys2\2021-06-04\mingw64\share\texmf-dist\tex\latex → fitch-Ordner hinzufügen 
+Konfigurationsdateien in emacs-Ordner schieben 
+Emacs Server: 
+emacs daemon.Ink in Autostart ziehen 
+tex-Dateien standardmäßig mit emacs shortcut.Ink öffnen 
+Variable konfigurieren: TeX-fold-env-spec-list → anzeigename in eckigen Klammern, Umgebungsname ohne 
+RefTeX einstellen: 
+Zotero: 
+BetterBibTeX installieren 
+Sammlung exportieren → Better BibTeX → halte aktuell 
+.bib-Datei in Ordner speichern, in dem auch die .tex-Datei ist 
+In citations.el setq reftex-default-bibliography auf den Pfad der Standard-.bib-Datei setzen 
+Systemlokale ändern, damit emacsclientw.exe auch Pfade, in denen Umlaute vorkommen, lesen kann 
+Standardprogramm für .tex-Dateien auf Verknüpfung in Konfiguration setzen 
+Org-roam: emacsql-sqlite.exe in C:\Users\Vitus\scoop\.emacs.d\elpa\emacsql-sqlite-20190727.1710\sqlite verschieben (ggf. alte Datei ersetzen) 
+ 
+Anderes: 
+headline zu org-transclusion-live-sync-enclosing-element hinzufügen:  '(center-block … headline ) 
+Org-capture: 
+https://orgmode.org/worg/org-contrib/org-protocol.html#orgf887c97 für org-capture ( 
+https://github.com/sprig/org-capture-extension 
+LaTeX: 
+Präambel: 
+\usepackage[backend=biber,style=apa,uniquelist=false]{biblatex} 
+\addbibresource{Dateiname.bib} 
+Vorm Ende des Dokuments: \printbibliography 
+C-c [, um zu zitieren 
+Index: https://robjhyndman.com/hyndsight/indexing-in-latex/ 
+ 
+Mit neuer Installation: 
+    • Graphviz 
+    • Gcc 
+    • Pdf-tools aus emax-Ordner in .emacs.d/elpa/ ziehen und altes pdf-tools ersetzen 
+Links: 
+Tool Time Session 1: Emacs Basics 
+Suchen und Ersetzen im gesamten Dokument 
+Spellchecking I, Spellchecking II 
+ 
+Rechtschreibprüfung abhängig von babel-Befehl in LaTeX 
+https://emacs.stackexchange.com/questions/48283/compile-latex-without-saving-and-without-query 
+ 
+https://stackoverflow.com/questions/18770669/how-can-i-save-as-in-emacs-without-visiting-the-new-file 
+ 
+https://iflysib.unlp.edu.ar/tomas/blog/reference-management.html 
+ 
+Fett, kursiv usw. mit üblichen Word-Befehlen! 
+ 
+Literaturverwaltung: 
+https://emacs.stackexchange.com/questions/24725/zotero-workflow-into-emacs 
+(emacs-zotero-bib-fetch) 
+ 
+https://lepisma.xyz/wiki/emacs/org-mode/references.html (aktuell) 
+ 
+https://tex.stackexchange.com/questions/290873/howto-use-okular-with-emacs-auctex (okular) 
+ 
+https://www.emacswiki.org/emacs/AUCTeX#h5o-7 (Auctex + Zotero) 
+ 
+https://emacs.stackexchange.com/questions/21588/set-latex-preview-pane-mode-as-default-pdf-viewer-for-acutex 
+ 
+https://stackoverflow.com/questions/738755/dont-make-me-manually-abort-a-latex-compile-when-theres-an-error 
+ 
+https://www.reddit.com/r/emacs/comments/3q3l4x/anyone_using_emacsauctexlatexpreviewpane_with/ 
+ 
+https://stackoverflow.com/questions/2199678/how-to-call-latexmk-in-emacs-and-jump-to-next-error 
+ 
+https://tex.stackexchange.com/questions/88612/folding-entire-section-in-auctex 
+ 
+https://tex.stackexchange.com/questions/39817/how-can-i-make-auctex-use-the-spelling-dictionary-in-the-same-language-as-babel/39818#39818 
+ 
+https://stackoverflow.com/questions/8052504/inputting-latex-without-rsi/8055820#8055820 
+ 
+https://tex.stackexchange.com/questions/22431/everyday-latex-and-workflow/22443#22443 
+ 
+https://emacs.stackexchange.com/questions/712/what-are-the-differences-between-autocomplete-and-company-mode 
+https://iqss.github.io/IQSS.emacs/init.html 
+https://emacs.stackexchange.com/questions/2538/how-to-define-additional-mode-specific-pairs-for-electric-pair-mode 
+https://emacs.stackexchange.com/questions/361/how-can-i-hide-display-latex-section-just-like-org-mode-does-with-headlines 
+ 
+https://emacs.stackexchange.com/questions/5938/how-to-make-auto-complete-work-in-auctex-mode 
+https://github.com/Fuco1/smartparens/wiki/Tips-and-tricks#use-sp-select-next-thing-with-wrapping 
+Logic of ending time 
+https://github.com/Fuco1/smartparens/issues/990 
+https://github.com/redguardtoo/wucuo 
+https://mathoverflow.net/questions/365387/time-saving-technology-tricks-for-writing-papers 
+https://github.com/nidrissi/dotfiles/blob/master/config/emacs/emacs.org#latex-1 
+<<de_DE_frami.dic>>
+<<de_DE_frami.aff>>
+pacman -S mingw-w64-x86_64-texlive-lang-german 
+<<Symbola.ttf>>
+<<FiraCode-Retina.ttf>>
+https://org-roam.discourse.group/t/new-zotero-pdf-reader-and-org-roam-org-roam-bibtex-workflow/1364 
+pacman -S mingw-w64-x86_64-evince 
+
+
+https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration#h5o-6
+
+https://www.reddit.com/r/emacs/comments/n8jd7z/emacs_msys2_windows_task_scheduler_a_love_story/
+
+emacsk
+
+https://www.reddit.com/r/emacs/comments/8b9rvc/windows_emacs_in_taskbar_avoid_having_two_icons/
