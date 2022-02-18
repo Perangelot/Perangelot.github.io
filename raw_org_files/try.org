@@ -50,8 +50,8 @@ Go to =C:\msys64\home\<user>= and open =.bash.rc= with =notepad= by
    notepad among the list of programs. Then, add the following code to
    the end of the file:
 #+BEGIN_SRC bash
-if [ $(uname -o) == 'Msys' ]; then
-    export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/c\// {next} {print}' | sed 's/:*$//'`
+if [ (uname -o) == 'Msys' ]; then
+    export PATH=`echo {PATH} | awk -v RS=: -v ORS=: '/c\// {next} {print}' | sed 's/:*//'`
 fi
 #+END_SRC
 This code snippet makes sure that issuing a command in =msys2= which
@@ -222,28 +222,7 @@ git clone http://git.savannah.gnu.org/r/emacs.git
 ** Configuring the installation
 Next up, we need to tell emacs what (not) to build. I have chosen to
 go with every sensible dependency to cover all needs:
-    #+BEGIN_SRC bash
-export PATH=/mingw64/bin:$PATH
-./autogen.sh
-./configure \
-    --prefix=C:/Users/Vitus/AppData/Roaming
-    --host=x86_64-w64-mingw32 \
-    --target=x86_64-w64-mingw32 \
-    --build=x86_64-w64-mingw32 \
-    --with-native-compilation \
-    --with-gnutls \
-    --with-imagemagick \
-    --with-jpeg \
-    --with-json \
-    --with-png \
-    --with-rsvg \
-    --with-tiff \
-    --with-wide-int \
-    --with-xft \
-    --with-xml2 \
-    --with-xpm \
-    'CFLAGS=-I/mingw64/include/noX'
-    #+END_SRC
+
 ** building emacs
 Now, we're finally ready to do the last step: Actually installing
 emacs! This will take at least 10 minutes, possibly up to 30. Just run
@@ -273,3 +252,4 @@ running-in-the-background service is called a /server/ or a /daemon/.
 
 In order to get things running in Windows, I have written some =.bat=
 files.
+ 

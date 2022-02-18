@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       20220218T155303.249097
+:CATEGORY: Website
+:CREATED:  [2022-02-18 Fr 15:53]
+:END:
+#+title: hello
+#+date: [2022-02-18 Fr]
+#+filetags: blog-post
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+hugo_custom_front_matter: :tikzjax true
+ # #+hugo_lastmod:
+#+hugo_tags:
+#+csl-style: ../static/apa.csl
+#+csl-locale: en-US
+#+description:
+
+
