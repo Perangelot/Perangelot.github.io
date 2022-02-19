@@ -28,7 +28,33 @@ want a penguin as their mascot?
 That being said, some people depend on Windows if they like it or not
 (although many people only think this is the case, esepecially in
 academia [Link]), and if they want to use an open-source text editor
-instead of Word, this is a big plus already. So, let's get into
+instead of Word, this is a big plus already. So, let's start building
+emacs from source!
+
+<style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- <span class="section-num">1</span> [The Problem with emacs on Windows](#the-problem-with-emacs-on-windows)
+- <span class="section-num">2</span> [The Solution to the Problem](#the-solution-to-the-problem)
+    - <span class="section-num">2.1</span> [installing `msys2`](#installing-msys2)
+    - <span class="section-num">2.2</span> [configuring `msys2`](#configuring-msys2)
+- <span class="section-num">3</span> [Preparing to install emacs](#preparing-to-install-emacs)
+    - <span class="section-num">3.1</span> [Installing build dependencies](#installing-build-dependencies)
+- <span class="section-num">4</span> [Building emacs](#building-emacs)
+    - <span class="section-num">4.1</span> [Configuring the installation](#configuring-the-installation)
+    - <span class="section-num">4.2</span> [building emacs](#building-emacs)
+    - <span class="section-num">4.3</span> [Setting the Paths](#setting-the-paths)
+- <span class="section-num">5</span> [Setting up an emacs daemon](#setting-up-an-emacs-daemon)
+- <span class="section-num">6</span> [The Next Part of your Journey](#the-next-part-of-your-journey)
+
+</div>
+<!--endtoc-->
 
 
 ## <span class="section-num">2</span> The Solution to the Problem {#the-solution-to-the-problem}
@@ -281,7 +307,7 @@ binary folder: `libdbus-1-3.dll` and `libgmp-10.dll`. You can download
 them [here](https://www.exefiles.com/de/dll/libdbus-1-3-dll/) and [here](https://www.dll-files.com/libgmp-10.dll.html), respectively. Just open the Windows explorer, type
 `%APPDATA%` in the folder bar and press <kbd>Enter</kbd>. You will now be in
 `C:\Users\<user>\AppData\Roaming`. Open the folder called `bin` and put
-the `.dll=` file in there. If you now double-click und `runemacs.exe`,
+the `.dll` file in there. If you now double-click und `runemacs.exe`,
 emacs should open.
 
 
@@ -321,9 +347,8 @@ for you. Should you already know how setting up such a file works and
 just want the familiar keybindings, you might want to check out [Link]
 this post.
 
-For those die-hards who already know al this, just put your
-configuration file in the folder the `/bin` folder containing the
-executables resides in. For me, that was
+For those die-hards who already know all this, just put your
+configuration file in the folder which in turn contains `bin`. For me, that was
 `C:\Users\Vitus\AppData\Roaming`. Note that, especially
 if you use the famous package-manager `use-package`, you might need to
 start it more than once to get every package installed.
