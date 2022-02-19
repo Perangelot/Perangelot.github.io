@@ -5,7 +5,7 @@
 #+hugo_type: post
 #+hugo_custom_front_matter: :tikzjax true
 #+hugo_lastmod: <2022-01-28 Fri 14:00>
-#+hugo_tags: test example "syntax highlighting"
+#+hugo_tags: test example "syntax highlighting" noexport
 #+csl-style: ../static/apa.csl
 #+csl-locale: en-US
 
