@@ -1,179 +1,561 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Posts ::
-opensource-philosophy
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
-<meta name=keywords content>
-<meta name=robots content="noodp">
-<link rel=canonical href=https://Perangelot.github.io/posts/>
-<link rel=stylesheet href=/assets/style.css>
-<link rel=stylesheet href=/css/custom.css>
-<link rel=stylesheet href=/css/prism.css>
-<link rel=apple-touch-icon-precomposed sizes=144x144 href=https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png>
-<link rel="shortcut icon" href=https://Perangelot.github.io/img/favicon.png>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-Regular.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-Medium.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-MediumItalic.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-Bold.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<link href=https://Perangelot.github.io/assets/fonts/Inter-BoldItalic.woff2 rel=preload type=font/woff2 as=font crossorigin>
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Posts">
-<meta name=twitter:description content>
-<meta property="og:title" content="Posts">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://Perangelot.github.io/posts/">
-<link rel=alternate type=application/rss+xml href=/posts/index.xml title=opensource-philosophy>
-</head>
-<body class=dark-theme>
-<div class=container>
-<header class=header>
-<span class=header__inner>
-<a href=/ class=logo style=text-decoration:none>
-<span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Posts ::
+        opensource-philosophy
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content=""
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://Perangelot.github.io/posts/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://Perangelot.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://Perangelot.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://Perangelot.github.io/img/favicon.png" />
+
+
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://Perangelot.github.io/posts/" />
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="opensource-philosophy" />
+
+<script>
+MathJax = {
+  loader: {
+        load: ['[unicodeMath]/unicode-math.js'],
+        paths: {unicodeMath: 'https://cdn.jsdelivr.net/npm/@amermathsoc/mathjax-unicode-math@1/browser'}
+    },
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: {'[+]': ['unicode-math']},
+    processEscapes: true,
+    processEnvironments: true
+  }, 
+  svg: {
+    fontCache: 'global'
+  },
+ options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/forall.ico">
+
+<link href="/css/prism.css" rel="stylesheet"/>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container line-numbers">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
 </span>
-<span class=logo__text>opensource-philosophy</span>
-<span class=logo__cursor></span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
 </a>
-<span class=header__right>
-<nav class=menu>
-<ul class="menu__inner menu__inner--desktop">
-<li><a href=/>Home</a></li>
-<li><a href=/posts/>Posts</a></li>
-<ul class=menu__sub-inner>
-<li class=menu__sub-inner-more-trigger>
-More
-<span class=menu__sub-inner-more-trigger-icon><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg>
-</span>
-</li>
-<ul class="menu__sub-inner-more hidden">
-<li><a href=/projects/>Projects</a></li>
-<li><a href=/about_me/>About Me</a></li>
-<li><a href=/donate/>Donate</a></li>
-</ul>
-</ul>
-</ul>
-<ul class="menu__inner menu__inner--mobile">
-<li><a href=/>Home</a></li>
-<li><a href=/posts/>Posts</a></li>
-<li><a href=/projects/>Projects</a></li>
-<li><a href=/about_me/>About Me</a></li>
-<li><a href=/donate/>Donate</a></li>
-</ul>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/posts/">Posts</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More
+            <span class="menu__sub-inner-more-trigger-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span
+            >
+          </li>
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/projects/">Projects</a></li>
+              
+            
+              
+                <li><a href="/about_me/">About Me</a></li>
+              
+            
+              
+                <li><a href="/donate/">Donate</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/posts/">Posts</a></li>
+      
+    
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+    
+      
+        <li><a href="/about_me/">About Me</a></li>
+      
+    
+      
+        <li><a href="/donate/">Donate</a></li>
+      
+    
+  </ul>
 </nav>
-<span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-</span>
-<span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg>
-</span>
-</span>
-</span>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
 </header>
-<div class="content line-numbers">
-<div class=posts>
-<div class="post on-list">
-<h1 class=post-title><a href=https://Perangelot.github.io/about_me/>About Me</a></h1>
-<div class=post-meta>
-<span class=post-date>
-2022-01-20
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="https://Perangelot.github.io/posts/hello-vom-18.02.2022/">hello</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              18 Feb. 2022
+            </span>
+
+            
+              
+
+
+
+            
+          
+          
+            <span class="post-author"
+              >— Written by [Jacob Hilker]</span
+            >
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="https://Perangelot.github.io/tags/blog-post/">#blog-post</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.
+Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
+            
+          
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/hello-vom-18.02.2022/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="https://Perangelot.github.io/posts/lea-vom-18.02.2022/">lea</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              18 Feb. 2022
+            </span>
+
+            
+              
+
+
+
+            
+          
+          
+            <span class="post-author"
+              >— Written by [Jacob Hilker]</span
+            >
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="https://Perangelot.github.io/tags/blog-post/">#blog-post</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            Suspendisse potenti.
+            
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/lea-vom-18.02.2022/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="https://Perangelot.github.io/posts/test/">Example Post</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              27 Jan. 2022
+            </span>
+
+            
+              
+
+
+  
+    <span class="post-moddate">
+      (Last updated: 
+      28 Jan. 2022)
+    </span>
+  
+
+
+            
+          
+          
+            <span class="post-author"
+              >— Written by [Jacob Hilker]</span
+            >
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="https://Perangelot.github.io/tags/test/">#test</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/example/">#example</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/syntax-highlighting/">#syntax highlighting</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            This post is an example of org-mode syntax highlighting being exported to hugo markdown.
+            
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/test/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="https://Perangelot.github.io/posts/install-emacs-on-windows/">Example Post</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              27 Jan. 2022
+            </span>
+
+            
+              
+
+
+  
+    <span class="post-moddate">
+      (Last updated: 
+      28 Jan. 2022)
+    </span>
+  
+
+
+            
+          
+          
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="https://Perangelot.github.io/tags/test/">#test</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/example/">#example</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/syntax-highlighting/">#syntax highlighting</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have.
+            
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/install-emacs-on-windows/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="https://Perangelot.github.io/posts/test2/">Example Post</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              27 Jan. 2022
+            </span>
+
+            
+              
+
+
+  
+    <span class="post-moddate">
+      (Last updated: 
+      28 Jan. 2022)
+    </span>
+  
+
+
+            
+          
+          
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="https://Perangelot.github.io/tags/test/">#test</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/example/">#example</a>&nbsp;
+            
+              <a href="https://Perangelot.github.io/tags/syntax-highlighting/">#syntax highlighting</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            Another test file.
+            
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/test2/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
 </span>
-</div>
-<div class=post-content>
-Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy &ndash; and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.
-As its name suggests, this blog features both of these topics &ndash; philosophy and open source &ndash;, and I have deliberately chosen it to allow divergent interpretations as to what it actually is about.
-</div>
-<div>
-<a class="read-more button" href=/about_me/>Read more →</a>
-</div>
-</div>
-<div class="post on-list">
-<h1 class=post-title><a href=https://Perangelot.github.io/posts/blog_name/>About this blog</a></h1>
-<div class=post-meta>
-<span class=post-date>
-2022-01-20
-</span>
-</div>
-<div class=post-content>
-</div>
-<div>
-<a class="read-more button" href=/posts/blog_name/>Read more →</a>
-</div>
-</div>
-<div class="post on-list">
-<h1 class=post-title><a href=https://Perangelot.github.io/donate/>Donate!</a></h1>
-<div class=post-meta>
-<span class=post-date>
-2022-01-20
-</span>
-</div>
-<div class=post-content>
-The concept of open source is a great one: Everyone, no matter who, has access to the content and can change it for their own needs, point out problems with it or contribute themselves.
-but it only works if we all pull together.
-People who offer free and open source content put a lot of time and elbow grease into their projects because they are convinced that it is the right way to do it.
-</div>
-<div>
-<a class="read-more button" href=/donate/>Read more →</a>
-</div>
-</div>
-<div class="post on-list">
-<h1 class=post-title><a href=https://Perangelot.github.io/posts/example/>Example</a></h1>
-<div class=post-meta>
-<span class=post-date>
-2022-01-20
-</span>
-<span class=post-author>— Written by [Jacob Hilker]</span>
-</div>
-<div class=post-content>
-<p>Here is my <strong>post summary</strong>.</p>
-<p>Hello, and welcome to OpenSource Philosophy! I am Vitus Schäfftlein, an undergraduate student with a deep-rooted passion for philosophy &ndash; and an advocate of the idea that academia should be open source, not least because at the heart of both democratic societies and academia, there is freedom and knowledge, which are two concepts that cannot and must not be ripped apart.</p>
-</div>
-<div>
-<a class="read-more button" href=/posts/example/>Read more →</a>
-</div>
-</div>
-<div class="post on-list">
-<h1 class=post-title><a href=https://Perangelot.github.io/posts/showcase/>Showcase</a></h1>
-<div class=post-meta>
-<span class=post-date>
-2019-01-18
-</span>
-<span class=post-author>— Written by Lorem Ipsum</span>
-</div>
-<div class=post-content>
-Header 2 # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
-</div>
-<div>
-<a class="read-more button" href=/posts/showcase/>Read more →</a>
-</div>
-</div>
-<div class=pagination>
-<div class=pagination__buttons>
-</div>
-</div>
-</div>
-</div>
-<footer class=footer>
-<div class=footer__inner>
-<a href=/ class=logo style=text-decoration:none>
-<span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg>
-</span>
-<span class=logo__text>opensource-philosophy</span>
-<span class=logo__cursor></span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
 </a>
-<div class=copyright>
-<span>© 2022
-<a href=mailto:vitus.schaefftlein@opensource-philosophy.com target=_blank rel=noopener>Vitus Schäfftlein</a></span>
-<span>completely
-<a href=https://github.com/Perangelot/Perangelot.github.io target=_blank rel=noopener>open source</a></span>
-</div>
-</div>
+
+      <div class="copyright">
+        <span
+          >© 2022
+          <a href="mailto:vitus.schaefftlein@opensource-philosophy.com" target="_blank" rel="noopener">Vitus Schäfftlein</a></span
+        >
+        <span
+          >completely
+          <a href="https://github.com/Perangelot/Perangelot.github.io" target="_blank" rel="noopener">open source</a></span
+        > 
+      </div>
+    
+  </div>
 </footer>
-<script src=/js/main.js></script>
-<script src=/js/prism.js></script>
-</div>
-</body>
+
+<script src="https://Perangelot.github.io/assets/main.js"></script>
+<script src="https://Perangelot.github.io/assets/prism.js"></script>
+
+<script src="/js/prism.js"></script>
+
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
 </html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on opensource-philosophy</title>
+    
+    
+    
+    <link>https://Perangelot.github.io/tags/test/</link>
+    <description>Recent content in test on opensource-philosophy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jan 2022 13:49:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://Perangelot.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Example Post</title>
+      <link>https://Perangelot.github.io/posts/test/</link>
+      <pubDate>Thu, 27 Jan 2022 13:49:00 -0500</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/test/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          This post is an example of org-mode syntax highlighting being exported to hugo markdown.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Example Post</title>
+      <link>https://Perangelot.github.io/posts/install-emacs-on-windows/</link>
+      <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/install-emacs-on-windows/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Example Post</title>
+      <link>https://Perangelot.github.io/posts/test2/</link>
+      <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/test2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Another test file.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
