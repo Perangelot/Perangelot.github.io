@@ -57,26 +57,6 @@ Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis f
     
     <item>
       <title>Example Post</title>
-      <link>https://Perangelot.github.io/posts/test/</link>
-      <pubDate>Thu, 27 Jan 2022 13:49:00 -0500</pubDate>
-      
-      <guid>https://Perangelot.github.io/posts/test/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          This post is an example of org-mode syntax highlighting being exported to hugo markdown.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Example Post</title>
       <link>https://Perangelot.github.io/posts/install-emacs-on-windows/</link>
       <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
       
@@ -90,6 +70,26 @@ Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis f
         
         
           In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Example Post</title>
+      <link>https://Perangelot.github.io/posts/test/</link>
+      <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/test/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          This post is an example of org-mode syntax highlighting being exported to hugo markdown.
           
         
         </description>
