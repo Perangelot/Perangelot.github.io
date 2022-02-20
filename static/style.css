@@ -1,7 +1,7 @@
 :root {
     --pink: #fe5186;
     --gray: #AAA7B3;
-    --black: #292a2d;
+    --anthra: #292a2d;
 }
 
 .underline {
@@ -55,11 +55,11 @@ kbd {
 	font-size: 12px;
 	display: inline-block;
 	box-shadow: 0px 1px 0px black, inset 0px 0px 0px 2px black;
-	background-color: black;
-	-moz-box-shadow: 0 1px 0px black, 0 0 0 2px black inset;
-	-webkit-box-shadow: 0 1px 0px black, 0 0 0 2px black inset;
-	-moz-border-radius: 1px;
-	-webkit-border-radius: 1px;
+	background-color: anthra;
+	-moz-box-shadow: 0 1px 0px anthra, 0 0 0 2px black inset;
+	-webkit-box-shadow: 0 1px 0px anthra, 0 0 0 2px black inset;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
 	text-shadow: 0 1px 0 gray;
 }
 
