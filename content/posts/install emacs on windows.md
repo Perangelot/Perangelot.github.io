@@ -1,6 +1,6 @@
 +++
-title = "Example Post"
-description = "In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have."
+title = "A Comprehensive Guide to Installing emacs on Windows (with daemon!)"
+description = "In this post, I will guide you through installing emacs on Windows in such a way that (alomst) all features an emacs-installation on a linux machine would have are enabled."
 date = 2022-01-27T13:49:00+01:00
 lastmod = 2022-01-28T14:00:00+01:00
 tags = ["test", "example", "syntax highlighting"]

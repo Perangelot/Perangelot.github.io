@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       20220220T224106.883187
+:CATEGORY: Website
+:CREATED:  [2022-02-20 So 22:41]
+:END:
+#+title: Magic Logic Buffer
+#+date: [2022-02-20 So]
+#+filetags: blog-post
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+hugo_custom_front_matter: :tikzjax true
+ # #+hugo_lastmod:
+#+hugo_tags:
+#+csl-style: ../static/apa.csl
+#+csl-locale: en-US
+#+description:
+
+
+
+
