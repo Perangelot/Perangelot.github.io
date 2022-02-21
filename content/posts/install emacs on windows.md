@@ -1,35 +1,12 @@
 +++
-title = "A Comprehensive Guide to Installing emacs on Windows (with daemon!)"
-description = "In this post, I will guide you through installing emacs on Windows in such a way that (alomst) all features an emacs-installation on a linux machine would have are enabled."
-date = 2022-01-27T13:49:00+01:00
-lastmod = 2022-01-28T14:00:00+01:00
-tags = ["test", "example", "syntax highlighting"]
+title = "Example Post"
+description = "In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience."
+lastmod = 2022-02-22T14:00:00+01:00
+tags = ["emacs", "open-source", "guide"]
 type = "post"
 draft = false
 tikzjax = true
 +++
-
-## <span class="section-num">1</span> The Problem with emacs on Windows {#the-problem-with-emacs-on-windows}
-
-Originally, emacs was developed in [1976](https://www.jwz.org/doc/emacs-timeline.html) and has been developed ever
-since, so it is no wonder it is available for all major operating
-systems. Nonetheless, it depends on packages which are not natively
-available on Windows, so by default, quite some features of emacs
-available on Linux do not work for the Windows Version.
-
-This should be one more reason [Link] for you to consider changing to
-an open-source operating system such as Linux. Please do not just
-gloss over this point. Next to security reasons, user-configurability
-and extendeability, there are compelling arguments -- both
-politcal and ethical -- why you should not support big-tech
-companies. Plus there is [Tux](https://en.wikipedia.org/wiki/Tux_(mascot)), the mascot of Linux. And who does not
-want a penguin as their mascot?
-
-That being said, some people depend on Windows if they like it or not
-(although many people only think this is the case, esepecially in
-academia [Link]), and if they want to use an open-source text editor
-instead of Word, this is a big plus already. So, let's start building
-emacs from source!
 
 <style>
   .ox-hugo-toc ul {
@@ -42,34 +19,57 @@ emacs from source!
 
 - <span class="section-num">1</span> [The Problem with emacs on Windows](#the-problem-with-emacs-on-windows)
 - <span class="section-num">2</span> [The Solution to the Problem](#the-solution-to-the-problem)
-    - <span class="section-num">2.1</span> [installing `msys2`](#installing-msys2)
-    - <span class="section-num">2.2</span> [configuring `msys2`](#configuring-msys2)
-- <span class="section-num">3</span> [Preparing to install emacs](#preparing-to-install-emacs)
-    - <span class="section-num">3.1</span> [Installing build dependencies](#installing-build-dependencies)
-- <span class="section-num">4</span> [Building emacs](#building-emacs)
-    - <span class="section-num">4.1</span> [Configuring the installation](#configuring-the-installation)
-    - <span class="section-num">4.2</span> [building emacs](#building-emacs)
+    - <span class="section-num">2.1</span> [Installing `msys2`](#installing-msys2)
+    - <span class="section-num">2.2</span> [Configuring `msys2`](#configuring-msys2)
+- <span class="section-num">3</span> [Preparing to Install Emacs](#preparing-to-install-emacs)
+- <span class="section-num">4</span> [Building Emacs](#building-emacs)
+    - <span class="section-num">4.1</span> [Configuring the Installation](#configuring-the-installation)
+    - <span class="section-num">4.2</span> [Building Emacs](#building-emacs)
     - <span class="section-num">4.3</span> [Setting the Paths](#setting-the-paths)
-- <span class="section-num">5</span> [Setting up an emacs daemon](#setting-up-an-emacs-daemon)
+- <span class="section-num">5</span> [Setting up an Emacs Daemon](#setting-up-an-emacs-daemon)
 - <span class="section-num">6</span> [The Next Part of your Journey](#the-next-part-of-your-journey)
 
 </div>
 <!--endtoc-->
 
 
+## <span class="section-num">1</span> The Problem with emacs on Windows {#the-problem-with-emacs-on-windows}
+
+TECMACS -- the software emacs originates from -- was written in
+[1976](https://www.jwz.org/doc/emacs-timeline.html). Given that it has been developed ever since, it is no wonder it
+is available for all major operating systems. Nonetheless, some
+important functions depend on packages which are not natively
+available on Windows, so by default, an emacs installation on Windows
+falls short of these.
+
+This should be one more reason [Link] for you to consider changing to
+an open-source operating system such as Linux. Please do not just
+gloss over this point. Next to security reasons, user-configurability
+and extendability, there are compelling arguments -- both
+political and ethical -- why you should not support big-tech
+companies. Plus there is [Tux](https://en.wikipedia.org/wiki/Tux_(mascot)), the mascot of Linux. And who does not
+want a penguin as their mascot?
+
+That being said, some people depend on Windows if they like it or not
+(although many people only think this is the case, especially in
+academia [Link]), and if they want to use an open-source text editor
+instead of Word, this is a big plus already. So, let's start building
+emacs from source!
+
+
 ## <span class="section-num">2</span> The Solution to the Problem {#the-solution-to-the-problem}
 
 Since Windows is not capable of providing a satisfactory emacs
 experience but Linux is, we simply import all the necessary linux
-libraries to windows. There are many ways to achieve this, but the one
-preferred by me is using `msys2`. `msys2` is an open-source software based
+libraries to Windows. There are many ways to achieve this, but the one
+I prefer is to use `msys2`. `msys2` is an open-source software based
 on `cygwin` which does exactly what we need: Provide the necessary tools
 to build Linux software natively in Windows. So let's install it!
 
 
-### <span class="section-num">2.1</span> installing `msys2` {#installing-msys2}
+### <span class="section-num">2.1</span> Installing `msys2` {#installing-msys2}
 
-Visit the [website](https://www.msys2.org/) of `msys2` and download the latest windows
+Visit the [website](https://www.msys2.org/) of `msys2` and download the latest Windows
 installer. Double-click it and follow the steps of the installation
 wizard. I installed it to `C:\msys64`.
 
@@ -77,7 +77,7 @@ Warning: Do _not_ open any other of the `.exe` files. Following the below
 steps with the wrong executable opened _will_ cause problems.
 
 
-### <span class="section-num">2.2</span> configuring `msys2` {#configuring-msys2}
+### <span class="section-num">2.2</span> Configuring `msys2` {#configuring-msys2}
 
 Go to `C:\msys64\home\<user>` and open `.bash.rc` with `notepad` by
    double-clicking on the file and, if necessary, selecting the
@@ -91,7 +91,7 @@ fi
 ```
 
 This code snippet makes sure that issuing a command in `msys2` which
-happens to have the same name as a windows command won't cause
+happens to have the same name as a Windows command won't cause
 problems. Lastly, we want to make sure that `msys2` is recognized by
 Windows. We do that by setting a so-called `PATH` variable. With that,
 we just tell Windows to look for executables in that path. This way,
@@ -110,15 +110,11 @@ open `mingw64.exe`. Press on "environment variables" again, select
 "path" and click on "edit".
 
 
-## <span class="section-num">3</span> Preparing to install emacs {#preparing-to-install-emacs}
+## <span class="section-num">3</span> Preparing to Install Emacs {#preparing-to-install-emacs}
 
-Now we have the means to get everything we need to build emacs, but
-have we not got anything yet. Thus, the next step is to do just
-that. Conveniently, `msys2` also uses `pacman`, the package manager which
+Now we have the _means_ to get all the libraries we need to build emacs, but
+we do not have a single one yet. Thus, the next step is to get them. Conveniently, `msys2` also uses `pacman`, the package manager which
 by default ships with Arch Linux, so it might even be familiar to you.
-
-
-### <span class="section-num">3.1</span> Installing build dependencies {#installing-build-dependencies}
 
 First of all, we want to make sure that our package manage is up-to-date:
 
@@ -131,7 +127,6 @@ respectively. That being done, we install all tools we need to build
 emacs from source, starting with the most important ones:
 
 ```bash
-pacman -Sy
 pacman -Sy\
 	--needed \
 	filesystem \
@@ -147,14 +142,14 @@ pacman -Sy\
 	libintl
 ```
 
-Now we'll ned to update `pacman` again:
+Now we'll need to update `pacman` again:
 
 ```bash
 pacman -Su
 ```
 
 Finally, we will download and install the necessary
-libraries. Depending on your download speed and your hardware, this
+libraries. Depending on your download speed and hardware, this
 will take quite a while. Perfect time to rethink whether you really
 need Windows. Remember you can also have two systems installed on your
 machine [Link] to try out Linux!
@@ -235,8 +230,8 @@ pacman -Su \
 Having done this, we could in principle compile emacs from
 source. What we should not forget, though, is that emacs lives from
 packages -- and they also have dependencies which we need to
-install. Of course, then, the code below might not suffice to cover
-all dependencies your packages need. Nonetheless, it takes care of the most
+install. Of course, the code below might not suffice to cover
+all dependencies your packages need, but it takes care of the most
 important ones: `hunspell` to make spell-checking work and `poppler` to
 allow `pdf-tools` to open `.pdf` files. `sqlite` already is installed with
 the binaries above, so `org-roam` (and also `org-roam-ui`) will work.
@@ -257,7 +252,7 @@ For those who want to use emacs as a `LaTeX` editor or like having their
 formulas overlayed with `org-preview`, you should also install the `texlive`
 binaries. This installation should happen without the help of msys2;
 if you already have a LaTeX distribution installed, emacs will
-recognize it once it is configured. If not, you need to install it. The
+recognize it once it is configured. If not, you will need to install it. The
 easiest way I have found is to use an `.iso` [image](https://www.tug.org/texlive/acquire-iso.html), but there are other
 possibilities as well.
 
@@ -266,18 +261,18 @@ problem because there is no `msys2` package for `mu`. You might try your
 luck with an [unofficial package](https://github.com/msys2-unofficial/MSYS2-packages/tree/master/mu), though.
 
 
-## <span class="section-num">4</span> Building emacs {#building-emacs}
+## <span class="section-num">4</span> Building Emacs {#building-emacs}
 
 Now we have done everything we need to start with the actual building
-process. First of all, we need to download the source code. We are
-doing this by cloning an official git repository:
+process, so we are going to download the emacs source code from an
+official github repository:
 
 ```bash
 git clone http://git.savannah.gnu.org/r/emacs.git
 ```
 
 
-### <span class="section-num">4.1</span> Configuring the installation {#configuring-the-installation}
+### <span class="section-num">4.1</span> Configuring the Installation {#configuring-the-installation}
 
 Next up, we need to tell emacs what (not) to build. I have chosen to
 go with every sensible dependency to cover all needs:
@@ -287,7 +282,7 @@ sure the folder contains `autogen.sh`. You can do that by running `ls`,
 which lists the contents of the folder the console currently operates in.
 
 
-### <span class="section-num">4.2</span> building emacs {#building-emacs}
+### <span class="section-num">4.2</span> Building Emacs {#building-emacs}
 
 Now, we're finally ready to do the last step: Actually installing
 emacs! This will take at least 10 minutes, possibly up to 30. Just run
@@ -307,11 +302,11 @@ binary folder: `libdbus-1-3.dll` and `libgmp-10.dll`. You can download
 them [here](https://www.exefiles.com/de/dll/libdbus-1-3-dll/) and [here](https://www.dll-files.com/libgmp-10.dll.html), respectively. Just open the Windows explorer, type
 `%APPDATA%` in the folder bar and press <kbd>Enter</kbd>. You will now be in
 `C:\Users\<user>\AppData\Roaming`. Open the folder called `bin` and put
-the `.dll` file in there. If you now double-click und `runemacs.exe`,
+the `.dll` file in there. If you now double-click on `runemacs.exe`,
 emacs should open.
 
 
-## <span class="section-num">5</span> Setting up an emacs daemon {#setting-up-an-emacs-daemon}
+## <span class="section-num">5</span> Setting up an Emacs Daemon {#setting-up-an-emacs-daemon}
 
 Since emacs is not a Windows program, its performance on Windows is,
 to put it mildly, not out of this world. Especially if

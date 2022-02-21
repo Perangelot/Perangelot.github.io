@@ -1,0 +1,311 @@
+% Created 2022-02-21 Mo 22:24
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, fontsize=11pt, headings=optiontohead, headsepline=true, twoside=false]{scrartcl}
+\usepackage{graphicx}
+\newcommand{\plus}{+}
+
+\usepackage{amssymb}
+\usepackage{turnstile}
+\usepackage{centernot}
+\usepackage{mathpartir}
+\usepackage[math-style=upright]{unicode-math}
+\date{}
+\title{Example Post}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\section{The Problem with emacs on Windows}
+\label{sec:org4ad4f5d}
+TECMACS -- the software emacs originates from -- was written in
+\href{https://www.jwz.org/doc/emacs-timeline.html}{1976}. Given that it has been developed ever since, it is no wonder it
+is available for all major operating systems. Nonetheless, some
+important functions depend on packages which are not natively
+available on Windows, so by default, an emacs installation on Windows
+falls short of these.
+
+This should be one more reason [Link] for you to consider changing to
+an open-source operating system such as Linux. Please do not just
+gloss over this point. Next to security reasons, user-configurability
+and extendability, there are compelling arguments -- both
+political and ethical -- why you should not support big-tech
+companies. Plus there is \href{https://en.wikipedia.org/wiki/Tux\_(mascot)}{Tux}, the mascot of Linux. And who does not
+want a penguin as their mascot?
+
+That being said, some people depend on Windows if they like it or not
+(although many people only think this is the case, especially in
+academia [Link]), and if they want to use an open-source text editor
+instead of Word, this is a big plus already. So, let's start building
+emacs from source!
+
+\section{The Solution to the Problem}
+\label{sec:orge8f7c65}
+Since Windows is not capable of providing a satisfactory emacs
+experience but Linux is, we simply import all the necessary linux
+libraries to Windows. There are many ways to achieve this, but the one
+I prefer is to use \texttt{msys2}. \texttt{msys2} is an open-source software based
+on \texttt{cygwin} which does exactly what we need: Provide the necessary tools
+to build Linux software natively in Windows. So let's install it!
+\subsection{Installing \texttt{msys2}}
+\label{sec:org274ce90}
+Visit the \href{https://www.msys2.org/}{website} of \texttt{msys2} and download the latest Windows
+installer. Double-click it and follow the steps of the installation
+wizard. I installed it to \texttt{C:\textbackslash{}msys64}. 
+
+Warning: Do \emph{not} open any other of the \texttt{.exe} files. Following the below
+steps with the wrong executable opened \emph{will} cause problems.
+\subsection{Configuring \texttt{msys2}}
+\label{sec:orgda15783}
+Go to \texttt{C:\textbackslash{}msys64\textbackslash{}home\textbackslash{}<user>} and open \texttt{.bash.rc} with \texttt{notepad} by
+   double-clicking on the file and, if necessary, selecting the
+   notepad among the list of programs. Then, add the following code to
+   the end of the file: 
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+if [ (uname -o) == 'Msys' ]; then
+	export PATH=`echo {PATH} | awk -v RS=: -v ORS=: '/c\// {next} {print}' | sed 's/:*//'`
+fi
+\end{lstlisting}
+This code snippet makes sure that issuing a command in \texttt{msys2} which
+happens to have the same name as a Windows command won't cause
+problems. Lastly, we want to make sure that \texttt{msys2} is recognized by
+Windows. We do that by setting a so-called \texttt{PATH} variable. With that,
+we just tell Windows to look for executables in that path. This way,
+we make sure that Windows finds \texttt{msys2}.
+
+To do that, open the application launcher by pressing the Windows key,
+type in ``environment variables'' and click on the first result. If you
+have administrator rights, you can now click on ``New'' and add both the
+path to \texttt{msys2} and its subfolder \texttt{/bin}. For me, this was
+\texttt{C:\textbackslash{}msys64\textbackslash{}mingw64} and \texttt{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin}. If you do not have admin
+rights, you can just add the paths to your current path(s) by
+separating them by semicolons as in \texttt{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin;C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}bin}.
+
+And with that, \texttt{msys2} is configured! You can now back to \texttt{C:\textbackslash{}msys64} and
+open \texttt{mingw64.exe}. Press on ``environment variables'' again, select
+``path'' and click on ``edit''. 
+
+\section{Preparing to Install Emacs}
+\label{sec:org46ad6c4}
+Now we have the \emph{means} to get all the libraries we need to build emacs, but
+we do not have a single one yet. Thus, the next step is to get them. Conveniently, \texttt{msys2} also uses \texttt{pacman}, the package manager which
+by default ships with Arch Linux, so it might even be familiar to you. 
+
+First of all, we want to make sure that our package manage is up-to-date:
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+pacman -Syu
+\end{lstlisting}
+The flags \texttt{S}, \texttt{y} and \texttt{u} stand for ``Sync'', ``refresh'' and ``sysupdate'',
+respectively. That being done, we install all tools we need to build
+emacs from source, starting with the most important ones:
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+pacman -Sy\
+	--needed \
+	filesystem \
+	msys2-runtime \
+	bash \
+	libreadline \
+	libiconv \
+	libarchive \
+	libgpgme \
+	libcurl \
+	pacman \
+	ncurses \
+	libintl
+\end{lstlisting}
+Now we'll need to update \texttt{pacman} again:
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+pacman -Su
+\end{lstlisting}
+Finally, we will download and install the necessary
+libraries. Depending on your download speed and hardware, this
+will take quite a while. Perfect time to rethink whether you really
+need Windows. Remember you can also have two systems installed on your
+machine [Link] to try out Linux! 
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+pacman -Su \
+	autoconf \
+	autogen \
+	automake \
+	automake-wrapper \
+	diffutils \
+	git \
+	guile \
+	libgc \
+	libguile \
+	libidn-devel \
+	libltdl \
+	libnettle-devel \
+	libopenssl \
+	libp11-kit-devel \
+	libtasn1-devel \
+	libunistring \
+	make \
+	mingw-w64-x86_64-binutils \
+	mingw-w64-x86_64-bzip2 \
+	mingw-w64-x86_64-cairo \
+	mingw-w64-x86_64-crt-git \
+	mingw-w64-x86_64-dbus \
+	mingw-w64-x86_64-expat \
+	mingw-w64-x86_64-fontconfig \
+	mingw-w64-x86_64-freetype \
+	mingw-w64-x86_64-gcc \
+	mingw-w64-x86_64-gcc-libs \
+	mingw-w64-x86_64-gdk-pixbuf2 \
+	mingw-w64-x86_64-gettext \
+	mingw-w64-x86_64-giflib \
+	mingw-w64-x86_64-glib2 \
+	mingw-w64-x86_64-gmp \
+	mingw-w64-x86_64-gnutls \
+	mingw-w64-x86_64-harfbuzz \
+	mingw-w64-x86_64-headers-git \
+	mingw-w64-x86_64-imagemagick \
+	mingw-w64-x86_64-isl \
+	mingw-w64-x86_64-jansson \
+	mingw-w64-x86_64-libffi \
+	mingw-w64-x86_64-libgccjit \
+	mingw-w64-x86_64-libiconv \
+	mingw-w64-x86_64-libidn2 \
+	mingw-w64-x86_64-libjpeg-turbo \
+	mingw-w64-x86_64-libpng \
+	mingw-w64-x86_64-librsvg \
+	mingw-w64-x86_64-libsystre \
+	mingw-w64-x86_64-libtasn1 \
+	mingw-w64-x86_64-libtiff \
+	mingw-w64-x86_64-libunistring \
+	mingw-w64-x86_64-libwinpthread-git \
+	mingw-w64-x86_64-libxml2 \
+	mingw-w64-x86_64-mpc \
+	mingw-w64-x86_64-mpfr \
+	mingw-w64-x86_64-nettle \
+	mingw-w64-x86_64-p11-kit \
+	mingw-w64-x86_64-pango \
+	mingw-w64-x86_64-pixman \
+	mingw-w64-x86_64-poppler \
+	mingw-w64-x86_64-winpthreads \
+	mingw-w64-x86_64-xpm-nox \
+	mingw-w64-x86_64-xz \
+	mingw-w64-x86_64-zlib \
+	mingw-w64-x86_64-jbigkit \
+	nano \
+	openssl \
+	pkgconf \
+	tar \
+	texinfo \
+	wget
+\end{lstlisting}
+Having done this, we could in principle compile emacs from
+source. What we should not forget, though, is that emacs lives from
+packages -- and they also have dependencies which we need to
+install. Of course, the code below might not suffice to cover
+all dependencies your packages need, but it takes care of the most
+important ones: \texttt{hunspell} to make spell-checking work and \texttt{poppler} to
+allow \texttt{pdf-tools} to open \texttt{.pdf} files. \texttt{sqlite} already is installed with
+the binaries above, so \texttt{org-roam} (and also \texttt{org-roam-ui}) will work.
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+pacman -S mingw-w64-x86_64-hunspell \
+		  mingw-w64-x86_64-poppler  \
+		  mingw-w64-x86_64-poppler-data
+\end{lstlisting}
+Note that whilst only an english dictionary is available via \texttt{msys2},
+you can add dictionaries of any language you like by putting them
+in \texttt{C:\textbackslash{}msys64\textbackslash{}mingw64\textbackslash{}share\textbackslash{}hunspell}. For a list of dictionaries to
+download, visit \href{https://github.com/elastic/hunspell/tree/master/dicts}{this page}. Of course, you will need to adjust the
+emacs code, too, then. But this is a topic for [Link] another post.
+
+For those who want to use emacs as a \texttt{LaTeX} editor or like having their
+formulas overlayed with \texttt{org-preview}, you should also install the \texttt{texlive}
+binaries. This installation should happen without the help of msys2;
+if you already have a \LaTeX{} distribution installed, emacs will
+recognize it once it is configured. If not, you will need to install it. The
+easiest way I have found is to use an \texttt{.iso} \href{https://www.tug.org/texlive/acquire-iso.html}{image}, but there are other
+possibilities as well.
+
+If you think of using \texttt{mu4e} as your emacs client on Windows, this might be a
+problem because there is no \texttt{msys2} package for \texttt{mu}. You might try your
+luck with an \href{https://github.com/msys2-unofficial/MSYS2-packages/tree/master/mu}{unofficial package}, though.
+\section{Building Emacs}
+\label{sec:org73feaf6}
+Now we have done everything we need to start with the actual building
+process, so we are going to download the emacs source code from an
+official github repository:
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+git clone http://git.savannah.gnu.org/r/emacs.git
+\end{lstlisting}
+\subsection{Configuring the Installation}
+\label{sec:org50ff080}
+Next up, we need to tell emacs what (not) to build. I have chosen to
+go with every sensible dependency to cover all needs:
+If you get an error message, you are likely in the wrong folder. Make
+sure the folder contains \texttt{autogen.sh}. You can do that by running \texttt{ls},
+which lists the contents of the folder the console currently operates in.
+\subsection{Building Emacs}
+\label{sec:orged33947}
+Now, we're finally ready to do the last step: Actually installing
+emacs! This will take at least 10 minutes, possibly up to 30. Just run
+the following code:
+\lstset{language=bash,label= ,caption= ,captionpos=b,numbers=none}
+\begin{lstlisting}
+make
+make install 
+\end{lstlisting}
+\subsection{Setting the Paths}
+\label{sec:org44cae5c}
+With this, you have built your own emacs from source --
+Congratulations! To run emacs, we still need to put two files in the
+binary folder: \texttt{libdbus-1-3.dll} and \texttt{libgmp-10.dll}. You can download
+them \href{https://www.exefiles.com/de/dll/libdbus-1-3-dll/}{here} and \href{https://www.dll-files.com/libgmp-10.dll.html}{here}, respectively. Just open the Windows explorer, type
+\texttt{\%APPDATA\%} in the folder bar and press \texttt{Enter}. You will now be in
+\texttt{C:\textbackslash{}Users\textbackslash{}<user>\textbackslash{}AppData\textbackslash{}Roaming}. Open the folder called \texttt{bin} and put
+the \texttt{.dll} file in there. If you now double-click on \texttt{runemacs.exe},
+emacs should open.
+\section{Setting up an Emacs Daemon}
+\label{sec:org6affc20}
+Since emacs is not a Windows program, its performance on Windows is,
+to put it mildly, not out of this world. Especially if
+you have a large configuration file, it might take half a minute or even
+longer to get it started. This, of course, completely interferes with
+your workflow, so we'll need to find a way to deal with that. And the
+way to go is as simple as silently starting emacs at startup and
+letting it pop up whenever we want to edit a file in it. This
+running-in-the-background service is called a \emph{server} or a \emph{daemon}. 
+
+On Linux, setting up a daemon is as simple as typing in a single
+command. On Windows, on the other hand, things aren't as easy (as is
+often the case). To alleviate at least some of the despair, I have
+written some code which takes care of it and converted it to \texttt{.exe}
+files. Just download all the \texttt{.exe} files and put them in the folder in
+which the other emacs executables are. For me, it was
+\texttt{C:\textbackslash{}Users\textbackslash{}Vitus\textbackslash{}AppData\textbackslash{}Roaming\textbackslash{}bin}. Since this folder by default is in
+the \texttt{Path} variable, we can skip the first step of the instructions on
+the github page and only need to follow the other 8 steps described on
+github; this will approximately take 5 minutes. And that's it. Now you
+have successfully installed the emacs daemon -- Congratulations!
+
+\section{The Next Part of your Journey}
+\label{sec:org1a2800f}
+If you have followed this guide up until now, your emacs is ready to
+use, but it will look unfamiliar and the keybindings will be very different
+from Windows, so you are likely to be completely overwhelmed. This is
+normal, and I was, too. For this, reason, as a next step, you will need
+to set up a configuration file which will make your life easier. If
+you now feel even more overwhelmed, no worries, this [Link] post is
+for you. Should you already know how setting up such a file works and
+just want the familiar keybindings, you might want to check out [Link]
+this post.
+
+For those die-hards who already know all this, just put your
+configuration file in the folder which in turn contains \texttt{bin}. For me, that was
+\texttt{C:\textbackslash{}Users\textbackslash{}Vitus\textbackslash{}AppData\textbackslash{}Roaming}. Note that, especially
+if you use the famous package-manager \texttt{use-package}, you might need to
+start it more than once to get every package installed.
+\end{document}
