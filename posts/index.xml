@@ -9,54 +9,13 @@
     <description>Recent content in Posts on opensource-philosophy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jan 2022 13:49:00 +0100</lastBuildDate>
     
 	<atom:link href="https://Perangelot.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>hello</title>
-      <link>https://Perangelot.github.io/posts/hello-vom-18.02.2022/</link>
-      <pubDate>Fri, 18 Feb 2022 00:00:00 -0500</pubDate>
-      
-      <guid>https://Perangelot.github.io/posts/hello-vom-18.02.2022/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisl.
-Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>lea</title>
-      <link>https://Perangelot.github.io/posts/lea-vom-18.02.2022/</link>
-      <pubDate>Fri, 18 Feb 2022 00:00:00 -0500</pubDate>
-      
-      <guid>https://Perangelot.github.io/posts/lea-vom-18.02.2022/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Suspendisse potenti.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Example Post</title>
+      <title>A Comprehensive Guide to Installing emacs on Windows (with daemon!)</title>
       <link>https://Perangelot.github.io/posts/install-emacs-on-windows/</link>
       <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
       
@@ -69,47 +28,7 @@ Nullam eu ante vel est convallis dignissim. Fusce suscipit, wisi nec facilisis f
         
         
         
-          In this post, I will guide you through installing emacs on Windows in such a way that all features an emacs-installation on a linux machine would have.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Example Post</title>
-      <link>https://Perangelot.github.io/posts/test/</link>
-      <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
-      
-      <guid>https://Perangelot.github.io/posts/test/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          This post is an example of org-mode syntax highlighting being exported to hugo markdown.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Example Post</title>
-      <link>https://Perangelot.github.io/posts/test2/</link>
-      <pubDate>Thu, 27 Jan 2022 13:49:00 +0100</pubDate>
-      
-      <guid>https://Perangelot.github.io/posts/test2/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Another test file.
+          In this post, I will guide you through installing emacs on Windows in such a way that (alomst) all features an emacs-installation on a linux machine would have are enabled.
           
         
         </description>
