@@ -1,4 +1,4 @@
-#+title: A Comprehensive Guide to Installing emacs on Windows (with daemon!)
+#+title: Example Post
 #+hugo_base_dir: ../
 #+hugo_section: posts
 #+hugo_type: post
@@ -9,8 +9,6 @@
 #+csl-locale: en-us
 
 #+description: In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience. 
-
-#+toc: headlines 2
 * The Problem with emacs on Windows
 TECMACS -- the software emacs originates from -- was written in
 [[https://www.jwz.org/doc/emacs-timeline.html][1976]]. Given that it has been developed ever since, it is no wonder it

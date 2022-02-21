@@ -1,5 +1,5 @@
 +++
-title = "Example Post"
+title = "A Comprehensive Guide to Installing emacs on Windows (with daemon!)"
 description = "In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience."
 lastmod = 2022-02-22T14:00:00+01:00
 tags = ["emacs", "open-source", "guide"]
