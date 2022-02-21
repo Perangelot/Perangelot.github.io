@@ -41,7 +41,7 @@
     {{ if .Params.Cover }}
       {{ partial "postcover.html" . }}
     {{ end }}
-
+      <br>
     <div class="post-content">
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
