@@ -132,3 +132,7 @@ li[role="doc-endnote"]:target::marker {
     }
   }
 }
+
+.post-summary {
+    margin-bottom: 1rem;
+}
