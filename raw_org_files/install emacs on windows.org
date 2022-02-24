@@ -39,14 +39,11 @@ experience but Linux is, we simply import all the necessary linux
 libraries to Windows. There are many ways to achieve this, but the one
 I prefer is to use =msys2=. =msys2= is an open-source software based
 on =cygwin= which does exactly what we need: Provide the necessary tools
-to build Linux software natively in Windows. So let's install it!
+to build Linux software natively on Windows. So installing this piece of software is the first thing we are going to do.
 ** Installing =msys2=
 Visit the [[https://www.msys2.org/][website]] of =msys2= and download the latest Windows
 installer. Double-click it and follow the steps of the installation
 wizard. I installed it to =C:\msys64=. 
-
-Warning: Do /not/ open any other of the =.exe= files. Following the below
-steps with the wrong executable opened /will/ cause problems.
 ** Configuring =msys2=
 Go to =C:\msys64\home\<user>= and open =.bash.rc= with =notepad= by
    double-clicking on the file and, if necessary, selecting the
@@ -72,16 +69,15 @@ path to =msys2= and its subfolder =/bin=. For me, this was
 rights, you can just add the paths to your current path(s) by
 separating them by semicolons as in =C:\msys64\mingw64\bin;C:\msys64\mingw64\bin=.
 
-And with that, =msys2= is configured! You can now back to =C:\msys64= and
-open =mingw64.exe=. Press on "environment variables" again, select
-"path" and click on "edit". 
+And with that, =msys2= is configured! You can now go back to =C:\msys64= and
+open =mingw64.exe=. 
 
+Warning: Do /not/ open any other of the =.exe= files. Following the below steps with the wrong executable opened /will/ cause problems.
 * Preparing to Install Emacs
-Now we have the /means/ to get all the libraries we need to build emacs, but
-we do not have a single one yet. Thus, the next step is to get them. Conveniently, =msys2= also uses =pacman=, the package manager which
-by default ships with Arch Linux, so it might even be familiar to you. 
+Now we have the /means/ to get all the software we need to build emacs, but
+we do not yet downloaded a single file. Thus, the next step is to do clone the packages we need. Conveniently, =msys2= also uses =pacman=, the package manager which by default ships with Arch Linux, so it might even be familiar to you. 
 
-First of all, we want to make sure that our package manage is up-to-date:
+First of all, we want to make sure that our package manager is up-to-date:
 #+BEGIN_SRC bash
 pacman -Syu
 #+END_SRC
@@ -208,8 +204,7 @@ formulas overlayed with =org-preview=, you should also install the =texlive=
 binaries. This installation should happen without the help of msys2;
 if you already have a LaTeX distribution installed, emacs will
 recognize it once it is configured. If not, you will need to install it. The
-easiest way I have found is to use an =.iso= [[https://www.tug.org/texlive/acquire-iso.html][image]], but there are other
-possibilities as well.
+easiest way I have found is to install TeXlive using an =.iso= [[https://www.tug.org/texlive/acquire-iso.html][image]]. There is also [[https://miktex.org/][MiKTeX]], but it ships with a minimal install of packages which, depending on your needs, may not suffice. You can install packages manually, though.
 
 If you think of using =mu4e= as your emacs client on Windows, this might be a
 problem because there is no =msys2= package for =mu=. You might try your
