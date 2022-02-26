@@ -9,7 +9,7 @@
 #+hugo_base_dir: ../
 #+hugo_section: posts
 #+hugo_type: post
-#+hugo_custom_front_matter: :tikzjax true
+#+hugo_custom_front_matter: :tikzjax true :draft true
  # #+hugo_lastmod:
 #+hugo_tags:
 #+csl-style: ../static/apa.csl

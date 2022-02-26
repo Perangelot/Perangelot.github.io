@@ -111,7 +111,7 @@ Warning: Do _not_ open any other of the `.exe` files. Following the below steps 
 ## <span class="section-num">3</span> Preparing to Install Emacs {#preparing-to-install-emacs}
 
 Now we have the _means_ to get all the software we need to build emacs, but
-we do not yet downloaded a single file. Thus, the next step is to do clone the packages we need. Conveniently, `msys2` also uses `pacman`, the package manager which by default ships with Arch Linux, so it might even be familiar to you.
+we have not yet downloaded a single file. Thus, the next step is to do clone the packages we need. Conveniently, `msys2` also uses `pacman`, the package manager which by default ships with Arch Linux, so it might even be familiar to you.
 
 First of all, we want to make sure that our package manager is up-to-date:
 

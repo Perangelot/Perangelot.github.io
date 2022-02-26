@@ -3,8 +3,8 @@ title = "Magic Logic Buffer"
 date = 2022-02-20T00:00:00+01:00
 tags = ["blog-post"]
 type = "post"
-draft = false
 tikzjax = true
+draft = true
 +++
 
 (setq mlogb-enable-colors nil) → disable coloring
@@ -22,6 +22,8 @@ Add to list:
 	'("color" . "r,g,b")))
 
 mlogb-enable-delete-LaTeX-macros
+
+funktion weiteren namen geben: (defalias 'qrr 'query-replace-regexp)
 
 ```emacs-lisp
 At first, you can do all these in a single ‘with-eval-after-load’
