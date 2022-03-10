@@ -273,6 +273,26 @@ git clone http://git.savannah.gnu.org/r/emacs.git
 Next up, we need to tell emacs what (not) to build. I have chosen to
 go with every sensible dependency to cover all needs:
 
+```bash
+./autogen.sh
+./configure \
+    --host=x86_64-w64-mingw32 \
+    --target=x86_64-w64-mingw32 \
+    --build=x86_64-w64-mingw32 \
+    --with-native-compilation \
+    --with-gnutls \
+    --with-imagemagick \
+    --with-jpeg \
+    --with-json \
+    --with-png \
+    --with-rsvg \
+    --with-tiff \
+    --with-wide-int \
+    --with-xft \
+    --with-xml2 \
+    --with-xpm \
+    'CFLAGS=-I/mingw64/include/noX'
+```
 If you get an error message, you are likely in the wrong folder. Make
 sure the folder contains `autogen.sh`. You can do that by running `ls`,
 which lists the contents of the folder the console currently operates in.
