@@ -350,10 +350,10 @@ wizard. I installed it to <code>C:\msys64</code>.</p>
 double-clicking on the file and, if necessary, selecting the
 notepad among the list of programs. Then, add the following code to
 the end of the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#f92672">(</span>uname -o<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Msys&#39;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-	export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#f92672">{</span>PATH<span style="color:#f92672">}</span> | awk -v RS<span style="color:#f92672">=</span>: -v ORS<span style="color:#f92672">=</span>: <span style="color:#e6db74">&#39;/c\// {next} {print}&#39;</span> | sed <span style="color:#e6db74">&#39;s/:*//&#39;</span><span style="color:#e6db74">`</span>
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>This code snippet makes sure that issuing a command in <code>msys2</code> which
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#f92672">(</span>uname -o<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Msys&#39;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#f92672">{</span>PATH<span style="color:#f92672">}</span> | awk -v RS<span style="color:#f92672">=</span>: -v ORS<span style="color:#f92672">=</span>: <span style="color:#e6db74">&#39;/c\// {next} {print}&#39;</span> | sed <span style="color:#e6db74">&#39;s/:*//&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>This code snippet makes sure that issuing a command in <code>msys2</code> which
 happens to have the same name as a Windows command won&rsquo;t cause
 problems. Lastly, we want to make sure that <code>msys2</code> is recognized by
 Windows. We do that by setting a so-called <code>PATH</code> variable. With that,
@@ -376,101 +376,101 @@ open <code>mingw64.exe</code>.</p>
 <p>Now we have the <em>means</em> to get all the software we need to build emacs, but
 we have not yet downloaded a single file. Thus, the next step is to do clone the packages we need. Conveniently, <code>msys2</code> also uses <code>pacman</code>, the package manager which by default ships with Arch Linux, so it might even be familiar to you.</p>
 <p>First of all, we want to make sure that our package manager is up-to-date:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Syu
-</code></pre></div><p>The flags <code>S</code>, <code>y</code> and <code>u</code> stand for &ldquo;Sync&rdquo;, &ldquo;refresh&rdquo; and &ldquo;sysupdate&rdquo;,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Syu
+</span></span></code></pre></div><p>The flags <code>S</code>, <code>y</code> and <code>u</code> stand for &ldquo;Sync&rdquo;, &ldquo;refresh&rdquo; and &ldquo;sysupdate&rdquo;,
 respectively. That being done, we install all tools we need to build
 emacs from source, starting with the most important ones:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Sy<span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	--needed <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	filesystem <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	msys2-runtime <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	bash <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libreadline <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libiconv <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libarchive <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libgpgme <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libcurl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	pacman <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	ncurses <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libintl
-</code></pre></div><p>Now we&rsquo;ll need to update <code>pacman</code> again:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Su
-</code></pre></div><p>Finally, we will download and install the necessary
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Sy<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--needed <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	filesystem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	msys2-runtime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	bash <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libreadline <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libiconv <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libarchive <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libgpgme <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libcurl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	pacman <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	ncurses <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libintl
+</span></span></code></pre></div><p>Now we&rsquo;ll need to update <code>pacman</code> again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Su
+</span></span></code></pre></div><p>Finally, we will download and install the necessary
 libraries. Depending on your download speed and hardware, this
 will take quite a while. Perfect time to rethink whether you really
 need Windows. Remember you can also have two systems installed on your
 machine [Link] to try out Linux!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -Su <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	autoconf <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	autogen <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	automake <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	automake-wrapper <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	diffutils <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	git <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	guile <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libgc <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libguile <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libidn-devel <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libltdl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libnettle-devel <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libopenssl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libp11-kit-devel <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libtasn1-devel <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	libunistring <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	make <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-binutils <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-bzip2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-cairo <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-crt-git <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-dbus <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-expat <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-fontconfig <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-freetype <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc-libs <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gdk-pixbuf2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gettext <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-giflib <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-glib2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gmp <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gnutls <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-harfbuzz <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-headers-git <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-imagemagick <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-isl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jansson <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libffi <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libgccjit <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libiconv <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libidn2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libjpeg-turbo <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libpng <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-librsvg <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libsystre <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtasn1 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtiff <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libunistring <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libwinpthread-git <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libxml2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpc <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpfr <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-nettle <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-p11-kit <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pango <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pixman <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-poppler <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-winpthreads <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xpm-nox <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xz <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-zlib <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jbigkit <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	nano <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	openssl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	pkgconf <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	tar <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	texinfo <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>	wget
-</code></pre></div><p>Having done this, we could in principle compile emacs from
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Su <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	autoconf <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	autogen <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	automake <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	automake-wrapper <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	diffutils <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	guile <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libgc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libguile <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libidn-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libltdl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libnettle-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libopenssl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libp11-kit-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libtasn1-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libunistring <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	make <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-binutils <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-bzip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-cairo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-crt-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-dbus <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-expat <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-fontconfig <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-freetype <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc-libs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gdk-pixbuf2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gettext <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-giflib <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-glib2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gmp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gnutls <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-harfbuzz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-headers-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-imagemagick <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-isl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jansson <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libffi <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libgccjit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libiconv <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libidn2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libjpeg-turbo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libpng <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-librsvg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libsystre <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtasn1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtiff <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libunistring <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libwinpthread-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libxml2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpfr <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-nettle <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-p11-kit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pango <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pixman <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-poppler <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-winpthreads <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xpm-nox <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-zlib <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jbigkit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	nano <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	openssl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	pkgconf <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	tar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	texinfo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	wget
+</span></span></code></pre></div><p>Having done this, we could in principle compile emacs from
 source. What we should not forget, though, is that emacs lives from
 packages &ndash; and they also have dependencies which we need to
 install. Of course, the code below might not suffice to cover
@@ -478,10 +478,10 @@ all dependencies your packages need, but it takes care of the most
 important ones: <code>hunspell</code> to make spell-checking work and <code>poppler</code> to
 allow <code>pdf-tools</code> to open <code>.pdf</code> files. <code>sqlite</code> already is installed with
 the binaries above, so <code>org-roam</code> (and also <code>org-roam-ui</code>) will work.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pacman -S mingw-w64-x86_64-hunspell <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler  <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler-data
-</code></pre></div><p>Note that whilst only an english dictionary is available via <code>msys2</code>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S mingw-w64-x86_64-hunspell <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler-data
+</span></span></code></pre></div><p>Note that whilst only an english dictionary is available via <code>msys2</code>,
 you can add dictionaries of any language you like by putting them
 in <code>C:\msys64\mingw64\share\hunspell</code>. For a list of dictionaries to
 download, visit <a href="https://github.com/elastic/hunspell/tree/master/dicts">this page</a>. Of course, you will need to adjust the
@@ -502,14 +502,32 @@ luck with an <a href="https://github.com/msys2-unofficial/MSYS2-packages/tree/ma
 <p>Now we have done everything we need to start with the actual building
 process, so we are going to download the emacs source code from an
 official github repository:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone http://git.savannah.gnu.org/r/emacs.git
-</code></pre></div><h3 id="configuring-the-installation">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone http://git.savannah.gnu.org/r/emacs.git
+</span></span></code></pre></div><h3 id="configuring-the-installation">
   <span class="section-num">4.1</span> Configuring the Installation
   <a href="#configuring-the-installation" class="h-anchor" aria-hidden="true">#</a>
 </h3>
 <p>Next up, we need to tell emacs what (not) to build. I have chosen to
 go with every sensible dependency to cover all needs:</p>
-<p>If you get an error message, you are likely in the wrong folder. Make
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./autogen.sh
+</span></span><span style="display:flex;"><span>./configure <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --host<span style="color:#f92672">=</span>x86_64-w64-mingw32 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --target<span style="color:#f92672">=</span>x86_64-w64-mingw32 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --build<span style="color:#f92672">=</span>x86_64-w64-mingw32 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-native-compilation <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-gnutls <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-imagemagick <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-jpeg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-png <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-rsvg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-tiff <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-wide-int <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-xft <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-xml2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --with-xpm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;CFLAGS=-I/mingw64/include/noX&#39;</span>
+</span></span></code></pre></div><p>If you get an error message, you are likely in the wrong folder. Make
 sure the folder contains <code>autogen.sh</code>. You can do that by running <code>ls</code>,
 which lists the contents of the folder the console currently operates in.</p>
 <h3 id="building-emacs">
@@ -519,9 +537,9 @@ which lists the contents of the folder the console currently operates in.</p>
 <p>Now, we&rsquo;re finally ready to do the last step: Actually installing
 emacs! This will take at least 10 minutes, possibly up to 30. Just run
 the following code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
-make install
-</code></pre></div><h3 id="setting-the-paths">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>make install
+</span></span></code></pre></div><h3 id="setting-the-paths">
   <span class="section-num">4.3</span> Setting the Paths
   <a href="#setting-the-paths" class="h-anchor" aria-hidden="true">#</a>
 </h3>
