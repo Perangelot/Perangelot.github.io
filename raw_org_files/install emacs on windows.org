@@ -204,7 +204,7 @@ formulas overlayed with =org-preview=, you should also install the =texlive=
 binaries. This installation should happen without the help of msys2;
 if you already have a LaTeX distribution installed, emacs will
 recognize it once it is configured. If not, you will need to install it. The
-easiest way I have found is to install TeXlive using an =.iso= [[https://www.tug.org/texlive/acquire-iso.html][image]]. There is also [[https://miktex.org/][MiKTeX]], but it ships with a minimal install of packages which, depending on your needs, may not suffice. You can install packages manually, though.
+easiest way I have found is to install TeXlive using an =.iso= [[https://www.tug.org/texlive/acquire-iso.html][image]]. There is also [[https://miktex.org/][MiKTeX]], but it ships with a minimal install of packages which, depending on your needs, might not suffice. You can install packages manually, though.
 
 If you think of using =mu4e= as your emacs client on Windows, this might be a
 problem because there is no =msys2= package for =mu=. You might try your
