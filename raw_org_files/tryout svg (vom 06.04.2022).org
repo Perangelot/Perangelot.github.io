@@ -24,7 +24,8 @@ $\begin{tikzpicture}
 \end{tikzpicture}$
 
 Is this centered?
-#+attr_html: :align center
+#+attr_html: :class img-newline
 $\Fcdt[\Fa]{\Fcdt[\Fn]{\Fn \alpha}{\Fn \beta}}{\Fcdt[\F]{\F \beta}{\F \alpha}}$
+
 
 Yeah. $new$ is white?
