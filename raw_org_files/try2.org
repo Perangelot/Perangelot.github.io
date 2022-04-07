@@ -1,0 +1,33 @@
+#+filetags: blog-post
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+draft: true
+#+title: red?
+#+description: This is a test to see if svg images work.
+#+startup: latexpreview
+#+hugo_custom_front_matter: :tikzjax false
+#+options: tex:dvisvgm
+#+BEGIN_SRC emacs-lisp :exports results :results none
+(require 'ox)
+  (defun tmp-latex-code-filter (text backend info)
+    "red inline code"
+    (when (org-export-derived-backend-p backend 'latex) 
+        (format "{\\color %s }" text)))
+#+END_SRC
+#+latex_header: \usepackage{xcolor}
+(setq org-export-allow-bind-keywords t)
+(setq org-export-filter-latex-fragment-functions '(tmp-latex-code-filter))
+(add-to-list 'org-export-filter-final-output-functions #'tmp-latex-code-filter)
+$b$
+$fünfb$
+$fünfa$
+$abc$
+$wat$
+$vier$
+
+$fünf$
+$$
+~this is a test~
+$lel$
+$will this work now?$
