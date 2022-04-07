@@ -142,19 +142,19 @@ img {
   display: inline;
   max-width: 100%;
   margin-bottom: -3.6px; !important;
-
-  &.left {
+}
+  img.left {
     margin-right: auto;
   }
 
-  &.center {
+  img.center {
     margin-left: auto;
     margin-right: auto;
   }
 
 /* There are some cases in which we want the image to be centered, so we define a new class .block-img which does just that. The important line is line display: block; .*/
 
-.img-newline {
+.img-newline img {
   display: block !important;
   max-width: 100%;
   margin-left: auto;
