@@ -9,10 +9,30 @@
     <description>Recent content in Posts on opensource-philosophy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Feb 2022 14:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://Perangelot.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tryout svg</title>
+      <link>https://Perangelot.github.io/posts/tryout-svg-vom-06.04.2022/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0200</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/tryout-svg-vom-06.04.2022/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          This is a test to see if svg images work.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>A Comprehensive Guide to Installing emacs on Windows (with daemon!)</title>
@@ -29,6 +49,46 @@
         
         
           In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://Perangelot.github.io/posts/tryout/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/tryout/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Let us try an inline formula like . Does this work? Does this tikz picture work?
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>red?</title>
+      <link>https://Perangelot.github.io/posts/try2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/try2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          This is a test to see if svg images work.
           
         
         </description>
