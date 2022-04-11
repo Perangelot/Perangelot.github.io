@@ -1,0 +1,31 @@
+:PROPERTIES:
+:ID:       20220410T182326.459391
+:CATEGORY: Website
+:CREATED:  [2022-04-10 So 18:23]
+:END:
+#+title: An in-depth guide to writing full-fledged LaTeX in html using ox-hugo
+#+date: [2022-04-10 So]
+#+filetags: blog-post
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+hugo_custom_front_matter: :tikzjax false
+ # #+hugo_lastmod:
+#+hugo_tags:
+#+csl-style: ../static/apa.csl
+#+csl-locale: en-US
+#+startup: latexpreview
+#+options: tex:dvisvgm
+#+description:
+
+
+* Linking equations with target links:
+- set target <<eq1>>
+- refer with link: =[[eq1][Link to eq1]]= (span class="org-target")
+- documentation of ox-hugo: https://ox-hugo.scripter.co/doc/anchors/#target-links
+
+* 
+
+  
+
+

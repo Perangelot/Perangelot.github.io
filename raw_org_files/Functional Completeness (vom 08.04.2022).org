@@ -1,0 +1,174 @@
+:PROPERTIES:
+:ID:       20220408T213745.091724
+:CATEGORY: Website
+:CREATED:  [2022-04-08 Fr 21:37]
+:END:
+#+title: Functional Completeness
+#+date: [2022-04-08 Fr]
+#+filetags: logical
+#+hugo_base_dir: ../
+#+hugo_section: posts
+#+hugo_type: post
+#+hugo_custom_front_matter: :tikzjax false
+ # #+hugo_lastmod:
+#+hugo_tags: logic syntax 
+#+csl-style: ../static/apa.csl
+#+csl-locale: en-US
+#+startup: latexpreview
+#+options: tex:dvisvgm
+#+description: In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*.
+#+LATEX_HEADER: \usepackage{array,tabularray}
+#+LATEX_HEADER: \newenvironment{chain}[1][$\leftrightarrow$]%
+#+LATEX_HEADER:{\begin{tblr}
+#+LATEX_HEADER:{colspec={lc@{#1 \hskip \tabcolsep}ll}, 
+#+LATEX_HEADER:column{2-4} = {mode=dmath}, 
+#+LATEX_HEADER:cell{1}{1}={mode=dmath}}
+#+LATEX_HEADER:}%
+#+LATEX_HEADER:{\end{tblr}}
+
+#+LATEX_HEADER:\usepackage{fontawesome}
+#+LATEX_HEADER:\usepackage[most]{tcolorbox}
+#+LAETX_HEADER:\usepackage{xcolor}
+#+LATEX_HEADER:\definecolor{anthrazit}{HTML}{292a2d}
+#+LATEX_HEADER:\definecolor{pink}{HTML}{fe5186}
+#+LATEX_HEADER:\tcbuselibrary{theorems}
+#+LATEX_HEADER:\newtcbtheorem{defin}{\hskip -1em \dgelb{\faicon{cog}~Definition}}%
+#+LATEX_HEADER:{colback=anthrazit, fonttitle=\bfseries}{def}
+
+* The interdefinability of connectives
+Let us first of all get familiar with one very simple idea: Some logical constants can be defined in terms of others. For example, you can define the material conditional in logic like this:
+
+\begin{equation*}
+\tag{1} \hskip -15em
+\text{``}\!\mathit{A} \to \mathit{B}\,\text{''} 
+\text{ abbreviates } 
+\text{``}\lnot ( \mathit{A} \land \lnot \mathit{B})\text{''}
+\end{equation*}
+
+In our example, we used two other connectives, "$\lnot $" and "$\land$", to define
+"$\to$". We can check that this definition is appriopriate by proving that the /definiens/ yields the same truth-values of the ones usually attributed to the /definiendum/, for example by means of a truth-table:
+
+#+ATTR_HTML: :class img-newline
+$\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+      \mathit{A}
+   &  \mathit{B}
+   & \lnot \mathit{A} 
+   & \lnot \mathit{B} 
+   &  \mathit{A}  \land \neg  \mathit{B}
+   & \lnot (\mathit{A}  \land \neg  \mathit{B})
+   &  \mathit{A}  \to  \mathit{B} \\
+  \hline
+  T & T & F & F & F & T & T\\ \hline
+  T & F & F & T & T & F & F\\ \hline
+  F & T & T & F & F & T & T\\ \hline
+  F & F & T & T & F & T & T\\
+  \hline 
+  \end{array}$
+
+As we can see, the truth conditions for $\lnot (\mathit{A}  \land \neg  \mathit{B})$ are the same as those for $\lnot (\mathit{A}  \land \neg  \mathit{B})$. We can do the same for $\lor$ and $\leftrightarrow$:
+
+#+NAME: Versuch
+\begin{equation*}
+\tag{2} \hskip -15em
+\text{``}\!\mathit{A} \lor \mathit{B}\,\text{''} 
+\text{ abbreviates } 
+\text{``}\lnot ( \lnot \mathit{A} \land \lnot \mathit{B})\text{''}
+\end{equation*}
+
+\begin{equation*}
+\tag{3} \hskip -15em
+\text{``}\!\mathit{A} \leftrightarrow \mathit{B}\,\text{''} 
+\text{ abbreviates } 
+\text{``}\lnot (\mathit{A} \land \lnot \mathit{B}) \land \lnot (\mathit{B} \land \lnot \mathit{A})\text{''}
+\end{equation*}
+
+If we wanted to, we could also define the strong alternation like this:
+\begin{equation*}
+\label{eq:4}
+\tag{4} \hskip -15em
+\text{``}\!\mathit{A} \nabla \mathit{B}\,\text{''} 
+\text{ abbreviates } 
+\text{``} \lnot (\lnot (\mathit{A} \land \lnot \mathit{B}) \land \lnot (\mathit{B} \land \lnot \mathit{A}))\text{''}
+\end{equation*}
+
+As it happens, we have now used two connectives -- "$\neg$" and "$\land$" -- to show that all other connectives can be introduced as abbreviations of them. This is not self-evident, since some pairs of connectives are not capable of defining all others, for example "$\land$" "$\lor$" or "$\lnot $" and "$\leftrightarrow$". 
+
+* The interdefinability of quantifiers
+So far, we have only looked at connectives, and while this suffices for propositional logic, there are two other logical symbols in /predicate/ /logic/ we need to take into consideration: "$\forall $" and "$\exists $". Here, we can also define one quantifier in terms of the other using $\lnot $. For example, we can stipulate that
+
+\begin{equation*}
+\tag{4} \hskip -15em
+\text{``}\exists\mathit{x}\,\text{''} 
+\text{ abbreviates } 
+\text{``} \lnot \forall\mathit{x}\,\lnot\text{''}
+\end{equation*}
+
+and thereby define the existential quantifier by means of "$\forall$" and "$\neg$". To see this is working as intended, we simply need our definition and the rule of Double Negation[fn:1]:
+
+# \begin{chain}
+#     \neg \forall \mathit{x} \mathit{A}   && \kgrün{\neg \forall \mathit{x}\, \lnot }\lnot \mathit{A} \hphantom{\lnot\lnot } & DN \\
+#     && \exists \mathit{x} \, \lnot \mathit{A}   & Def_\exists  
+# \end{chain} \vskip 2em
+
+# \begin{chain}
+#   \forall \mathit{x} \mathit{A} \hphantom{\lnot }  && \lnot \kgrün{\lnot \forall \mathit{x} \, \lnot}\lnot \mathit{A} \hphantom{\lnot} &  DN  \\
+#          &&  \lnot \exists \mathit{x} \, \lnot \mathit{A}   & Def_\exists  
+# \end{chain}
+
+# \begin{chain}
+#     \forall \mathit{x}\,\lnot  \mathit{A}   && \lnot \kgrün{\neg \forall \mathit{x} \,  \lnot } \mathit{A} \hphantom{\lnot\lnot }& DN \\
+#     && \lnot \dgelb{\exists \mathit{x}} \mathit{A}   & Def_\exists  
+# \end{chain}
+One could, of course, also take "$\exists$" as primitive and define "$\forall$" in terms of it. Similarly, you can define a weak modal operator like "$\Diamond $" by the corresponding strong one -- "$\Box $" in this case -- or vice versa.
+* A definition of functional completeness
+In the last two sections, we showed that we only need /some/ connectives and quantifiers in our syntax to express /all/ of them. We also understood that not any of logical constants is capable of doing this, so we are talking about an interesting property here -- a property usually called /functional completeness/ or /expressive completeness/. There are several definitions of this concept, but they only deviate in minor points. I suggest the following definition based on [[cite:&yaqub2015 110]]:
+
+#+ATTR_HTML: :class equation-definition
+#+ATTR_HTML: :class equation-definition
+\begin{defin}{Functional Completeness}
+  \Large A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em
+  A set S of logical operators ist \textcolor{pink}{\textit{functionally complete}} for a language L if and only if every unary and binary logical operator is expressible in L in terms of S.
+\end{defin}
+
+With the notion of functional completeness in place, we are now able to express what we discovered in sections [[*The interdefinability of connectives][1]] and [[*The interdefinability of quantifiers][2]] very briefly:
+
+\begin{equation*} \hskip -15em
+\tag{5} \text{The set $\{ \lnot, \land \}$ is functionally complete for propositional logic.}
+\end{equation*}
+
+\begin{equation*} \hskip -15em
+\tag{6} \text{The set $\{\lnot, \land, \forall\}$ is functionally complete for predicate logic.}
+\end{equation*}
+
+* Functional completeness and metalogic
+It is important to understand that functional completeness of a set of connectives is different from completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules). Although both establish a connection between a syntactic and a semantic concept, there are some important differences. Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulas and the set of formulas which result from rule-governed sign manipulation.
+
+| Property of  ...                      | syntactic concept           | semantic concept |
+|---------------------------------------+-----------------------------+------------------|
+| a set of connectives                  | abbreviations (definitions) | truth-functions  |
+| the set of universally valid formulas | deduction                   | validity         |
+
+To get a better idea of how these concepts deviate, consider a language with the same syntax as classical propositional logic and an axiom system of propositional logic, but with the following semantics, which is admittedly not all too inventive:
+
+<<Triv>>
+#+attr_html: :class img-newline
+\begin{equation*} \hskip -15em
+\tag{Triv} 
+\mathit{v\,(\!A)}=T 
+\end{equation*} 
+
+With [[Triv][(Triv)]] we state that /any/ formula is true. As a direct corollary, then, any formula is universally valid as well. But since we have classical deduction rules, not every formula is deducible, so it is not the case that any universally valid formula is also deducible. In other words: Our proof system ist not complete with respect to the semantics we stated. 
+
+Nonetheless, any set of connectives is functionally complete: No matter what formula we look at, be it of the form  $\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$, $\text{``}\neg \mathit{A}\text{''} $ or any other form, it is true. So any abbreviation of one connective by the other results in the same truth-values -- or, as in this case, the same truth-value.
+
+Note that if we had chosen as proof system in which any formula is deducible, our proof system would be complete with respect to the given semantics. It is the dependency of the proof system that is the biggest difference between functional completeness and completeness of a proof system.
+
+Any definition is stated with help of syntax, as a notational convention of abbreviation; but to say that an expression is syntactically definable is to say something more, namely that it is explicable as an abbreviation of an expression which is itself composed of just the notations of syntax.
+quine, 286, math logic 
+
+bibliography:../static/blog.bib
+
+* Footnotes
+
+[fn:1]In intuitionistic logic, the quantifiers are not interdefinable. This is a direct consequence of the fact that intuitionists do not accept DN.
