@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Functional Completeness ::
+        opensource-philosophy
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="1 The interdefinability of connectives #  Let us first of all get familiar with one very simple idea: Some logical constants can be defined in terms of others. For example, you can define the material conditional in logic like this:
+  In our example, we used two other connectives, &amp;ldquo;&amp;rdquo; and &amp;ldquo;&amp;rdquo;, to define &amp;ldquo;&amp;rdquo;. We can check that this definition is appriopriate by proving that the definiens yields the same truth-values of the ones usually attributed to the definiendum, for example by means of a truth-table:"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://Perangelot.github.io/posts/functional-completeness-vom-08.04.2022/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://Perangelot.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://Perangelot.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://Perangelot.github.io/img/favicon.png" />
+
+
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Functional Completeness"/>
+<meta name="twitter:description" content="In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*."/>
+
+
+
+<meta property="og:title" content="Functional Completeness" />
+<meta property="og:description" content="In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Perangelot.github.io/posts/functional-completeness-vom-08.04.2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-08T00:00:00+02:00" />
+<meta property="article:modified_time" content="2022-04-08T00:00:00+02:00" />
+
+
+
+
+
+<script>
+MathJax = {
+  loader: {
+        load: ['[unicodeMath]/unicode-math.js'],
+        paths: {unicodeMath: 'https://cdn.jsdelivr.net/npm/@amermathsoc/mathjax-unicode-math@1/browser'}
+    },
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: {'[+]': ['unicode-math']},
+    processEscapes: true,
+    processEnvironments: true
+  }, 
+  svg: {
+    fontCache: 'global'
+  },
+ options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/forall.ico">
+
+<link href="/css/prism.css" rel="stylesheet"/>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container line-numbers">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/posts/">Posts</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More
+            <span class="menu__sub-inner-more-trigger-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span
+            >
+          </li>
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/projects/">Projects</a></li>
+              
+            
+              
+                <li><a href="/about_me/">About Me</a></li>
+              
+            
+              
+                <li><a href="/donate/">Donate</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/posts/">Posts</a></li>
+      
+    
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+    
+      
+        <li><a href="/about_me/">About Me</a></li>
+      
+    
+      
+        <li><a href="/donate/">Donate</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Functional Completeness</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          08 Apr. 2022
+        </span>
+
+        
+          
+            
+
+
+
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://Perangelot.github.io/tags/logic/">#logic</a>&nbsp;
+        
+          <a href="https://Perangelot.github.io/tags/syntax/">#syntax</a>&nbsp;
+        
+      </span>
+    
+
+    
+    <div class="post-content">
+      
+        
+        <div class="post-summary">
+          In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*.
+        </div>
+          
+      <h2 id="the-interdefinability-of-connectives">
+  <span class="section-num">1</span> The interdefinability of connectives
+  <a href="#the-interdefinability-of-connectives" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Let us first of all get familiar with one very simple idea: Some logical constants can be defined in terms of others. For example, you can define the material conditional in logic like this:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_7f5d4d77e73a0fc2e2f3ff100a22a175a5eaaf42.svg" alt="\begin{equation*}
+\tag{1} \hskip -15em
+\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}
+\text{ abbreviates }
+\text{``}\lnot ( \mathit{A} \land \lnot \mathit{B})\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>In our example, we used two other connectives, &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo;, to define
+&ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_2600a834e3347a269e293992fda08a888bfa3468.svg" alt="$\to$" class="org-svg" />&rdquo;. We can check that this definition is appriopriate by proving that the <em>definiens</em> yields the same truth-values of the ones usually attributed to the <em>definiendum</em>, for example by means of a truth-table:</p>
+<div class="img-newline">
+<p><img src="/ltximg/Functional Completeness (vom 08.04.2022)_1aa03a9d2285243243edadd091c573141d02eba2.svg" alt="$\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+\mathit{A}
+&amp;amp;  \mathit{B}
+&amp;amp; \lnot \mathit{A}
+&amp;amp; \lnot \mathit{B}
+&amp;amp;  \mathit{A}  \land \neg  \mathit{B}
+&amp;amp; \lnot (\mathit{A}  \land \neg  \mathit{B})
+&amp;amp;  \mathit{A}  \to  \mathit{B} \\
+\hline
+T &amp;amp; T &amp;amp; F &amp;amp; F &amp;amp; F &amp;amp; T &amp;amp; T\\ \hline
+T &amp;amp; F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; F\\ \hline
+F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; F &amp;amp; T &amp;amp; T\\ \hline
+F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
+\hline
+\end{array}$" class="org-svg" /></p>
+</div>
+<p>As we can see, the truth conditions for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_b9ac421dee6f6c117c76118eb2f4bf5c1af01699.svg" alt="$\lnot (\mathit{A}  \land \neg  \mathit{B})$" class="org-svg" /> are the same as those for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_b9ac421dee6f6c117c76118eb2f4bf5c1af01699.svg" alt="$\lnot (\mathit{A}  \land \neg  \mathit{B})$" class="org-svg" />. We can do the same for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_08f35a7ae82b64a9c20f4df2c3f377f2e4272af3.svg" alt="$\lor$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_73f5d4db27c48e7d00e6ab2f8b11b2dca123bcd7.svg" alt="$\leftrightarrow$" class="org-svg" />:</p>
+<div id="org6d2c426" class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_1092f5d47b8fff0d4d33c511e767869404116128.svg" alt="\begin{equation*}
+\tag{2} \hskip -15em
+\text{``}\!\mathit{A} \lor \mathit{B}\,\text{''}
+\text{ abbreviates }
+\text{``}\lnot ( \lnot \mathit{A} \land \lnot \mathit{B})\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_6d64c6b5ed3181da4056ac2c23d3292402fa3cd4.svg" alt="\begin{equation*}
+\tag{3} \hskip -15em
+\text{``}\!\mathit{A} \leftrightarrow \mathit{B}\,\text{''}
+\text{ abbreviates }
+\text{``}\lnot (\mathit{A} \land \lnot \mathit{B}) \land \lnot (\mathit{B} \land \lnot \mathit{A})\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>If we wanted to, we could also define the strong alternation like this:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_68abcd942b8a0eeee07d3070aee31317a0f23840.svg" alt="\begin{equation*}
+\label{eq:4}
+\tag{4} \hskip -15em
+\text{``}\!\mathit{A} \nabla \mathit{B}\,\text{''}
+\text{ abbreviates }
+\text{``} \lnot (\lnot (\mathit{A} \land \lnot \mathit{B}) \land \lnot (\mathit{B} \land \lnot \mathit{A}))\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>As it happens, we have now used two connectives &ndash; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_a1b4e5ba625e4dceb0689066713fe5bfb6689673.svg" alt="$\neg$" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo; &ndash; to show that all other connectives can be introduced as abbreviations of them. This is not self-evident, since some pairs of connectives are not capable of defining all others, for example &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_08f35a7ae82b64a9c20f4df2c3f377f2e4272af3.svg" alt="$\lor$" class="org-svg" />&rdquo; or &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_73f5d4db27c48e7d00e6ab2f8b11b2dca123bcd7.svg" alt="$\leftrightarrow$" class="org-svg" />&rdquo;.</p>
+<h2 id="the-interdefinability-of-quantifiers">
+  <span class="section-num">2</span> The interdefinability of quantifiers
+  <a href="#the-interdefinability-of-quantifiers" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>So far, we have only looked at connectives, and while this suffices for propositional logic, there are two other logical symbols in <em>predicate</em> <em>logic</em> we need to take into consideration: &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_589f9e37676e713c70a8a195434c62162538f8ac.svg" alt="$\forall $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_4f5f97d418d6139d0e10f2141d3f36c214cc0560.svg" alt="$\exists $" class="org-svg" />&rdquo;. Here, we can also define one quantifier in terms of the other using <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />. For example, we can stipulate that</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_43502a8cdea2f30d2da2d40e190c9ba66df2d491.svg" alt="\begin{equation*}
+\tag{4} \hskip -15em
+\text{``}\exists\mathit{x}\,\text{''}
+\text{ abbreviates }
+\text{``} \lnot \forall\mathit{x}\,\lnot\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>and thereby define the existential quantifier by means of &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_c6f77607c233cb62364870e7f813cca607d5304c.svg" alt="$\forall$" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_a1b4e5ba625e4dceb0689066713fe5bfb6689673.svg" alt="$\neg$" class="org-svg" />&rdquo;. To see this is working as intended, we simply need our definition and the rule of Double Negation<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<p>One could, of course, also take &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_f9bcdade3fbe3d2634c92b4be4adcbb59aa4a3e5.svg" alt="$\exists$" class="org-svg" />&rdquo; as primitive and define &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_c6f77607c233cb62364870e7f813cca607d5304c.svg" alt="$\forall$" class="org-svg" />&rdquo; in terms of it. Similarly, you can define a weak modal operator like &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_f4a0cbf42ba3eecc6c43028aeb70c81efe38961c.svg" alt="$\Diamond $" class="org-svg" />&rdquo; by the corresponding strong one &ndash; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_8cf8d3ccf236eff54d9b31359608a56963089423.svg" alt="$\Box $" class="org-svg" />&rdquo; in this case &ndash; or vice versa.</p>
+<h2 id="a-definition-of-functional-completeness">
+  <span class="section-num">3</span> A definition of functional completeness
+  <a href="#a-definition-of-functional-completeness" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>In the last two sections, we showed that we only need <em>some</em> connectives and quantifiers in our syntax to express <em>all</em> of them. We also understood that not any of logical constants is capable of doing this, so we are talking about an interesting property here &ndash; a property usually called <em>functional completeness</em> or <em>expressive completeness</em>. There are several definitions of this concept, but they only deviate in minor points. I suggest the following definition based on <a href="#citeproc_bib_item_1">Yaqub, 2015, p. 110</a>:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_d8e577b5ec703776c337315bc09fe33e54c49317.svg" alt="\begin{defin*}{Functional Completeness}
+  \Large A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em
+  A set S of logical operators ist \textcolor{pink}{\textit{functionally complete}} for a language L if and only if every unary and binary logical operator is expressible in L in terms of S.
+\end{defin*}
+" class="equation-definition" />
+</span>
+<span class="equation-label">
+1
+</span>
+</div>
+<p>With the notion of functional completeness in place, we are now able to express what we discovered in sections <a href="#the-interdefinability-of-connectives">1</a> and <a href="#the-interdefinability-of-quantifiers">2</a> very briefly:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_40fc0a082ea7c5f90460dd2d093331a768be00f2.svg" alt="\begin{equation*} \hskip -15em
+\tag{5} \text{The set $\{ \lnot, \land \}$ is functionally complete for propositional logic.}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_eb8f178eba5cf33af062003845d134ed113e78d6.svg" alt="\begin{equation*} \hskip -15em
+\tag{6} \text{The set $\{\lnot, \land, \forall\}$ is functionally complete for predicate logic.}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<h2 id="functional-completeness-and-metalogic">
+  <span class="section-num">4</span> Functional completeness and metalogic
+  <a href="#functional-completeness-and-metalogic" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>It is important to understand that functional completeness of a set of connectives is different from completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules). Although both establish a connection between a syntactic and a semantic concept, there are some important differences. Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulas and the set of formulas which result from rule-governed sign manipulation.</p>
+<table>
+<thead>
+<tr>
+<th>Property of  &hellip;</th>
+<th>syntactic concept</th>
+<th>semantic concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a set of connectives</td>
+<td>abbreviations (definitions)</td>
+<td>truth-functions</td>
+</tr>
+<tr>
+<td>the set of universally valid formulas</td>
+<td>deduction</td>
+<td>validity</td>
+</tr>
+</tbody>
+</table>
+<p>To get a better idea of how these concepts deviate, consider a language with the same syntax as classical propositional logic and an axiom system of propositional logic, but with the following semantics, which is admittedly not all too inventive:</p>
+<p><span class="org-target" id="org-target--Triv"></span></p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_75ce820cadfd1fff5a42b7f6290dbdb2f57c1bcc.svg" alt="\begin{equation*} \hskip -15em
+\tag{Triv}
+\mathit{v\,(\!A)}=T
+\end{equation*}
+" class="img-newline" />
+</span>
+</div>
+<p>With <a href="#org-target--Triv">(Triv)</a> we state that <em>any</em> formula is true. As a direct corollary, then, any formula is universally valid as well. But since we have classical deduction rules, not every formula is deducible, so it is not the case that any universally valid formula is also deducible. In other words: Our proof system ist not complete with respect to the semantics we stated.</p>
+<p>Nonetheless, any set of connectives is functionally complete: No matter what formula we look at, be it of the form  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_e09c79a4fb92071375cfc76ce03f16a5daf73750.svg" alt="$\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_f7e5e15db130e18a6814f30a79b2738871801766.svg" alt="$\text{``}\neg \mathit{A}\text{''} $" class="org-svg" /> or any other form, it is true. So any abbreviation of one connective by the other results in the same truth-values &ndash; or, as in this case, the same truth-value.</p>
+<p>Note that if we had chosen as proof system in which any formula is deducible, our proof system would be complete with respect to the given semantics. It is the dependency of the proof system that is the biggest difference between functional completeness and completeness of a proof system.</p>
+<p>Any definition is stated with help of syntax, as a notational convention of abbreviation; but to say that an expression is syntactically definable is to say something more, namely that it is explicable as an abbreviation of an expression which is itself composed of just the notations of syntax.
+quine, 286, math logic</p>
+<h2 id="references">
+  References
+  <a href="#references" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Yaqub, A. M. (2015). <i>An Introduction to Metalogic</i>. Broadview Press.</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>In intuitionistic logic, the quantifiers are not interdefinable. This is a direct consequence of the fact that intuitionists do not accept DN.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://Perangelot.github.io/posts/a-comprehensive-guide-to-installing-emacs-on-windows-vom-09.04.2022/">
+                  <span class="button__text">A Comprehensive Guide to Installing emacs on Windows (with daemon!)</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        <script src="https://giscus.app/client.js"
+        data-repo="Perangelot/Perangelot.github.io"
+        data-repo-id="R_kgDOGtDP-w"
+        data-category-id="DIC_kwDOGtDP-84CAyAw"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022
+          <a href="mailto:vitus.schaefftlein@opensource-philosophy.com" target="_blank" rel="noopener">Vitus Schäfftlein</a></span
+        >
+        <span
+          >completely
+          <a href="https://github.com/Perangelot/Perangelot.github.io" target="_blank" rel="noopener">open source</a></span
+        > 
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://Perangelot.github.io/assets/main.js"></script>
+<script src="https://Perangelot.github.io/assets/prism.js"></script>
+
+<script src="/js/prism.js"></script>
+
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

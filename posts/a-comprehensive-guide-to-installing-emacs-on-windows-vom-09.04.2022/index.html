@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        A Comprehensive Guide to Installing emacs on Windows (with daemon!) ::
+        opensource-philosophy
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content=".ox-hugo-toc ul { list-style: none; }  Table of Contents  1 The Problem with emacs on Windows 2 The Solution to the Problem  2.1 Installing msys2 2.2 Configuring msys2   3 Preparing to Install Emacs 4 Building Emacs  4.1 Configuring the Installation 4.2 Building Emacs 4.3 Setting the Paths   5 Setting up an Emacs Daemon 6 The Next Part of your Journey    1 The Problem with emacs on Windows #  TECMACS &amp;ndash; the software emacs originates from &amp;ndash; was written in 1976."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://Perangelot.github.io/posts/a-comprehensive-guide-to-installing-emacs-on-windows-vom-09.04.2022/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://Perangelot.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://Perangelot.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://Perangelot.github.io/img/favicon.png" />
+
+
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Comprehensive Guide to Installing emacs on Windows (with daemon!)"/>
+<meta name="twitter:description" content="In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience."/>
+
+
+
+<meta property="og:title" content="A Comprehensive Guide to Installing emacs on Windows (with daemon!)" />
+<meta property="og:description" content="In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Perangelot.github.io/posts/a-comprehensive-guide-to-installing-emacs-on-windows-vom-09.04.2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-01T00:00:00+01:00" />
+<meta property="article:modified_time" content="2022-02-22T14:00:00+01:00" />
+
+
+
+
+
+<script>
+MathJax = {
+  loader: {
+        load: ['[unicodeMath]/unicode-math.js'],
+        paths: {unicodeMath: 'https://cdn.jsdelivr.net/npm/@amermathsoc/mathjax-unicode-math@1/browser'}
+    },
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: {'[+]': ['unicode-math']},
+    processEscapes: true,
+    processEnvironments: true
+  }, 
+  svg: {
+    fontCache: 'global'
+  },
+ options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/forall.ico">
+
+<link href="/css/prism.css" rel="stylesheet"/>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container line-numbers">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/posts/">Posts</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More
+            <span class="menu__sub-inner-more-trigger-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span
+            >
+          </li>
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/projects/">Projects</a></li>
+              
+            
+              
+                <li><a href="/about_me/">About Me</a></li>
+              
+            
+              
+                <li><a href="/donate/">Donate</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/posts/">Posts</a></li>
+      
+    
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+    
+      
+        <li><a href="/about_me/">About Me</a></li>
+      
+    
+      
+        <li><a href="/donate/">Donate</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">A Comprehensive Guide to Installing emacs on Windows (with daemon!)</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          01 Mar. 2022
+        </span>
+
+        
+          
+            
+
+
+
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://Perangelot.github.io/tags/emacs/">#emacs</a>&nbsp;
+        
+          <a href="https://Perangelot.github.io/tags/open-source/">#open-source</a>&nbsp;
+        
+          <a href="https://Perangelot.github.io/tags/guide/">#guide</a>&nbsp;
+        
+      </span>
+    
+
+    
+    <div class="post-content">
+      
+        
+        <div class="post-summary">
+          In this post, I will guide you through installing emacs on Windows in such a way that (almost) all features an emacs installation on a linux machine would have are enabled. Most importantly, we will get emacs daemon to run smoothly, which will drastically improve your emacs experience.
+        </div>
+          
+      <style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
+<div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><span class="section-num">1</span> <a href="#the-problem-with-emacs-on-windows">The Problem with emacs on Windows</a></li>
+<li><span class="section-num">2</span> <a href="#the-solution-to-the-problem">The Solution to the Problem</a>
+<ul>
+<li><span class="section-num">2.1</span> <a href="#installing-msys2">Installing <code>msys2</code></a></li>
+<li><span class="section-num">2.2</span> <a href="#configuring-msys2">Configuring <code>msys2</code></a></li>
+</ul>
+</li>
+<li><span class="section-num">3</span> <a href="#preparing-to-install-emacs">Preparing to Install Emacs</a></li>
+<li><span class="section-num">4</span> <a href="#building-emacs">Building Emacs</a>
+<ul>
+<li><span class="section-num">4.1</span> <a href="#configuring-the-installation">Configuring the Installation</a></li>
+<li><span class="section-num">4.2</span> <a href="#building-emacs">Building Emacs</a></li>
+<li><span class="section-num">4.3</span> <a href="#setting-the-paths">Setting the Paths</a></li>
+</ul>
+</li>
+<li><span class="section-num">5</span> <a href="#setting-up-an-emacs-daemon">Setting up an Emacs Daemon</a></li>
+<li><span class="section-num">6</span> <a href="#the-next-part-of-your-journey">The Next Part of your Journey</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="the-problem-with-emacs-on-windows">
+  <span class="section-num">1</span> The Problem with emacs on Windows
+  <a href="#the-problem-with-emacs-on-windows" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>TECMACS &ndash; the software emacs originates from &ndash; was written in
+<a href="https://www.jwz.org/doc/emacs-timeline.html">1976</a>. Given that it has been developed ever since, it is no wonder it
+is available for all major operating systems. Nonetheless, some
+important functions depend on packages which are not natively
+available on Windows, so by default, an emacs installation on Windows
+falls short of these.</p>
+<p>This should be one more reason [Link] for you to consider changing to
+an open-source operating system such as Linux. Please do not just
+gloss over this point. Next to security reasons, user-configurability
+and extendability, there are compelling arguments &ndash; both
+political and ethical &ndash; why you should not support big-tech
+companies. Plus there is <a href="https://en.wikipedia.org/wiki/Tux_(mascot)">Tux</a>, the mascot of Linux. And who does not
+want a penguin as their mascot?</p>
+<p>That being said, some people depend on Windows if they like it or not
+(although many people only think this is the case, especially in
+academia [Link]), and if they want to use an open-source text editor
+instead of Word, this is a big plus already. So, let&rsquo;s start building
+emacs from source!</p>
+<h2 id="the-solution-to-the-problem">
+  <span class="section-num">2</span> The Solution to the Problem
+  <a href="#the-solution-to-the-problem" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Since Windows is not capable of providing a satisfactory emacs
+experience but Linux is, we simply import all the necessary linux
+libraries to Windows. There are many ways to achieve this, but the one
+I prefer is to use <code>msys2</code>. <code>msys2</code> is an open-source software based
+on <code>cygwin</code> which does exactly what we need: Provide the necessary tools
+to build Linux software natively on Windows. So installing this piece of software is the first thing we are going to do.</p>
+<h3 id="installing-msys2">
+  <span class="section-num">2.1</span> Installing <code>msys2</code>
+  <a href="#installing-msys2" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Visit the <a href="https://www.msys2.org/">website</a> of <code>msys2</code> and download the latest Windows
+installer. Double-click it and follow the steps of the installation
+wizard. I installed it to <code>C:\msys64</code>.</p>
+<h3 id="configuring-msys2">
+  <span class="section-num">2.2</span> Configuring <code>msys2</code>
+  <a href="#configuring-msys2" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Go to <code>C:\msys64\home\&lt;user&gt;</code> and open <code>.bash.rc</code> with <code>notepad</code> by
+double-clicking on the file and, if necessary, selecting the
+notepad among the list of programs. Then, add the following code to
+the end of the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#f92672">(</span>uname -o<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Msys&#39;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#f92672">{</span>PATH<span style="color:#f92672">}</span> | awk -v RS<span style="color:#f92672">=</span>: -v ORS<span style="color:#f92672">=</span>: <span style="color:#e6db74">&#39;/c\// {next} {print}&#39;</span> | sed <span style="color:#e6db74">&#39;s/:*//&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>This code snippet makes sure that issuing a command in <code>msys2</code> which
+happens to have the same name as a Windows command won&rsquo;t cause
+problems. Lastly, we want to make sure that <code>msys2</code> is recognized by
+Windows. We do that by setting a so-called <code>PATH</code> variable. With that,
+we just tell Windows to look for executables in that path. This way,
+we make sure that Windows finds <code>msys2</code>.</p>
+<p>To do that, open the application launcher by pressing the Windows key,
+type in &ldquo;environment variables&rdquo; and click on the first result. If you
+have administrator rights, you can now click on &ldquo;New&rdquo; and add both the
+path to <code>msys2</code> and its subfolder <code>/bin</code>. For me, this was
+<code>C:\msys64\mingw64</code> and <code>C:\msys64\mingw64\bin</code>. If you do not have admin
+rights, you can just add the paths to your current path(s) by
+separating them by semicolons as in <code>C:\msys64\mingw64\bin;C:\msys64\mingw64\bin</code>.</p>
+<p>And with that, <code>msys2</code> is configured! You can now go back to <code>C:\msys64</code> and
+open <code>mingw64.exe</code>.</p>
+<p>Warning: Do <em>not</em> open any other of the <code>.exe</code> files. Following the below steps with the wrong executable opened <em>will</em> cause problems.</p>
+<h2 id="preparing-to-install-emacs">
+  <span class="section-num">3</span> Preparing to Install Emacs
+  <a href="#preparing-to-install-emacs" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Now we have the <em>means</em> to get all the software we need to build emacs, but
+we have not yet downloaded a single file. Thus, the next step is to do clone the packages we need. Conveniently, <code>msys2</code> also uses <code>pacman</code>, the package manager which by default ships with Arch Linux, so it might even be familiar to you.</p>
+<p>First of all, we want to make sure that our package manager is up-to-date:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Syu
+</span></span></code></pre></div><p>The flags <code>S</code>, <code>y</code> and <code>u</code> stand for &ldquo;Sync&rdquo;, &ldquo;refresh&rdquo; and &ldquo;sysupdate&rdquo;,
+respectively. That being done, we install all tools we need to build
+emacs from source, starting with the most important ones:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Sy<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--needed <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	filesystem <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	msys2-runtime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	bash <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libreadline <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libiconv <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libarchive <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libgpgme <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libcurl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	pacman <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	ncurses <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libintl
+</span></span></code></pre></div><p>Now we&rsquo;ll need to update <code>pacman</code> again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Su
+</span></span></code></pre></div><p>Finally, we will download and install the necessary
+libraries. Depending on your download speed and hardware, this
+will take quite a while. Perfect time to rethink whether you really
+need Windows. Remember you can also have two systems installed on your
+machine [Link] to try out Linux!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Su <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	autoconf <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	autogen <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	automake <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	automake-wrapper <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	diffutils <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	guile <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libgc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libguile <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libidn-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libltdl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libnettle-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libopenssl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libp11-kit-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libtasn1-devel <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	libunistring <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	make <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-binutils <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-bzip2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-cairo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-crt-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-dbus <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-expat <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-fontconfig <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-freetype <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gcc-libs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gdk-pixbuf2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gettext <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-giflib <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-glib2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gmp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-gnutls <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-harfbuzz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-headers-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-imagemagick <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-isl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jansson <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libffi <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libgccjit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libiconv <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libidn2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libjpeg-turbo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libpng <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-librsvg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libsystre <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtasn1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libtiff <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libunistring <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libwinpthread-git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-libxml2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpc <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-mpfr <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-nettle <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-p11-kit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pango <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-pixman <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-poppler <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-winpthreads <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xpm-nox <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-xz <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-zlib <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	mingw-w64-x86_64-jbigkit <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	nano <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	openssl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	pkgconf <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	tar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	texinfo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	wget
+</span></span></code></pre></div><p>Having done this, we could in principle compile emacs from
+source. What we should not forget, though, is that emacs lives from
+packages &ndash; and they also have dependencies which we need to
+install. Of course, the code below might not suffice to cover
+all dependencies your packages need, but it takes care of the most
+important ones: <code>hunspell</code> to make spell-checking work and <code>poppler</code> to
+allow <code>pdf-tools</code> to open <code>.pdf</code> files. <code>sqlite</code> already is installed with
+the binaries above, so <code>org-roam</code> (and also <code>org-roam-ui</code>) will work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S mingw-w64-x86_64-hunspell <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>		  mingw-w64-x86_64-poppler-data
+</span></span></code></pre></div><p>Note that whilst only an english dictionary is available via <code>msys2</code>,
+you can add dictionaries of any language you like by putting them
+in <code>C:\msys64\mingw64\share\hunspell</code>. For a list of dictionaries to
+download, visit <a href="https://github.com/elastic/hunspell/tree/master/dicts">this page</a>. Of course, you will need to adjust the
+emacs code, too, then. But this is a topic for [Link] another post.</p>
+<p>For those who want to use emacs as a <code>LaTeX</code> editor or like having their
+formulas overlayed with <code>org-preview</code>, you should also install the <code>texlive</code>
+binaries. This installation should happen without the help of msys2;
+if you already have a LaTeX distribution installed, emacs will
+recognize it once it is configured. If not, you will need to install it. The
+easiest way I have found is to install TeXlive using an <code>.iso</code> <a href="https://www.tug.org/texlive/acquire-iso.html">image</a>. There is also <a href="https://miktex.org/">MiKTeX</a>, but it ships with a minimal install of packages which, depending on your needs, might not suffice. You can install packages manually, though.</p>
+<p>If you think of using <code>mu4e</code> as your emacs client on Windows, this might be a
+problem because there is no <code>msys2</code> package for <code>mu</code>. You might try your
+luck with an <a href="https://github.com/msys2-unofficial/MSYS2-packages/tree/master/mu">unofficial package</a>, though.</p>
+<h2 id="building-emacs">
+  <span class="section-num">4</span> Building Emacs
+  <a href="#building-emacs" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Now we have done everything we need to start with the actual building
+process, so we are going to download the emacs source code from an
+official github repository:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone http://git.savannah.gnu.org/r/emacs.git
+</span></span></code></pre></div><h3 id="configuring-the-installation">
+  <span class="section-num">4.1</span> Configuring the Installation
+  <a href="#configuring-the-installation" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Next up, we need to tell emacs what (not) to build. I have chosen to
+go with every sensible dependency to cover all needs:</p>
+<p>If you get an error message, you are likely in the wrong folder. Make
+sure the folder contains <code>autogen.sh</code>. You can do that by running <code>ls</code>,
+which lists the contents of the folder the console currently operates in.</p>
+<h3 id="building-emacs">
+  <span class="section-num">4.2</span> Building Emacs
+  <a href="#building-emacs" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Now, we&rsquo;re finally ready to do the last step: Actually installing
+emacs! This will take at least 10 minutes, possibly up to 30. Just run
+the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>make install
+</span></span></code></pre></div><h3 id="setting-the-paths">
+  <span class="section-num">4.3</span> Setting the Paths
+  <a href="#setting-the-paths" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>With this, you have built your own emacs from source &ndash;
+Congratulations! To run emacs, we still need to put two files in the
+binary folder: <code>libdbus-1-3.dll</code> and <code>libgmp-10.dll</code>. You can download
+them <a href="https://www.exefiles.com/de/dll/libdbus-1-3-dll/">here</a> and <a href="https://www.dll-files.com/libgmp-10.dll.html">here</a>, respectively. Just open the Windows explorer, type
+<code>%APPDATA%</code> in the folder bar and press <kbd>Enter</kbd>. You will now be in
+<code>C:\Users\&lt;user&gt;\AppData\Roaming</code>. Open the folder called <code>bin</code> and put
+the <code>.dll</code> file in there. If you now double-click on <code>runemacs.exe</code>,
+emacs should open.</p>
+<h2 id="setting-up-an-emacs-daemon">
+  <span class="section-num">5</span> Setting up an Emacs Daemon
+  <a href="#setting-up-an-emacs-daemon" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Since emacs is not a Windows program, its performance on Windows is,
+to put it mildly, not out of this world. Especially if
+you have a large configuration file, it might take half a minute or even
+longer to get it started. This, of course, completely interferes with
+your workflow, so we&rsquo;ll need to find a way to deal with that. And the
+way to go is as simple as silently starting emacs at startup and
+letting it pop up whenever we want to edit a file in it. This
+running-in-the-background service is called a <em>server</em> or a <em>daemon</em>.</p>
+<p>On Linux, setting up a daemon is as simple as typing in a single
+command. On Windows, on the other hand, things aren&rsquo;t as easy (as is
+often the case). To alleviate at least some of the despair, I have
+written some code which takes care of it and converted it to <code>.exe</code>
+files. Just download all the <code>.exe</code> files and put them in the folder in
+which the other emacs executables are. For me, it was
+<code>C:\Users\Vitus\AppData\Roaming\bin</code>. Since this folder by default is in
+the <code>Path</code> variable, we can skip the first step of the instructions on
+the github page and only need to follow the other 8 steps described on
+github; this will approximately take 5 minutes. And that&rsquo;s it. Now you
+have successfully installed the emacs daemon &ndash; Congratulations!</p>
+<h2 id="the-next-part-of-your-journey">
+  <span class="section-num">6</span> The Next Part of your Journey
+  <a href="#the-next-part-of-your-journey" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>If you have followed this guide up until now, your emacs is ready to
+use, but it will look unfamiliar and the keybindings will be very different
+from Windows, so you are likely to be completely overwhelmed. This is
+normal, and I was, too. For this, reason, as a next step, you will need
+to set up a configuration file which will make your life easier. If
+you now feel even more overwhelmed, no worries, this [Link] post is
+for you. Should you already know how setting up such a file works and
+just want the familiar keybindings, you might want to check out [Link]
+this post.</p>
+<p>For those die-hards who already know all this, just put your
+configuration file in the folder which in turn contains <code>bin</code>. For me, that was
+<code>C:\Users\Vitus\AppData\Roaming</code>. Note that, especially
+if you use the famous package-manager <code>use-package</code>, you might need to
+start it more than once to get every package installed.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://Perangelot.github.io/posts/functional-completeness-vom-08.04.2022/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Functional Completeness</span>
+                </a>
+              </span>
+            
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        <script src="https://giscus.app/client.js"
+        data-repo="Perangelot/Perangelot.github.io"
+        data-repo-id="R_kgDOGtDP-w"
+        data-category-id="DIC_kwDOGtDP-84CAyAw"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022
+          <a href="mailto:vitus.schaefftlein@opensource-philosophy.com" target="_blank" rel="noopener">Vitus Schäfftlein</a></span
+        >
+        <span
+          >completely
+          <a href="https://github.com/Perangelot/Perangelot.github.io" target="_blank" rel="noopener">open source</a></span
+        > 
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://Perangelot.github.io/assets/main.js"></script>
+<script src="https://Perangelot.github.io/assets/prism.js"></script>
+
+<script src="/js/prism.js"></script>
+
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

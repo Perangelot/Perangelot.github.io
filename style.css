@@ -159,4 +159,50 @@ img {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: auto;
+}
+
+/* Environments are wrapped in the span class equation, so we need to target span.equation. Within this equation class, we want to target the img class so that the changes of the bottom margin we defined for the preview images are overwritten and the vertical distances both top and bottom are the same. See also https://teamtreehouse.com/community/how-do-i-correctly-target-the-span-element-within-a-class */
+
+span.equation img {
+  display: block !important;
+  max-width: 100%;
+  margin-left: -0,1cm !important;
+  margin-right: -0,1cm !important;
+}
+
+/* Nowe we might want different styles depending on the environment we have. Personally, I want my definition environment to be different, so I define a .css class equation-definition and add #+ATTR_HTML: :class equation-definition before the definitions I give. */
+
+span.equation img.equation-definition {
+  display: block !important;
+  max-width: 100%;
+  margin-left: -0,1cm !important;
+  margin-right: -0,1cm !important;
+  content: none;
+}
+
+/* org adds the span class equation-label to environments so that they get numbered. By default, this number is without parentheses and right-aligned. We want it to be left-aligned and with parentheses, though. */
+
+span.equation-label {
+  display: block !important;
+  text-align: left;
+  max-width: 100%;
+  margin-left: -0.1 !important;
+  margin-right: -0,1cm !important;
+}
+
+
+span.equation-label:before {
+    content: '(';
+}
+
+span.equation-label:after {
+    content: ')';
+}
+
+/* Now we want some cool hovering effect for our equation labels. We are using our custom color pink defined at the beginning of the document, so we need to use var(--pink).*/
+
+span.equation-label:hover{
+  font-weight: bold;
+  color: var(--pink);
 }
