@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="1 The interdefinability of connectives # As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that
+  content="1 The Interdefinability of Connectives # As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that
 In our example, we used two connectives, and , to define another one &amp;ndash; . Note that this is a strict syntactical definition in the following sense: Nothing is claimed about the meaning of or ."
 />
 <meta
@@ -275,7 +275,7 @@ MathJax = {
         </div>
           
       <h2 id="the-interdefinability-of-connectives">
-  <span class="section-num">1</span> The interdefinability of connectives
+  <span class="section-num">1</span> The Interdefinability of Connectives
   <a href="#the-interdefinability-of-connectives" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that</p>
@@ -354,7 +354,7 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 As it happens, we have now used two connectives &ndash; <img src="/ltximg/Functional Completeness (vom 08.04.2022)_026c4145363ba042235eb8e0a671f5ed47473cb2.svg" alt="$\text{``}\neg\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" /> &ndash; to show that all other connectives can be introduced as abbreviations of them, in the sense that the definitions yield the same truth-values as the connectives if they were introduced as primitive symbols.</p>
 <p>This is not self-evident, since some pairs of connectives are not capable of defining all others; for example <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_21562815b5f9ada70d101a282b3bb029dc3a970c.svg" alt="$\text{``}\lor\text{''}$" class="org-svg" /> cannot because there is no way to get to <img src="/ltximg/Functional Completeness (vom 08.04.2022)_78c847a2234edec9723ba22083ceb1f346ddffa7.svg" alt="$\text{``}\lnot A\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" /> or <img src="/ltximg/Functional Completeness (vom 08.04.2022)_972540aa9370f19c1bd1fb027631b5fe9352f106.svg" alt="$\text{``}\leftrightarrow\text{''}$" class="org-svg" />.</p>
 <h2 id="the-interdefinability-of-quantifiers">
-  <span class="section-num">2</span> The interdefinability of quantifiers
+  <span class="section-num">2</span> The Interdefinability of Quantifiers
   <a href="#the-interdefinability-of-quantifiers" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>Now we know that under certain conditions, we only need a smaller set of connectives to define the whole set of connectives. While this suffices for propositional logic, there are two more logical symbols<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> in <em>predicate</em> <em>logic</em> we need to take into consideration: <img src="/ltximg/Functional Completeness (vom 08.04.2022)_9a1cfd28289a55b399295d3e13be0d0b28344594.svg" alt="$\text{``}\forall \text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fae65399c5dd1f4ffd0a7a0e7d98f933bcd04851.svg" alt="$\text{``}\exists \text{''}$" class="org-svg" />. Here, we can also define one quantifier in terms of the other using <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" />. For example, we can stipulate that</p>
@@ -389,7 +389,7 @@ As it happens, we have now used two connectives &ndash; <img src="/ltximg/Functi
 </div>
 <p>One could, of course, also take <img src="/ltximg/Functional Completeness (vom 08.04.2022)_51248199793e41b70ac4adddf8299e2a7e8f9d9a.svg" alt="$\text{``}\exists\text{''}$" class="org-svg" /> as primitive and define <img src="/ltximg/Functional Completeness (vom 08.04.2022)_d23c9253807458be09b5e99de7f05e3a06735499.svg" alt="$\text{``}\forall\text{''}$" class="org-svg" /> in terms of it. Similarly, you can define a weak modal operator like <img src="/ltximg/Functional Completeness (vom 08.04.2022)_2375c94b4c5bff62dc87434316c1e878dadf4982.svg" alt="$\text{``}\Diamond \text{''}$" class="org-svg" /> by the corresponding strong one &ndash; <img src="/ltximg/Functional Completeness (vom 08.04.2022)_51d0e65b310a974dbc5a64d9de8ec076d210b817.svg" alt="$\text{``}\Box \text{''}$" class="org-svg" /> in this case &ndash; and vice versa.</p>
 <h2 id="a-definition-of-functional-completeness">
-  <span class="section-num">3</span> A definition of functional completeness
+  <span class="section-num">3</span> A Definition of Functional Completeness
   <a href="#a-definition-of-functional-completeness" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>In the last two sections, we have shown that we only need <em>some</em> connectives and quantifiers in our syntax to express <em>all</em> of them. We also made plausible that not every set of logical constants is capable of doing this, so we are talking about an interesting property here &ndash; a property usually called <em>functional completeness</em> or <em>expressive completeness</em>. Now we have an idea of what it is, so let us consider a formal definition. As it happens, there are several definitions of this concept, but they only deviate in minor points. I suggest the following definition, which is based on <a href="#citeproc_bib_item_1">Yaqub, 2015, p. 110</a>:</p>
@@ -423,7 +423,7 @@ As it happens, we have now used two connectives &ndash; <img src="/ltximg/Functi
 </div>
 <p>Note that these are far from all sets of connectives that are functionally complete for propositional or predicate logic. For example, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_5fa474c4d3f330cbeb3c503603fc6e8e6bb36dc3.svg" alt="$\{ \lnot ,\lor,\exists  \}$" class="org-svg" /> is functionally complete, too, as well as <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ac58ccac3e76c9fef4397158b7572d4ab4bccabe.svg" alt="$\{ \bot,\to\}$" class="org-svg" />.</p>
 <h2 id="the-sheffer-stroke-and-peirce-s-arrow">
-  <span class="section-num">4</span> The Sheffer stroke and Peirce&rsquo;s arrow
+  <span class="section-num">4</span> The Sheffer Stroke and Peirce&rsquo;s Arrow
   <a href="#the-sheffer-stroke-and-peirce-s-arrow" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>Incidentally, you can even get all connectives defined by a <em>single</em> sign, the Sheffer stroke <img src="/ltximg/Functional Completeness (vom 08.04.2022)_2746bde52ac83964d8cbdbd141e36122b3dc975e.svg" alt="$\text{``}\downarrow\text{''}$" class="org-svg" />. Its semantics are defined like this:</p>
@@ -466,15 +466,15 @@ As it happens, we have now used two connectives &ndash; <img src="/ltximg/Functi
 </div>
 <p>&ldquo;Not both A and A&rdquo;, again, simply means the same as &ldquo;not A&rdquo;. As a side note for computer scientists: The Sheffer stroke corresponds to the <code>NAND</code> operator, Peirce&rsquo;s arrow to the <code>NOR</code> operator. Peirce&rsquo;s arrow is sometimes also called &ldquo;Quine&rsquo;s dagger&rdquo;.</p>
 <h2 id="the-use-of-functional-completeness">
-  <span class="section-num">5</span> The use of functional completeness
+  <span class="section-num">5</span> The Use of Functional Completeness
   <a href="#the-use-of-functional-completeness" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>Now that we know what functional completeness is, the question arises why it would matter to talk about it. After all, no matter whether you introduce all connectives as primitive symbols or some of them as abbreviations, all formulas have the same truth-values and proof theory stays the same anyway.</p>
 <p>What seems to be a reason against introducing small functionally complete sets of operators in the first place turns out to be just the reason for doing so. On the one hand, thinking about it makes clear which relations the connectives hold to each other, which is a value in itself. It also helps compare different logics. For example, in intuitionistic logic, the quantifiers are not interdefinable, and in three-valued logic, the sets of functionally complete connectives are much more limited.</p>
 <p>On the other hand, and most importantly, if you intend to prove something not in, but <em>about</em> a logical language, you will most often find yourself in a situation which requires you to use proof by induction on the complexity of formulae<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. This, in effect, means, that you need to show <em>for all possible combinations of well-formed formulae</em> that the proposition you claim holds. By making use of functionally complete sets, you can reduce the number of those possible combinations, which makes the proofs much smaller. Logicians are humans, after all, and humans are lazy.</p>
-<h2 id="functional-completeness-vs-dot-completeness-of-a-proof-system">
-  <span class="section-num">6</span> Functional completeness vs. completeness of a proof system
-  <a href="#functional-completeness-vs-dot-completeness-of-a-proof-system" class="h-anchor" aria-hidden="true">#</a>
+<h2 id="functional-vs-dot-deductive-completeness">
+  <span class="section-num">6</span> Functional vs. Deductive Completeness
+  <a href="#functional-vs-dot-deductive-completeness" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <p>As a last point, it is important to keep two notions of completeness apart: Functional completeness of a set of connectives is not the same as completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules); although both establish a connection between a syntactic and a semantic concept, there are some important differences.</p>
 <p>Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulae and the set of formulae which result from rule-governed sign manipulation.</p>
