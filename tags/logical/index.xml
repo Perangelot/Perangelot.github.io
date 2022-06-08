@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>logical on opensource-philosophy</title>
+    
+    
+    
+    <link>https://Perangelot.github.io/tags/logical/</link>
+    <description>Recent content in logical on opensource-philosophy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://Perangelot.github.io/tags/logical/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://Perangelot.github.io/posts/try/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0200</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/try/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          1 1 1 (org-create-formula-image(&amp;quot;\\begin{hi}\n\\end{hi}\n&amp;quot; &amp;ldquo;media/storage/sciebo privat/org-mode&amp;rdquo; (:foreground default :background default :scale 1.0 :html-foreground &amp;ldquo;#AAA7B3&amp;rdquo; :html-background nil :html-scale 1.0 :matchers (&amp;ldquo;begin&amp;rdquo; &amp;ldquo;&amp;rdquo; &amp;ldquo;$$&amp;rdquo; &amp;ldquo;\\(&amp;rdquo; &amp;ldquo;\\[&amp;rdquo;)) nil dvisvgm))
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

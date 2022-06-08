@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="1 The interdefinability of connectives #  Let us first of all get familiar with one very simple idea: Some logical constants can be defined in terms of others. For example, you can define the material conditional in logic like this:
-  In our example, we used two other connectives, &amp;ldquo;&amp;rdquo; and &amp;ldquo;&amp;rdquo;, to define &amp;ldquo;&amp;rdquo;. We can check that this definition is appriopriate by proving that the definiens yields the same truth-values of the ones usually attributed to the definiendum, for example by means of a truth-table:"
+  content="1 The interdefinability of connectives # As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that
+In our example, we used two connectives, and , to define another one &amp;ndash; . Note that this is a strict syntactical definition in the following sense: Nothing is claimed about the meaning of or ."
 />
 <meta
   name="keywords"
@@ -48,12 +48,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Functional Completeness"/>
-<meta name="twitter:description" content="In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*."/>
+<meta name="twitter:description" content="In most definitions of classical logic, some connectives are introduced as abbreviations of other, so-called primitive connectives. But why does it work, and why should one bother instead of just introducing every connective as primitive? In this post, I am going to tackle these questions by explaining what the functional completeness is and how it is used to make meta-language proofs shorter."/>
 
 
 
 <meta property="og:title" content="Functional Completeness" />
-<meta property="og:description" content="In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*." />
+<meta property="og:description" content="In most definitions of classical logic, some connectives are introduced as abbreviations of other, so-called primitive connectives. But why does it work, and why should one bother instead of just introducing every connective as primitive? In this post, I am going to tackle these questions by explaining what the functional completeness is and how it is used to make meta-language proofs shorter." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Perangelot.github.io/posts/functional-completeness-vom-08.04.2022/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-04-08T00:00:00+02:00" />
@@ -271,17 +271,17 @@ MathJax = {
       
         
         <div class="post-summary">
-          In most logic courses, the connectives of classical logic are defined in terms of two primitive connectives. But why does it work, and why should one bother instead of introducing every connective as primitive? This post aims to answer these questions by explaining the concept of *functional completeness*.
+          In most definitions of classical logic, some connectives are introduced as abbreviations of other, so-called primitive connectives. But why does it work, and why should one bother instead of just introducing every connective as primitive? In this post, I am going to tackle these questions by explaining what the functional completeness is and how it is used to make meta-language proofs shorter.
         </div>
           
       <h2 id="the-interdefinability-of-connectives">
   <span class="section-num">1</span> The interdefinability of connectives
   <a href="#the-interdefinability-of-connectives" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>Let us first of all get familiar with one very simple idea: Some logical constants can be defined in terms of others. For example, you can define the material conditional in logic like this:</p>
+<p>As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that</p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_7f5d4d77e73a0fc2e2f3ff100a22a175a5eaaf42.svg" alt="\begin{equation*}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_df2ba737c7cb97ed542482493abdd9c5daf02e9e.svg" alt="\begin{equation*}
 \tag{1} \hskip -15em
 \text{``}\!\mathit{A} \to \mathit{B}\,\text{''}
 \text{ abbreviates }
@@ -290,10 +290,10 @@ MathJax = {
 " class="org-svg" />
 </span>
 </div>
-<p>In our example, we used two other connectives, &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo;, to define
-&ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_2600a834e3347a269e293992fda08a888bfa3468.svg" alt="$\to$" class="org-svg" />&rdquo;. We can check that this definition is appriopriate by proving that the <em>definiens</em> yields the same truth-values of the ones usually attributed to the <em>definiendum</em>, for example by means of a truth-table:</p>
+<p>In our example, we used two connectives, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" />, to define another one &ndash;  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_0ccb9e39cf24d75fd407d1c3ff44cb604e2c1896.svg" alt="$\text{``}\to\text{''}$" class="org-svg" />. Note that this is a strict <em>syntactical definition</em> in the following sense: Nothing is claimed about the meaning of <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fb8beb9a1ff574a687d6f46cc360b4b2fc9a451e.svg" alt="$\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$" class="org-svg" /> or <img src="/ltximg/Functional Completeness (vom 08.04.2022)_7951921c2ccbc01b443fa164f3055cf5fb4c88ae.svg" alt="$\text{``}\lnot ( \mathit{A} \land \lnot \mathit{B})\text{''}$" class="org-svg" />. Instead, something is claimed about the arrangement of (sequences of) symbols, namely that the sequence of a well-formed-formula followed by an arrow-sign and another well-formed formula in this order may always replace the sequence of a hook-sign, a left parenthesis, a well-formed-formula, a hat-sign, a hook-sign and a well-formed formula in that order.</p>
+<p>Nonetheless, we of course have a semantic interpretation in mind: We want the <em>definiens</em> to yield the same truth-values of the ones usually attributed to the <em>definiendum</em>. In short: <img src="/ltximg/Functional Completeness (vom 08.04.2022)_7951921c2ccbc01b443fa164f3055cf5fb4c88ae.svg" alt="$\text{``}\lnot ( \mathit{A} \land \lnot \mathit{B})\text{''}$" class="org-svg" /> should have the same truth-conditions as the ones <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fb8beb9a1ff574a687d6f46cc360b4b2fc9a451e.svg" alt="$\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$" class="org-svg" /> would have if it was not introduced as an abbreviation. That this is the case for our definition can easily be shown by constructing a truth-table:</p>
 <div class="img-newline">
-<p><img src="/ltximg/Functional Completeness (vom 08.04.2022)_1aa03a9d2285243243edadd091c573141d02eba2.svg" alt="$\begin{array}{|c|c|c|c|c|c|c|}
+<p><img src="/ltximg/Functional Completeness (vom 08.04.2022)_01e304211f9291170b9cb009906497dd18d3dc1b.svg" alt="$\begin{array}{|c|c|c|c|c|c|c|}
 \hline
 \mathit{A}
 &amp;amp;  \mathit{B}
@@ -310,21 +310,25 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 \hline
 \end{array}$" class="org-svg" /></p>
 </div>
-<p>As we can see, the truth conditions for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_b9ac421dee6f6c117c76118eb2f4bf5c1af01699.svg" alt="$\lnot (\mathit{A}  \land \neg  \mathit{B})$" class="org-svg" /> are the same as those for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_b9ac421dee6f6c117c76118eb2f4bf5c1af01699.svg" alt="$\lnot (\mathit{A}  \land \neg  \mathit{B})$" class="org-svg" />. We can do the same for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_08f35a7ae82b64a9c20f4df2c3f377f2e4272af3.svg" alt="$\lor$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_73f5d4db27c48e7d00e6ab2f8b11b2dca123bcd7.svg" alt="$\leftrightarrow$" class="org-svg" />:</p>
-<div id="org6d2c426" class="equation-container">
+<p>As we can see, the truth-conditions for <img src="/ltximg/Functional Completeness (vom 08.04.2022)_04aff03552e99aa68de407b6324dbbcc096b8a1b.svg" alt="$\lnot (\mathit{A}  \land \neg  \mathit{B})$" class="org-svg" /> are the same as those <img src="/ltximg/Functional Completeness (vom 08.04.2022)_21697171f84a2915a611377c2c5c5ee495f6eb6c.svg" alt="$p \to q$" class="org-svg" /> has in a classical system of logic. Thus, we do not need to introduce a new symbol to our alphabet and define its truth-conditions; it suffices to read <img src="/ltximg/Functional Completeness (vom 08.04.2022)_d2072bf6807e2b705d30af2e08f1bdf1ff5611fb.svg" alt="$\text{``}\lnot (\mathit{A} \land \lnot \mathit{B})\text{''}$" class="org-svg" /> as &ldquo;If A, then B&rdquo;.</p>
+<p>Following the same procedure, we can also define
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_21562815b5f9ada70d101a282b3bb029dc3a970c.svg" alt="$\text{``}\lor\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_972540aa9370f19c1bd1fb027631b5fe9352f106.svg" alt="$\text{``}\leftrightarrow\text{''}$" class="org-svg" /> in terms of  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" />  and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" />:
+<span class="org-target" id="org-target--2"></span></p>
+<div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_1092f5d47b8fff0d4d33c511e767869404116128.svg" alt="\begin{equation*}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_9f8431c2fadb9d76432e70e01f6bc16c7289c372.svg" alt="\begin{equation*}
 \tag{2} \hskip -15em
 \text{``}\!\mathit{A} \lor \mathit{B}\,\text{''}
 \text{ abbreviates }
 \text{``}\lnot ( \lnot \mathit{A} \land \lnot \mathit{B})\text{''}
 \end{equation*}
-" class="org-svg" />
+" class="equation-double" />
 </span>
 </div>
+<p><span class="org-target" id="org-target--3"></span></p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_6d64c6b5ed3181da4056ac2c23d3292402fa3cd4.svg" alt="\begin{equation*}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_04e9fda1b0ab591e9e90ddc776e02b47c9a18f16.svg" alt="\begin{equation*}
 \tag{3} \hskip -15em
 \text{``}\!\mathit{A} \leftrightarrow \mathit{B}\,\text{''}
 \text{ abbreviates }
@@ -333,10 +337,10 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 " class="org-svg" />
 </span>
 </div>
-<p>If we wanted to, we could also define the strong alternation like this:</p>
+<p>With a natural language interpretation, we can interpret <a href="#org-target--2">(2)</a> as stipulating that &ldquo;or&rdquo; abbreviates &ldquo;not both are false&rdquo; and <a href="#org-target--3">(3)</a> as stipulating that &ldquo;if and only if&rdquo; abbreviates &ldquo;not just one is true or false&rdquo;. If we wanted to, we could also define the strong alternation like this:</p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_68abcd942b8a0eeee07d3070aee31317a0f23840.svg" alt="\begin{equation*}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_b5e6ee8b3ed6407b94102df10650ae5f9c5a4877.svg" alt="\begin{equation*}
 \label{eq:4}
 \tag{4} \hskip -15em
 \text{``}\!\mathit{A} \nabla \mathit{B}\,\text{''}
@@ -346,16 +350,18 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 " class="org-svg" />
 </span>
 </div>
-<p>As it happens, we have now used two connectives &ndash; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_a1b4e5ba625e4dceb0689066713fe5bfb6689673.svg" alt="$\neg$" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo; &ndash; to show that all other connectives can be introduced as abbreviations of them. This is not self-evident, since some pairs of connectives are not capable of defining all others, for example &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_de505b9af605717fc7c8dfdef1e1d0abff881b23.svg" alt="$\land$" class="org-svg" />&rdquo; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_08f35a7ae82b64a9c20f4df2c3f377f2e4272af3.svg" alt="$\lor$" class="org-svg" />&rdquo; or &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_73f5d4db27c48e7d00e6ab2f8b11b2dca123bcd7.svg" alt="$\leftrightarrow$" class="org-svg" />&rdquo;.</p>
+<p><span class="org-target" id="org-target--4"></span>
+As it happens, we have now used two connectives &ndash; <img src="/ltximg/Functional Completeness (vom 08.04.2022)_026c4145363ba042235eb8e0a671f5ed47473cb2.svg" alt="$\text{``}\neg\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" /> &ndash; to show that all other connectives can be introduced as abbreviations of them, in the sense that the definitions yield the same truth-values as the connectives if they were introduced as primitive symbols.</p>
+<p>This is not self-evident, since some pairs of connectives are not capable of defining all others; for example <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_21562815b5f9ada70d101a282b3bb029dc3a970c.svg" alt="$\text{``}\lor\text{''}$" class="org-svg" /> cannot because there is no way to get to <img src="/ltximg/Functional Completeness (vom 08.04.2022)_78c847a2234edec9723ba22083ceb1f346ddffa7.svg" alt="$\text{``}\lnot A\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" /> or <img src="/ltximg/Functional Completeness (vom 08.04.2022)_972540aa9370f19c1bd1fb027631b5fe9352f106.svg" alt="$\text{``}\leftrightarrow\text{''}$" class="org-svg" />.</p>
 <h2 id="the-interdefinability-of-quantifiers">
   <span class="section-num">2</span> The interdefinability of quantifiers
   <a href="#the-interdefinability-of-quantifiers" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>So far, we have only looked at connectives, and while this suffices for propositional logic, there are two other logical symbols in <em>predicate</em> <em>logic</em> we need to take into consideration: &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_589f9e37676e713c70a8a195434c62162538f8ac.svg" alt="$\forall $" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_4f5f97d418d6139d0e10f2141d3f36c214cc0560.svg" alt="$\exists $" class="org-svg" />&rdquo;. Here, we can also define one quantifier in terms of the other using <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fd3817ab2224b2081ed6fab1c4d00c64a2b27921.svg" alt="$\lnot $" class="org-svg" />. For example, we can stipulate that</p>
+<p>Now we know that under certain conditions, we only need a smaller set of connectives to define the whole set of connectives. While this suffices for propositional logic, there are two more logical symbols<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> in <em>predicate</em> <em>logic</em> we need to take into consideration: <img src="/ltximg/Functional Completeness (vom 08.04.2022)_9a1cfd28289a55b399295d3e13be0d0b28344594.svg" alt="$\text{``}\forall \text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fae65399c5dd1f4ffd0a7a0e7d98f933bcd04851.svg" alt="$\text{``}\exists \text{''}$" class="org-svg" />. Here, we can also define one quantifier in terms of the other using <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" />. For example, we can stipulate that</p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_43502a8cdea2f30d2da2d40e190c9ba66df2d491.svg" alt="\begin{equation*}
-\tag{4} \hskip -15em
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_ba72270880b3662846dcba4647b879015aebb07c.svg" alt="\begin{equation*}
+\tag{5} \hskip -15em
 \text{``}\exists\mathit{x}\,\text{''}
 \text{ abbreviates }
 \text{``} \lnot \forall\mathit{x}\,\lnot\text{''}
@@ -363,47 +369,119 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 " class="org-svg" />
 </span>
 </div>
-<p>and thereby define the existential quantifier by means of &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_c6f77607c233cb62364870e7f813cca607d5304c.svg" alt="$\forall$" class="org-svg" />&rdquo; and &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_a1b4e5ba625e4dceb0689066713fe5bfb6689673.svg" alt="$\neg$" class="org-svg" />&rdquo;. To see this is working as intended, we simply need our definition and the rule of Double Negation<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
-<p>One could, of course, also take &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_f9bcdade3fbe3d2634c92b4be4adcbb59aa4a3e5.svg" alt="$\exists$" class="org-svg" />&rdquo; as primitive and define &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_c6f77607c233cb62364870e7f813cca607d5304c.svg" alt="$\forall$" class="org-svg" />&rdquo; in terms of it. Similarly, you can define a weak modal operator like &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_f4a0cbf42ba3eecc6c43028aeb70c81efe38961c.svg" alt="$\Diamond $" class="org-svg" />&rdquo; by the corresponding strong one &ndash; &ldquo;<img src="/ltximg/Functional Completeness (vom 08.04.2022)_8cf8d3ccf236eff54d9b31359608a56963089423.svg" alt="$\Box $" class="org-svg" />&rdquo; in this case &ndash; or vice versa.</p>
+<p>and thereby define the existential quantifier by means of <img src="/ltximg/Functional Completeness (vom 08.04.2022)_d23c9253807458be09b5e99de7f05e3a06735499.svg" alt="$\text{``}\forall\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_026c4145363ba042235eb8e0a671f5ed47473cb2.svg" alt="$\text{``}\neg\text{''}$" class="org-svg" />. To see this is working as intended, we simply need our definition and the rule of Double Negation (both introduction and eliminiation)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_c43d808ef10ec13c556134f486be77d413618e37.svg" alt="\begin{chain}
+    \neg \forall \mathit{x} \mathit{A}   &amp;amp;&amp;amp; \kgrün{\neg \forall \mathit{x}\, \lnot }\lnot \mathit{A} \hphantom{\lnot\lnot } &amp;amp; DN \\
+    &amp;amp;&amp;amp; \exists \mathit{x} \, \lnot \mathit{A}   &amp;amp; Def_\exists
+\end{chain} \vskip 1em
+\begin{chain}
+  \forall \mathit{x} \mathit{A} \hphantom{\lnot }  &amp;amp;&amp;amp; \lnot \kgrün{\lnot \forall \mathit{x} \, \lnot}\lnot \mathit{A} \hphantom{\lnot} &amp;amp;  DN  \\
+         &amp;amp;&amp;amp;  \lnot \exists \mathit{x} \, \lnot \mathit{A}   &amp;amp; Def_\exists
+\end{chain} \vskip 1em
+\begin{chain}
+    \forall \mathit{x}\,\lnot  \mathit{A}   &amp;amp;&amp;amp; \lnot \kgrün{\neg \forall \mathit{x} \,  \lnot } \mathit{A} \hphantom{\lnot\lnot }&amp;amp; DN \\
+    &amp;amp;&amp;amp; \lnot \dgelb{\exists \mathit{x}} \mathit{A}   &amp;amp; Def_\exists
+\end{chain}
+" class="center" />
+</span>
+</div>
+<p>One could, of course, also take <img src="/ltximg/Functional Completeness (vom 08.04.2022)_51248199793e41b70ac4adddf8299e2a7e8f9d9a.svg" alt="$\text{``}\exists\text{''}$" class="org-svg" /> as primitive and define <img src="/ltximg/Functional Completeness (vom 08.04.2022)_d23c9253807458be09b5e99de7f05e3a06735499.svg" alt="$\text{``}\forall\text{''}$" class="org-svg" /> in terms of it. Similarly, you can define a weak modal operator like <img src="/ltximg/Functional Completeness (vom 08.04.2022)_2375c94b4c5bff62dc87434316c1e878dadf4982.svg" alt="$\text{``}\Diamond \text{''}$" class="org-svg" /> by the corresponding strong one &ndash; <img src="/ltximg/Functional Completeness (vom 08.04.2022)_51d0e65b310a974dbc5a64d9de8ec076d210b817.svg" alt="$\text{``}\Box \text{''}$" class="org-svg" /> in this case &ndash; and vice versa.</p>
 <h2 id="a-definition-of-functional-completeness">
   <span class="section-num">3</span> A definition of functional completeness
   <a href="#a-definition-of-functional-completeness" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>In the last two sections, we showed that we only need <em>some</em> connectives and quantifiers in our syntax to express <em>all</em> of them. We also understood that not any of logical constants is capable of doing this, so we are talking about an interesting property here &ndash; a property usually called <em>functional completeness</em> or <em>expressive completeness</em>. There are several definitions of this concept, but they only deviate in minor points. I suggest the following definition based on <a href="#citeproc_bib_item_1">Yaqub, 2015, p. 110</a>:</p>
+<p>In the last two sections, we have shown that we only need <em>some</em> connectives and quantifiers in our syntax to express <em>all</em> of them. We also made plausible that not every set of logical constants is capable of doing this, so we are talking about an interesting property here &ndash; a property usually called <em>functional completeness</em> or <em>expressive completeness</em>. Now we have an idea of what it is, so let us consider a formal definition. As it happens, there are several definitions of this concept, but they only deviate in minor points. I suggest the following definition, which is based on <a href="#citeproc_bib_item_1">Yaqub, 2015, p. 110</a>:</p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_d8e577b5ec703776c337315bc09fe33e54c49317.svg" alt="\begin{defin*}{Functional Completeness}
-  \Large A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em
-  A set S of logical operators ist \textcolor{pink}{\textit{functionally complete}} for a language L if and only if every unary and binary logical operator is expressible in L in terms of S.
-\end{defin*}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_bb09b2570ce2264113a854dd3c6b474c6b04257a.svg" alt="\begin{Large}
+\begin{defin}{Functional Completeness}{}
+ A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em
+  A set S of logical operators is \textcolor{pink}{\textit{functionally complete}} for a language L if and only if every unary and binary logical operator is expressible in L in terms of S.
+\end{defin}
+\end{Large}
 " class="equation-definition" />
 </span>
-<span class="equation-label">
-1
-</span>
 </div>
-<p>With the notion of functional completeness in place, we are now able to express what we discovered in sections <a href="#the-interdefinability-of-connectives">1</a> and <a href="#the-interdefinability-of-quantifiers">2</a> very briefly:</p>
+<p>The basic idea of this definition is that if you have <em>some</em> connectives &ndash; represented by the set <img src="/ltximg/Functional Completeness (vom 08.04.2022)_1d2f48e1baf9fe09cd879648829e1e97662ed41a.svg" alt="$S$" class="org-svg" />, you have <em>all</em> connectives. With the notion of functional completeness in place, we are now able to express what we discovered in sections <a href="#the-interdefinability-of-connectives">1</a> and <a href="#the-interdefinability-of-quantifiers">2</a> very briefly:</p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_40fc0a082ea7c5f90460dd2d093331a768be00f2.svg" alt="\begin{equation*} \hskip -15em
-\tag{5} \text{The set $\{ \lnot, \land \}$ is functionally complete for propositional logic.}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_587654c8fc720fa70c8923b0d3880b8211bca186.svg" alt="\begin{equation*} \hskip -15em
+\tag{6} \text{The set $\{ \lnot, \land \}$ is functionally complete for propositional logic.}
 \end{equation*}
-" class="org-svg" />
+" class="equation-double" />
 </span>
 </div>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_eb8f178eba5cf33af062003845d134ed113e78d6.svg" alt="\begin{equation*} \hskip -15em
-\tag{6} \text{The set $\{\lnot, \land, \forall\}$ is functionally complete for predicate logic.}
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_d69fe94b1e85ab5cff901e690a6208e5aad66f2a.svg" alt="\begin{equation*} \hskip -15em
+\tag{7} \text{The set $\{\lnot, \land, \forall\}$ is functionally complete for predicate logic.}
 \end{equation*}
 " class="org-svg" />
 </span>
 </div>
+<p>Note that these are far from all sets of connectives that are functionally complete for propositional or predicate logic. For example, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_5fa474c4d3f330cbeb3c503603fc6e8e6bb36dc3.svg" alt="$\{ \lnot ,\lor,\exists  \}$" class="org-svg" /> is functionally complete, too, as well as <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ac58ccac3e76c9fef4397158b7572d4ab4bccabe.svg" alt="$\{ \bot,\to\}$" class="org-svg" />.</p>
+<h2 id="the-sheffer-stroke-and-peirce-s-arrow">
+  <span class="section-num">4</span> The Sheffer stroke and Peirce&rsquo;s arrow
+  <a href="#the-sheffer-stroke-and-peirce-s-arrow" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Incidentally, you can even get all connectives defined by a <em>single</em> sign, the Sheffer stroke <img src="/ltximg/Functional Completeness (vom 08.04.2022)_2746bde52ac83964d8cbdbd141e36122b3dc975e.svg" alt="$\text{``}\downarrow\text{''}$" class="org-svg" />. Its semantics are defined like this:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_5d51b41b8c45d4bb2908c82e8476a9caae93a47c.svg" alt="\begin{equation*} \hskip -15em
+\tag{8} \mathit{v}(\!\mathit{A} \downarrow \mathit{B}) = 1 \text{ iff } \mathit{v}(\!\mathit{A})=0 \text{ and } \mathit{v}(\!\mathit{B})=0
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>The Sheffer stroke can be read as &ldquo;neither A nor B&rdquo;. As a limiting case, then, imagine that A and B are the same proposition. Then we can stipulate:</p>
+<p><span class="org-target" id="org-target--eq8"></span></p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_53678088f871ecd58fbdef5560f06bae6cc8980b.svg" alt="\begin{equation*} \hskip -15em
+\tag{9} \text{``}\neg\mathit{A}\text{'' abbreviates } \text{``}(\mathit{A}\downarrow\mathit{A})\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>This also makes sense from a natural-language standpoint: &ldquo;neither A nor A&rdquo; is just a peculiar way of saying &ldquo;not A&rdquo;. The rest of the connectives is now easily defined on the basis of <img src="/ltximg/Functional Completeness (vom 08.04.2022)_026c4145363ba042235eb8e0a671f5ed47473cb2.svg" alt="$\text{``}\neg\text{''}$" class="org-svg" /> and <img src="/ltximg/Functional Completeness (vom 08.04.2022)_2746bde52ac83964d8cbdbd141e36122b3dc975e.svg" alt="$\text{``}\downarrow\text{''}$" class="org-svg" />.</p>
+<p>Similarly, we can define all connectives as abbreviations of <em>Peirce&rsquo;s Arrow</em>, whose truth-conditions are defined this way:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_121e2819b66f90980aaa6fcfc0cb8cca45430f84.svg" alt="\begin{equation*} \hskip -15em
+\tag{10} \mathit{v}(\!\mathit{A} \uparrow \mathit{B}) = 1 \text{ iff } \mathit{v}(\!\mathit{A})=0 \text{ or } \mathit{v}(\!\mathit{B})=0
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>In a similar, fashion, Peirce&rsquo;s arrow can be read as &ldquo;not both A and B&rdquo;. This allows the following definition:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_d6a53b1c1bd67185c3b247b2cd5c0a8520c506f1.svg" alt="\begin{equation*} \hskip -15em
+\tag{11} \text{``}\neg\mathit{A}\text{'' abbreviates } \text{``}(\mathit{A}\uparrow\mathit{A})\text{''}
+\end{equation*}
+" class="org-svg" />
+</span>
+</div>
+<p>&ldquo;Not both A and A&rdquo;, again, simply means the same as &ldquo;not A&rdquo;. As a side note for computer scientists: The Sheffer stroke corresponds to the <code>NAND</code> operator, Peirce&rsquo;s arrow to the <code>NOR</code> operator. Peirce&rsquo;s arrow is sometimes also called &ldquo;Quine&rsquo;s dagger&rdquo;.</p>
+<h2 id="the-use-of-functional-completeness">
+  <span class="section-num">5</span> The use of functional completeness
+  <a href="#the-use-of-functional-completeness" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Now that we know what functional completeness is, the question arises why it would matter to talk about it. After all, no matter whether you introduce all connectives as primitive symbols or some of them as abbreviations, all formulas have the same truth-values and proof theory stays the same anyway.</p>
+<p>What seems to be a reason against introducing small functionally complete sets of operators in the first place turns out to be just the reason for doing so. On the one hand, thinking about it makes clear which relations the connectives hold to each other, which is a value in itself. It also helps compare different logics. For example, in intuitionistic logic, the quantifiers are not interdefinable, and in three-valued logic, the sets of functionally complete connectives are much more limited.</p>
+<p>On the other hand, and most importantly, if you intend to prove something not in, but <em>about</em> a logical language, you will most often find yourself in a situation which requires you to use proof by induction on the complexity of formulae<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. This, in effect, means, that you need to show <em>for all possible combinations of well-formed formulae</em> that the proposition you claim holds. By making use of functionally complete sets, you can reduce the number of those possible combinations, which makes the proofs much smaller. Logicians are humans, after all, and humans are lazy.</p>
 <h2 id="functional-completeness-and-metalogic">
-  <span class="section-num">4</span> Functional completeness and metalogic
+  <span class="section-num">6</span> Functional completeness and metalogic
   <a href="#functional-completeness-and-metalogic" class="h-anchor" aria-hidden="true">#</a>
 </h2>
-<p>It is important to understand that functional completeness of a set of connectives is different from completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules). Although both establish a connection between a syntactic and a semantic concept, there are some important differences. Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulas and the set of formulas which result from rule-governed sign manipulation.</p>
+<h3 id="functional-completeness-vs-dot-completeness-of-a-proof-system">
+  <span class="section-num">6.1</span> Functional completeness vs. completeness of a proof system
+  <a href="#functional-completeness-vs-dot-completeness-of-a-proof-system" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>As a last point, it is important to keep two notions of completeness apart: Functional completeness of a set of connectives is not the same as completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules); although both establish a connection between a syntactic and a semantic concept, there are some important differences.</p>
+<p>Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulae and the set of formulae which result from rule-governed sign manipulation.</p>
 <table>
 <thead>
 <tr>
@@ -419,7 +497,7 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 <td>truth-functions</td>
 </tr>
 <tr>
-<td>the set of universally valid formulas</td>
+<td>the set of universally valid formulae</td>
 <td>deduction</td>
 <td>validity</td>
 </tr>
@@ -429,33 +507,38 @@ F &amp;amp; F &amp;amp; T &amp;amp; T &amp;amp; F &amp;amp; T &amp;amp; T\\
 <p><span class="org-target" id="org-target--Triv"></span></p>
 <div class="equation-container">
 <span class="equation">
-<img src="/ltximg/Functional Completeness (vom 08.04.2022)_75ce820cadfd1fff5a42b7f6290dbdb2f57c1bcc.svg" alt="\begin{equation*} \hskip -15em
+<img src="/ltximg/Functional Completeness (vom 08.04.2022)_32936ca44938ec9f5a6ed7a6cda9c50865c6bb7b.svg" alt="\begin{equation*} \hskip -15em
 \tag{Triv}
 \mathit{v\,(\!A)}=T
 \end{equation*}
 " class="img-newline" />
 </span>
 </div>
-<p>With <a href="#org-target--Triv">(Triv)</a> we state that <em>any</em> formula is true. As a direct corollary, then, any formula is universally valid as well. But since we have classical deduction rules, not every formula is deducible, so it is not the case that any universally valid formula is also deducible. In other words: Our proof system ist not complete with respect to the semantics we stated.</p>
-<p>Nonetheless, any set of connectives is functionally complete: No matter what formula we look at, be it of the form  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_e09c79a4fb92071375cfc76ce03f16a5daf73750.svg" alt="$\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_f7e5e15db130e18a6814f30a79b2738871801766.svg" alt="$\text{``}\neg \mathit{A}\text{''} $" class="org-svg" /> or any other form, it is true. So any abbreviation of one connective by the other results in the same truth-values &ndash; or, as in this case, the same truth-value.</p>
-<p>Note that if we had chosen as proof system in which any formula is deducible, our proof system would be complete with respect to the given semantics. It is the dependency of the proof system that is the biggest difference between functional completeness and completeness of a proof system.</p>
-<p>Any definition is stated with help of syntax, as a notational convention of abbreviation; but to say that an expression is syntactically definable is to say something more, namely that it is explicable as an abbreviation of an expression which is itself composed of just the notations of syntax.
-quine, 286, math logic</p>
-<h2 id="references">
-  References
-  <a href="#references" class="h-anchor" aria-hidden="true">#</a>
+<p>With <a href="#org-target--Triv">(Triv)</a> we state that <em>any</em> formula is true. As a direct corollary, then, any formula is universally valid as well, so also every formula whose main connective is one of  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_a3fc6cde78e8ab226576619ca7419e6e02010a9e.svg" alt="$\text{``}\land\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_21562815b5f9ada70d101a282b3bb029dc3a970c.svg" alt="$\text{``}\lor\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_0ccb9e39cf24d75fd407d1c3ff44cb604e2c1896.svg" alt="$\text{``}\to\text{''}$" class="org-svg" /> <img src="/ltximg/Functional Completeness (vom 08.04.2022)_ae23b716af236c4778cbb088e81187ba44b382bf.svg" alt="$\text{``}\lnot \text{''}$" class="org-svg" /> or <img src="/ltximg/Functional Completeness (vom 08.04.2022)_972540aa9370f19c1bd1fb027631b5fe9352f106.svg" alt="$\text{``}\leftrightarrow\text{''}$" class="org-svg" /> is.  But since we constructed our system to have a classical set of deducible formulae, some valid formulae are not provable. In other words: Our proof system ist not complete with respect to the semantics we stated.</p>
+<p>Nonetheless, any set of connectives is functionally complete in our system: No matter what formula we look at, be it of the form  <img src="/ltximg/Functional Completeness (vom 08.04.2022)_fb8beb9a1ff574a687d6f46cc360b4b2fc9a451e.svg" alt="$\text{``}\!\mathit{A} \to \mathit{B}\,\text{''}$" class="org-svg" />, <img src="/ltximg/Functional Completeness (vom 08.04.2022)_c7d19d8bf531ca3ba29a4fc6efd420288231ea74.svg" alt="$\text{``}\neg \mathit{A}\text{''} $" class="org-svg" /> or any other form, it is true. So any abbreviation of one connective by the other results in the same truth-values &ndash; or, as in this case, in the same truth-value.</p>
+<p>Note that if we had chosen a proof system in which any formula is deducible, our proof system would be complete with respect to the given semantics. The functional completeness of our system would not have changed, though. This is the biggest difference between functional completeness and completeness of a proof system: While the former is dependent on a system of deduction, the latter is not.</p>
+<p>Was this article of any help to you? If so, consider leaving a comment or supporting me by <a href="https://www.buymeacoffee.com/vitus">buying me a coffee</a>!</p>
+<h2 id="literature">
+  Literature
+  <a href="#literature" class="h-anchor" aria-hidden="true">#</a>
 </h2>
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Yaqub, A. M. (2015). <i>An Introduction to Metalogic</i>. Broadview Press.</div>
 </div>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>In intuitionistic logic, the quantifiers are not interdefinable. This is a direct consequence of the fact that intuitionists do not accept DN.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p>To be exact, there are three logical symbols in predicate logic. Next to the quantifiers, there also is the identity sign <img src="/ltximg/Functional Completeness (vom 08.04.2022)_e8f31e97046cee798a38ebdebd996772bddad2af.svg" alt="$\text{``}=\text{''}$" class="org-svg" />. Since, as will become clear, functional completeness is about <em>connectives</em>, and the identity sign is a predicate symbol, it is not relevant to what we are up to. Nonetheless, it is interesting to note that identity cannot be defined in classical first-order logic, but <em>has</em> to be added as a primitive symbol. In mereology, set theory and second-order logic, identity can be defined, though.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>In intuitionistic logic, the quantifiers are not interdefinable. This is a direct consequence of the fact that intuitionists do not accept DN.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>A nerdy side note: Proof by induction on the complexity of formulae or length of proofs can be reduced to the principle of mathematical induction, which itself is a theorem of set theory. A very accessible introduction to the PMI can be found in <a href="#citeproc_bib_item_1">Yaqub, 2015, pp. 90–94</a>.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
     </div>
     
@@ -468,6 +551,13 @@ quine, 286, math logic</p>
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://Perangelot.github.io/posts/an-introduction-to-freges-notation-vom-08.04.2022/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">An Introduction to Frege&#39;s Notation</span>
+                </a>
+              </span>
             
             
               <span class="button next">

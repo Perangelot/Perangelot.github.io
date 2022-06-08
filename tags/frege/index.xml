@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frege on opensource-philosophy</title>
+    
+    
+    
+    <link>https://Perangelot.github.io/tags/frege/</link>
+    <description>Recent content in frege on opensource-philosophy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://Perangelot.github.io/tags/frege/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Introduction to Frege&#39;s Notation</title>
+      <link>https://Perangelot.github.io/posts/an-introduction-to-freges-notation-vom-08.04.2022/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0200</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/an-introduction-to-freges-notation-vom-08.04.2022/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Gottlob Frege is, although neglected during his life time, one of the most important philosophers of the 20th century. Nonetheless, many people shy away from reading texts in which he uses his notation of logic known from the Begriffsschrift, often claiming it is overcomplex or too hard to understand. In this post, my aim is to show that this claim is plain false. To do that, we will have a look at its basic concepts (*cough*) and see that the only reason why Freges Begriffsschrift has a bad reputation is that people did not even try to understand it.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

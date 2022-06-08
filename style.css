@@ -152,7 +152,13 @@ img {
     margin-right: auto;
   }
 
-/* There are some cases in which we want the image to be centered, so we define a new class .block-img which does just that. The important line is line display: block; .*/
+/* There are some cases in which we want the image to be centered, so we define a new class .block-img which does just that. The important line is "line display: block"; the selection syntax only for this Markdown syntax:
+
+<div class="...">
+<img src="..." alt="..." class="img-newline" />
+</div>
+
+.*/
 
 .img-newline img {
   display: block !important;
@@ -171,7 +177,15 @@ span.equation img {
   margin-right: -0,1cm !important;
 }
 
-/* Nowe we might want different styles depending on the environment we have. Personally, I want my definition environment to be different, so I define a .css class equation-definition and add #+ATTR_HTML: :class equation-definition before the definitions I give. */
+/* Nowe we might want different styles depending on the environment we have. Personally, I want my definition environment to be different, so I define a .css class equation-definition and add #+ATTR_HTML: :class equation-definition before the definitions I give. 
+
+<div class="...">
+<span class="class1">
+<img src="..." alt="..." class="class2" />
+</span>
+</div>
+
+*/
 
 span.equation img.equation-definition {
   display: block !important;
@@ -205,4 +219,14 @@ span.equation-label:after {
 span.equation-label:hover{
   font-weight: bold;
   color: var(--pink);
+}
+
+
+
+.equation-container .equation img[class="equation-double"] {
+  display: block !important;
+  max-width: 100%;
+  margin-left: -0,1cm !important;
+  margin-right: -0,1cm !important;
+  margin-bottom: 0.3cm !important;
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog-post on opensource-philosophy</title>
+    
+    
+    
+    <link>https://Perangelot.github.io/tags/blog-post/</link>
+    <description>Recent content in blog-post on opensource-philosophy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://Perangelot.github.io/tags/blog-post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An in-depth guide to writing full-fledged LaTeX in html using ox-hugo</title>
+      <link>https://Perangelot.github.io/posts/an-in-depth-guide-to-writing-full-fledged-latex-in-html-using-ox-hugo-vom-10.04.2022/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0200</pubDate>
+      
+      <guid>https://Perangelot.github.io/posts/an-in-depth-guide-to-writing-full-fledged-latex-in-html-using-ox-hugo-vom-10.04.2022/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          LaTeX is the one and only language to typeset math- and logicrelated formulas in a way that is both exact and aesthetically pleasing. And this is just the tip of the iceberg: There are many other features LaTeX has to offer. In this post, we will have a look at how to configure emacs and ox-hugo to allow you to get any (Xe)LaTeX formula, figure or whatnot into your html file, how to style them correctly and how to refrence them in-text.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

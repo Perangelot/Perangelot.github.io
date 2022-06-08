@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        An in-depth guide to writing full-fledged LaTeX in html using ox-hugo ::
+        opensource-philosophy
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Table of Contents 1 Why the our approach is preferable 1.1 svg preview images vs Mathjax 1.2 svg preview images vs Tikzjax 2 The basic idea of our approach 2.1 Using org-mode and LaTeX to generate svg preview images 2.2 Using ox-hugo and hugo to embed the images into html 2.3 Using css to change alignment and styling 2.4 Optional: Using org-mode to create hyperlinks to the images 3 Getting dvisvgm to work 4 Getting the colors right 5 Linking equations with target links: 6 6."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://Perangelot.github.io/posts/an-in-depth-guide-to-writing-full-fledged-latex-in-html-using-ox-hugo-vom-10.04.2022/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://Perangelot.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://Perangelot.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://Perangelot.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://Perangelot.github.io/img/favicon.png" />
+
+
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://Perangelot.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An in-depth guide to writing full-fledged LaTeX in html using ox-hugo"/>
+<meta name="twitter:description" content="LaTeX is the one and only language to typeset math- and logicrelated formulas in a way that is both exact and aesthetically pleasing. And this is just the tip of the iceberg: There are many other features LaTeX has to offer. In this post, we will have a look at how to configure emacs and ox-hugo to allow you to get any (Xe)LaTeX formula, figure or whatnot into your html file, how to style them correctly and how to refrence them in-text."/>
+
+
+
+<meta property="og:title" content="An in-depth guide to writing full-fledged LaTeX in html using ox-hugo" />
+<meta property="og:description" content="LaTeX is the one and only language to typeset math- and logicrelated formulas in a way that is both exact and aesthetically pleasing. And this is just the tip of the iceberg: There are many other features LaTeX has to offer. In this post, we will have a look at how to configure emacs and ox-hugo to allow you to get any (Xe)LaTeX formula, figure or whatnot into your html file, how to style them correctly and how to refrence them in-text." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Perangelot.github.io/posts/an-in-depth-guide-to-writing-full-fledged-latex-in-html-using-ox-hugo-vom-10.04.2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-10T00:00:00+02:00" />
+<meta property="article:modified_time" content="2022-04-10T00:00:00+02:00" />
+
+
+
+
+
+<script>
+MathJax = {
+  loader: {
+        load: ['[unicodeMath]/unicode-math.js'],
+        paths: {unicodeMath: 'https://cdn.jsdelivr.net/npm/@amermathsoc/mathjax-unicode-math@1/browser'}
+    },
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: {'[+]': ['unicode-math']},
+    processEscapes: true,
+    processEnvironments: true
+  }, 
+  svg: {
+    fontCache: 'global'
+  },
+ options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/forall.ico">
+
+<link href="/css/prism.css" rel="stylesheet"/>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container line-numbers">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/posts/">Posts</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More
+            <span class="menu__sub-inner-more-trigger-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span
+            >
+          </li>
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/projects/">Projects</a></li>
+              
+            
+              
+                <li><a href="/about_me/">About Me</a></li>
+              
+            
+              
+                <li><a href="/donate/">Donate</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/posts/">Posts</a></li>
+      
+    
+      
+        <li><a href="/projects/">Projects</a></li>
+      
+    
+      
+        <li><a href="/about_me/">About Me</a></li>
+      
+    
+      
+        <li><a href="/donate/">Donate</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">An in-depth guide to writing full-fledged LaTeX in html using ox-hugo</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          10 Apr. 2022
+        </span>
+
+        
+          
+            
+
+
+
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://Perangelot.github.io/tags/blog-post/">#blog-post</a>&nbsp;
+        
+      </span>
+    
+
+    
+    <div class="post-content">
+      
+        
+        <div class="post-summary">
+          LaTeX is the one and only language to typeset math- and logicrelated formulas in a way that is both exact and aesthetically pleasing. And this is just the tip of the iceberg: There are many other features LaTeX has to offer. In this post, we will have a look at how to configure emacs and ox-hugo to allow you to get any (Xe)LaTeX formula, figure or whatnot into your html file, how to style them correctly and how to refrence them in-text.
+        </div>
+          
+      <style>
+  .ox-hugo-toc ul {
+    list-style: none;
+  }
+</style>
+<div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><span class="section-num">1</span> <a href="#why-the-our-approach-is-preferable">Why the our approach is preferable</a>
+<ul>
+<li><span class="section-num">1.1</span> <a href="#svg-preview-images-vs-mathjax"><code>svg</code> preview images vs <code>Mathjax</code></a></li>
+<li><span class="section-num">1.2</span> <a href="#svg-preview-images-vs-tikzjax"><code>svg</code> preview images vs <code>Tikzjax</code></a></li>
+</ul>
+</li>
+<li><span class="section-num">2</span> <a href="#the-basic-idea-of-our-approach">The basic idea of our approach</a>
+<ul>
+<li><span class="section-num">2.1</span> <a href="#using-org-mode-and-latex-to-generate-svg-preview-images">Using <code>org-mode</code> and <code>LaTeX</code> to generate <code>svg</code> preview images</a></li>
+<li><span class="section-num">2.2</span> <a href="#using-ox-hugo-and-hugo-to-embed-the-images-into-html">Using <code>ox-hugo</code> and <code>hugo</code> to embed the images into <code>html</code></a></li>
+<li><span class="section-num">2.3</span> <a href="#using-css-to-change-alignment-and-styling">Using <code>css</code> to change alignment and styling</a></li>
+<li><span class="section-num">2.4</span> <a href="#optional-using-org-mode-to-create-hyperlinks-to-the-images">Optional: Using <code>org-mode</code> to create hyperlinks to the images</a></li>
+</ul>
+</li>
+<li><span class="section-num">3</span> <a href="#getting-dvisvgm-to-work">Getting dvisvgm to work</a></li>
+<li><span class="section-num">4</span> <a href="#getting-the-colors-right">Getting the colors right</a></li>
+<li><span class="section-num">5</span> <a href="#linking-equations-with-target-links">Linking equations with target links:</a></li>
+<li><span class="section-num">6</span> <a href="#d41d8c"></a>
+<ul>
+<li><span class="section-num">6.1</span> <a href="#1-alles-was-in-dollar-signs-gewarppt-ist-egal-ob-inline-oder-nicht-dot-kriegt-diese-syntax">1 Alles, WAS in dollar signs gewarppt ist - egal ob inline oder nicht. kriegt diese syntax:</a></li>
+<li><span class="section-num">6.2</span> <a href="#2">2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="why-the-our-approach-is-preferable">
+  <span class="section-num">1</span> Why the our approach is preferable
+  <a href="#why-the-our-approach-is-preferable" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h3 id="svg-preview-images-vs-mathjax">
+  <span class="section-num">1.1</span> <code>svg</code> preview images vs <code>Mathjax</code>
+  <a href="#svg-preview-images-vs-mathjax" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Before we get into <em>how</em> we&rsquo;re doing things, let us first get an idea of <em>why</em> it is preferable to do so. This is an important question since there are other (and less complicated) ways to get LaTeX formulas typeset in <code>html</code>. Speficially, there is <code>Mathjax</code> &ndash; a javascript application which allows typesetting LaTeX formulas in html. Now don&rsquo;t get me wrong, <code>Mathjax</code> is a great tool, but it has severe limitations.</p>
+<p>In comparison to the approach we are choosing, <code>Mathjax</code> is much less flexible. Specifically, there are just a few LaTeX packages out there that you can actually use with <code>Mathjax</code>. This was the most important reason for me to switch to <code>svg</code> images: I was not able to typeset my formulas upright. In philosophical logic, it is common practice to write actual formulas upright, whilst preserving italicization for scheme letters. To do that correctly, you will need the package <code>unicode-math</code> with the package option <code>math-style=upright</code>, but this simply does not work with <code>Mathjax</code>. And even if this had not been a problem, there were still some metalogical signs missing. For example, the shadow brackets <img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_61e9d0854bd03d1a6aed2c700039a727e8e9811e.svg" alt="$\llbracket \ldots \rrbracket$" class="org-svg" /> and turned iota <img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_ba2b917fbe0eecc3454cb1b2d04b2ce113770d2d.svg" alt="$\turnediota $" class="org-svg" />$\,$.</p>
+<p>Things are getting even worse if you want to typeset very specific formulas. The most obvious case for me was trying to get the formulas of Frege&rsquo;s <em>Begriffsschrift</em> working. This is simply not possible in <code>Mathjax</code>, whilst with our approach, we can write things like</p>
+<div class="img-newline">
+<img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_23c837dec9a5c494dbe9271d04f67dc866fe06af.svg" alt="$\Fcdt[\Fa]{\F \Fcdt {\F \Fcdt{\F\mathit{a}}{\F \mathit{c}}}{\F \Fcdt{\F \mathit{b}}{\F \mathit{c}}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{c}}}$" class="org-svg" />
+</div>
+<p>which would not be possible with <code>Mathjax</code>. We can now even use a <code>tabular</code> environment to group these formulas:</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_52eb137b8757a841d8acdcaf093851ba0f35db58.svg" alt="\begin{center}
+  \begin{tblr}{colspec={XXX}, row{1}={c}}
+    \scalebox{1.2}{$\Fcdt[\Fa]{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{a}}$} &amp;amp;
+<pre><code>\scalebox{1.2}{$\Fcdt[\Fa]{\F \Fcdt {\F \Fcdt{\F\mathit{a}}{\F \mathit{c}}}{\F \Fcdt{\F \mathit{b}}{\F \mathit{c}}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{c}}}$} &amp;amp;amp;
+
+\scalebox{1.2}{$\Fcdt[\Fa]{\F \Fcdt{\F\Fcdt{\F \mathit{a}}{\F \mathit{d}}}{\F \mathit{b}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{d}}}$} \\
+</code></pre>
+<p>\hskip 5.5em    $\mathit{a} \to (\mathit{b} \to \mathit{a})$ &amp;amp;
+\hskip 5.2em     $(\mathit{c} \to (\mathit{b} \to \mathit{a})) \to $ &amp;amp;
+\hskip 3.5em   $((\mathit{c} \to \mathit{b}) \to (\mathit{c} \to \mathit{a})) \to $ \ &amp;amp;
+\hskip 5.2em     $(\mathit{d} \to (\mathit{b} \to \mathit{a}))$  &amp;amp;
+\hskip 3.5em    $(\mathit{b} \to (\mathit{d} \to \mathit{a}))$
+\end{tblr}
+\end{center}
+&quot; class=&ldquo;img-newline&rdquo; /&gt;
+</span>
+<span class="equation-label">1</span></p>
+</div>
+<p>As you can see, our approach is <em>much</em> more flexible, which, if you need or want to be capable of getting down everything you want, this is great.</p>
+<h3 id="svg-preview-images-vs-tikzjax">
+  <span class="section-num">1.2</span> <code>svg</code> preview images vs <code>Tikzjax</code>
+  <a href="#svg-preview-images-vs-tikzjax" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>When typesetting logic or math, especially in texts which aim at explaining a matter in-depth, it happens more than often that you need to draw diagrams &ndash; and LaTeX offers a great solution here, too. With the help of the <code>pgf/tikz</code> package, you can describe exactly how your diagram of choice should look like, and LaTeX draws it for you.</p>
+<p>In order to draw diagrams in html, next to <code>Mathjax</code>, there is also the javascript application <code>Tikzjax</code>, with which you can draw basic <code>tikz</code> diagrams. Problematically, though, the operative word ist <em>basic</em>. You cannot even <a href="https://github.com/kisonecat/tikzjax/issues/2">load tikz-libraries</a>. But what if you want to draw a modal diagram? Images like</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_4df67183e96feb7fb7a3fbea300863bff53761e1.svg" alt="\begin{figure}
+\centering
+  \begin{subfigure}[b]{0.46\linewidth}
+   	 \begin{tikzpicture}[modal] % Den modus [modal] haben wir in der Präambel definiert. Hiermit zeichnen wir die Modaldiagremme!
+	\node[world] (w1)  {$a$}; % [world] gibt an, dass wir Welten zeichnen.  (w1) ist der Name für die Welt, {$w_1$) die Beschriftung.
+	\node[world] (w2) [right=of w1] {$b$};
+	\path[-&amp;gt;] (w1) edge[reflexive] (w1);
+	\path[-&amp;gt;] (w2) edge[reflexive] (w2);
+	\end{tikzpicture}
+    \centering \caption{Reflexive Instances}   \label{fig:A}
+  \end{subfigure}
+\begin{subfigure}[b]{0.46\linewidth}
+  \begin{tikzpicture}[modal]
+\node[world] (w1)  {$a$}; % [world] gibt an, dass wir Welten zeichnen. (w1) ist der Name für die Welt, {$w_1$) die Beschriftung.
+\node[world] (w2) [right=of w1] {$b$};
+\path[-&amp;gt;] (w1) edge (w2);
+\path[-&amp;gt;] (w2) edge (w1);
+\end{tikzpicture}
+\centering \caption{Symmetric Instances} \label{fig:B}
+\end{subfigure}
+\end{figure}
+" class="img-newline" />
+</span>
+<span class="equation-label">1</span>
+</div>
+<p>can&rsquo;t be typeset with <code>Tikzjax</code>. Neither can more complex ones as</p>
+<div class="equation-container">
+<span class="equation">
+<img src="/ltximg/An in-depth guide to writing full-fledged LaTeX in html using ox-hugo (vom 10.04.2022)_68bb97d683b0b5999d2d42bb98d688ee36fb25eb.svg" alt="\begin{tableau}
+{to prove={\text{proof goal: }\sdtstile{PL}{} \textcolor{grau}{\forall x Fx \to \exists x Fx}}}
+[\neg (\forall x Fx \to \exists x Fx), just=reductio
+[\forall x Fx,  just=(1) ($\neg \text{,}\to$)
+[\neg \exists x Fx, just=(1) ($\neg \text{,}\to$) % Komma muss als Text ausgegeben werden, weil prooftree sonst denkt, es käme ein weiteres Argument!
+[\forall x \neg Fx,               just=(3) Swap
+[Fa,               just=(2) \text{UI: a/x}
+[\neg Fa,               just=(4) \text{UI: a/x}, , close={(5),(6)}
+]
+]
+]
+]
+]
+]
+\end{tableau}
+" class="org-svg" />
+</span>
+<span class="equation-label">1</span>
+</div>
+<p>But, as you can see, this is possible with <code>svg</code> images produced by emacs.</p>
+<h2 id="the-basic-idea-of-our-approach">
+  <span class="section-num">2</span> The basic idea of our approach
+  <a href="#the-basic-idea-of-our-approach" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Now that we know <em>why</em> our approach is preferable to <code>Mathjax</code> and <code>Tikzjax</code>, let us continue with the <em>how</em>. First of all, I am going to sketch the overall idea, then we will have a look at all the details. So let&rsquo;s get going!</p>
+<h3 id="using-org-mode-and-latex-to-generate-svg-preview-images">
+  <span class="section-num">2.1</span> Using <code>org-mode</code> and <code>LaTeX</code> to generate <code>svg</code> preview images
+  <a href="#using-org-mode-and-latex-to-generate-svg-preview-images" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>In order to get our <code>LaTeX</code> into our =h</p>
+<h3 id="using-ox-hugo-and-hugo-to-embed-the-images-into-html">
+  <span class="section-num">2.2</span> Using <code>ox-hugo</code> and <code>hugo</code> to embed the images into <code>html</code>
+  <a href="#using-ox-hugo-and-hugo-to-embed-the-images-into-html" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h3 id="using-css-to-change-alignment-and-styling">
+  <span class="section-num">2.3</span> Using <code>css</code> to change alignment and styling
+  <a href="#using-css-to-change-alignment-and-styling" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h3 id="optional-using-org-mode-to-create-hyperlinks-to-the-images">
+  <span class="section-num">2.4</span> Optional: Using <code>org-mode</code> to create hyperlinks to the images
+  <a href="#optional-using-org-mode-to-create-hyperlinks-to-the-images" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<h2 id="getting-dvisvgm-to-work">
+  <span class="section-num">3</span> Getting dvisvgm to work
+  <a href="#getting-dvisvgm-to-work" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h2 id="getting-the-colors-right">
+  <span class="section-num">4</span> Getting the colors right
+  <a href="#getting-the-colors-right" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;org</span>
+</span></span><span style="display:flex;"><span>  (plist-put org-format-latex-options <span style="color:#e6db74">:html-foreground</span> <span style="color:#e6db74">&#34;#AAA7B3&#34;</span>)
+</span></span><span style="display:flex;"><span>  (plist-put org-format-latex-options <span style="color:#e6db74">:html-background</span> <span style="color:#66d9ef">nil</span>))
+</span></span></code></pre></div><h2 id="linking-equations-with-target-links">
+  <span class="section-num">5</span> Linking equations with target links:
+  <a href="#linking-equations-with-target-links" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ul>
+<li>set target <span class="org-target" id="org-target--eq1"></span></li>
+<li>refer with link: <code>[[eq1][Link to eq1]]</code> (span class=&ldquo;org-target&rdquo;)</li>
+<li>documentation of ox-hugo: <a href="https://ox-hugo.scripter.co/doc/anchors/#target-links">https://ox-hugo.scripter.co/doc/anchors/#target-links</a></li>
+</ul>
+<h2 id="d41d8c">
+  <span class="section-num">6</span> 
+  <a href="#d41d8c" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Die html-attribute ändern nicht die syntax, nur die Klasse</p>
+<h3 id="1-alles-was-in-dollar-signs-gewarppt-ist-egal-ob-inline-oder-nicht-dot-kriegt-diese-syntax">
+  <span class="section-num">6.1</span> 1 Alles, WAS in dollar signs gewarppt ist - egal ob inline oder nicht. kriegt diese syntax:
+  <a href="#1-alles-was-in-dollar-signs-gewarppt-ist-egal-ob-inline-oder-nicht-dot-kriegt-diese-syntax" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">class</span> <span style="color:#f92672">img</span> {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">[css-content]</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2">
+  <span class="section-num">6.2</span> 2
+  <a href="#2" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Alles, was NICHT in dollar signs gewrappt ist, kriegt diese Syntax:
+syntax im Markdown:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>&lt;div class=<span style="color:#e6db74">&#34;...&#34;</span><span style="color:#a6e22e">&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;span class=<span style="color:#e6db74">&#34;class1&#34;</span><span style="color:#a6e22e">&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;img src=<span style="color:#e6db74">&#34;...&#34;</span> alt=<span style="color:#e6db74">&#34;...&#34;</span> class=<span style="color:#e6db74">&#34;class2&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/span&gt;
+</span></span><span style="display:flex;"><span>&lt;/div&gt;
+</span></span></code></pre></div><p>selection in CSS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">equation-container</span> .<span style="color:#a6e22e">equation</span> <span style="color:#f92672">img</span><span style="color:#f92672">[</span><span style="color:#f92672">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;equation-double&#34;</span><span style="color:#f92672">]</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>       <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">-0</span>,<span style="color:#ae81ff">1</span><span style="color:#66d9ef">cm</span>  <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">-0</span>,<span style="color:#ae81ff">1</span><span style="color:#66d9ef">cm</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">cm</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://Perangelot.github.io/posts/try/">
+                  <span class="button__text"></span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        <script src="https://giscus.app/client.js"
+        data-repo="Perangelot/Perangelot.github.io"
+        data-repo-id="R_kgDOGtDP-w"
+        data-category-id="DIC_kwDOGtDP-84CAyAw"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >opensource-philosophy</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022
+          <a href="mailto:vitus.schaefftlein@opensource-philosophy.com" target="_blank" rel="noopener">Vitus Schäfftlein</a></span
+        >
+        <span
+          >completely
+          <a href="https://github.com/Perangelot/Perangelot.github.io" target="_blank" rel="noopener">open source</a></span
+        > 
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://Perangelot.github.io/assets/main.js"></script>
+<script src="https://Perangelot.github.io/assets/prism.js"></script>
+
+<script src="/js/prism.js"></script>
+
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
