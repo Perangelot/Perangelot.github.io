@@ -133,7 +133,7 @@ One could, of course, also take $\text{``}\exists\text{''}$ as primitive and def
 * A definition of functional completeness
 In the last two sections, we have shown that we only need /some/ connectives and quantifiers in our syntax to express /all/ of them. We also made plausible that not every set of logical constants is capable of doing this, so we are talking about an interesting property here -- a property usually called /functional completeness/ or /expressive completeness/. Now we have an idea of what it is, so let us consider a formal definition. As it happens, there are several definitions of this concept, but they only deviate in minor points. I suggest the following definition, which is based on [[cite:&yaqub2015 110]]: 
 
-#+ATTR_HTML: :class equation-definition
+# #+ATTR_HTML: :class equation-definition
 \begin{Large}
 \begin{defin}{Functional Completeness}{}
  A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em

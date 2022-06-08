@@ -160,7 +160,7 @@ In the last two sections, we have shown that we only need _some_ connectives and
   A set S of logical operators is \textcolor{pink}{\textit{functionally complete}} for a language L if and only if every unary and binary logical operator is expressible in L in terms of S.
 \end{defin}
 \end{Large}
-" class="equation-definition" />
+" class="org-svg" />
 </span>
 </div>
 
