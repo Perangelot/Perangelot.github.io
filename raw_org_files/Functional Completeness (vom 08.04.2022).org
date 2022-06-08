@@ -35,7 +35,7 @@
 #+LATEX_HEADER:\newtcbtheorem{defin}{\hskip -1em \dgelb{\faicon{cog}~Definition}}%
 #+LATEX_HEADER:{colback=anthrazit, fonttitle=\bfseries}{def}
 
-* The interdefinability of connectives
+* The Interdefinability of Connectives
 As a first approximation, let us get familiar with one very simple idea: Some logical constants can be understood as abbreviations of others. For example, you can introduce the material conditional by stipulating that
 
 \begin{equation*}
@@ -101,7 +101,7 @@ As it happens, we have now used two connectives -- $\text{``}\neg\text{''}$ and 
 
 This is not self-evident, since some pairs of connectives are not capable of defining all others; for example $\text{``}\land\text{''}$ and $\text{``}\lor\text{''}$ cannot because there is no way to get to $\text{``}\lnot A\text{''}$, $\text{``}\lnot \text{''}$ or $\text{``}\leftrightarrow\text{''}$.
 
-* The interdefinability of quantifiers
+* The Interdefinability of Quantifiers
 Now we know that under certain conditions, we only need a smaller set of connectives to define the whole set of connectives. While this suffices for propositional logic, there are two more logical symbols[fn:2] in /predicate/ /logic/ we need to take into consideration: $\text{``}\forall \text{''}$ and $\text{``}\exists \text{''}$. Here, we can also define one quantifier in terms of the other using $\text{``}\lnot \text{''}$. For example, we can stipulate that
 
 \begin{equation*}
@@ -130,10 +130,9 @@ and thereby define the existential quantifier by means of $\text{``}\forall\text
 
 One could, of course, also take $\text{``}\exists\text{''}$ as primitive and define $\text{``}\forall\text{''}$ in terms of it. Similarly, you can define a weak modal operator like $\text{``}\Diamond \text{''}$ by the corresponding strong one -- $\text{``}\Box \text{''}$ in this case -- and vice versa.
 
-* A definition of functional completeness
+* A Definition of Functional Completeness
 In the last two sections, we have shown that we only need /some/ connectives and quantifiers in our syntax to express /all/ of them. We also made plausible that not every set of logical constants is capable of doing this, so we are talking about an interesting property here -- a property usually called /functional completeness/ or /expressive completeness/. Now we have an idea of what it is, so let us consider a formal definition. As it happens, there are several definitions of this concept, but they only deviate in minor points. I suggest the following definition, which is based on [[cite:&yaqub2015 110]]: 
 
-# #+ATTR_HTML: :class equation-definition
 \begin{Large}
 \begin{defin}{Functional Completeness}{}
  A \textit{logical operator} is a connective, quantifier or modal operator.  \vskip .5em
@@ -141,7 +140,7 @@ In the last two sections, we have shown that we only need /some/ connectives and
 \end{defin}
 \end{Large}
 
-The basic idea of this definition is that if you have /some/ connectives -- represented by the set $S$, you have /all/ connectives. With the notion of functional completeness in place, we are now able to express what we discovered in sections [[*The interdefinability of connectives][1]] and [[*The interdefinability of quantifiers][2]] very briefly:
+The basic idea of this definition is that if you have /some/ connectives -- represented by the set $S$, you have /all/ connectives. With the notion of functional completeness in place, we are now able to express what we discovered in sections [[*The Interdefinability of Connectives][1]] and [[*The Interdefinability of Quantifiers][2]] very briefly:
 
 #+ATTR_HTML: :class equation-double
 \begin{equation*} \hskip -15em
@@ -154,7 +153,7 @@ The basic idea of this definition is that if you have /some/ connectives -- repr
 
 Note that these are far from all sets of connectives that are functionally complete for propositional or predicate logic. For example, $\{ \lnot ,\lor,\exists  \}$ is functionally complete, too, as well as $\{ \bot,\to\}$. 
 
-* The Sheffer stroke and Peirce's arrow
+* The Sheffer Stroke and Peirce's Arrow
 Incidentally, you can even get all connectives defined by a /single/ sign, the Sheffer stroke $\text{``}\downarrow\text{''}$. Its semantics are defined like this:
 
 \begin{equation*} \hskip -15em
@@ -184,13 +183,13 @@ In a similar, fashion, Peirce's arrow can be read as "not both A and B". This al
 
 "Not both A and A", again, simply means the same as "not A". As a side note for computer scientists: The Sheffer stroke corresponds to the =NAND= operator, Peirce's arrow to the =NOR= operator. Peirce's arrow is sometimes also called "Quine's dagger".
 
-* The use of functional completeness
+* The Use of Functional Completeness
 Now that we know what functional completeness is, the question arises why it would matter to talk about it. After all, no matter whether you introduce all connectives as primitive symbols or some of them as abbreviations, all formulas have the same truth-values and proof theory stays the same anyway.
 
 What seems to be a reason against introducing small functionally complete sets of operators in the first place turns out to be just the reason for doing so. On the one hand, thinking about it makes clear which relations the connectives hold to each other, which is a value in itself. It also helps compare different logics. For example, in intuitionistic logic, the quantifiers are not interdefinable, and in three-valued logic, the sets of functionally complete connectives are much more limited.
 
 On the other hand, and most importantly, if you intend to prove something not in, but /about/ a logical language, you will most often find yourself in a situation which requires you to use proof by induction on the complexity of formulae[fn:3]. This, in effect, means, that you need to show /for all possible combinations of well-formed formulae/ that the proposition you claim holds. By making use of functionally complete sets, you can reduce the number of those possible combinations, which makes the proofs much smaller. Logicians are humans, after all, and humans are lazy.
-* Functional completeness vs. completeness of a proof system
+* Functional vs. Deductive Completeness
 As a last point, it is important to keep two notions of completeness apart: Functional completeness of a set of connectives is not the same as completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules); although both establish a connection between a syntactic and a semantic concept, there are some important differences.
 
 Whilst functional completeness is about the connection between abbreviations and functions which map to truth values, completeness of a proof system is concerned with the relationship between the set of universally valid formulae and the set of formulae which result from rule-governed sign manipulation.
