@@ -1,6 +1,6 @@
 +++
 title = "Functional Completeness"
-description = "In most definitions of classical logic, some connectives are introduced as abbreviations of other, so-called primitive connectives. But why does it work, and why should one bother instead of just introducing every connective as primitive? In this post, I am going to tackle these questions by explaining what the functional completeness is and how it is used to make meta-language proofs shorter."
+description = "In most definitions of classical logic, some connectives are introduced as abbreviations of other, so-called primitive connectives. But why does it work, and why should one bother instead of just introducing every connective as primitive? In this post, I am going to tackle these questions by explaining what functional completeness is and how it is used."
 date = 2022-04-08T00:00:00+02:00
 tags = ["logic", "syntax"]
 type = "post"
@@ -255,10 +255,7 @@ What seems to be a reason against introducing small functionally complete sets o
 On the other hand, and most importantly, if you intend to prove something not in, but _about_ a logical language, you will most often find yourself in a situation which requires you to use proof by induction on the complexity of formulae[^fn:3]. This, in effect, means, that you need to show _for all possible combinations of well-formed formulae_ that the proposition you claim holds. By making use of functionally complete sets, you can reduce the number of those possible combinations, which makes the proofs much smaller. Logicians are humans, after all, and humans are lazy.
 
 
-## <span class="section-num">6</span> Functional completeness and metalogic {#functional-completeness-and-metalogic}
-
-
-### <span class="section-num">6.1</span> Functional completeness vs. completeness of a proof system {#functional-completeness-vs-dot-completeness-of-a-proof-system}
+## <span class="section-num">6</span> Functional completeness vs. completeness of a proof system {#functional-completeness-vs-dot-completeness-of-a-proof-system}
 
 As a last point, it is important to keep two notions of completeness apart: Functional completeness of a set of connectives is not the same as completeness of a proof system (that is, for example, a set of axioms plus a set of deduction rules); although both establish a connection between a syntactic and a semantic concept, there are some important differences.
 
