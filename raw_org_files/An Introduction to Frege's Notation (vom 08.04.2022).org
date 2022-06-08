@@ -15,32 +15,5 @@
 #+startup: latexpreview
 #+options: tex:dvisvgm
 
-#+description: Gottlob Frege is, although neglected during his life time, one of the most important philosophers of the 20th century. Nonetheless, many people shy away from reading texts in which he uses his *Begriffsschrift* Notation. In this post, we will have a look at its basic concepts (haha) and see that the bad reputation it has does not match its complexity.
+#+description: Gottlob Frege is, although neglected during his life time, one of the most important philosophers of the 20th century. Nonetheless, many people shy away from reading texts in which he uses his notation of logic known from the Begriffsschrift, often claiming it is overcomplex or too hard to understand. In this post, my aim is to show that this claim is plain false. To do that, we will have a look at its basic concepts (*cough*) and see that the only reason why Freges Begriffsschrift has a bad reputation is that people did not even try to understand it.
 
-* Functional Completeness
-Before we have a look at Frege's notation, we need to understand a very important metalogical concept without which his notation would not work -- /functional completeness/. The basic idea of it is very simple: Some logical constants can be defined in terms of other logical constants. For example, you can define the material conditional in classical logic like this: 
-
-#+attr_html: :class img-newline
-\begin{equation*}
-\tag{1} \hskip -15em
-\text{``}\!\mathit{A} \to \mathit{B}\,\text{''} 
-\text{ abbreviates } 
-\text{``}\lnot ( \mathit{A} \land \lnot \mathit{B})\text{''}
-\end{equation*}
-
-In our example, we used two other connectives, $\lnot $ and $\land$, to define
-$\to$. We can do the same for the disjunction:
-\begin{equation*}
-\tag{2} \hskip -15em
-\text{``}\!\mathit{A} \lor \mathit{B}\,\text{''} 
-\text{ abbreviates } 
-\text{``}\lnot ( \lnot \mathit{A} \land \lnot \mathit{B})\text{''}
-\end{equation*}
-
-As it happens, we could also define the biconditional, so the
-connectives $\land$ and $\lnot $ suffice to define all other connectives. In
-this case, we say that the set $\{ \land, \lnot  \}$ is /functionally complete/. Note
-that this does not have anything to do with the completeness of a
-proof system.
-
-a

@@ -13,12 +13,145 @@
  # #+hugo_lastmod:
 #+hugo_tags:
 #+csl-style: ../static/apa.csl
-#+csl-locale: en-US
+#+csl-locale: en-UI
 #+startup: latexpreview
 #+options: tex:dvisvgm
-#+description:
+#+description: LaTeX is the one and only language to typeset math- and logicrelated formulas in a way that is both exact and aesthetically pleasing. And this is just the tip of the iceberg: There are many other features LaTeX has to offer. In this post, we will have a look at how to configure emacs and ox-hugo to allow you to get any (Xe)LaTeX formula, figure or whatnot into your html file, how to style them correctly and how to refrence them in-text.
+
+#+LATEX_HEADER: \usepackage{frege, tabularray, tikz, caption, subcaption,stmaryrd}
+#+LAETX_HEADER:\usepackage{xcolor}
+#+LATEX_HEADER:\definecolor{anthrazit}{HTML}{292a2d}
+#+LATEX_HEADER:\definecolor{grau}{HTML}{AAA7B3}
+#+LATEX_HEADER:\definecolor{pink}{HTML}{fe5186}
+#+LATEX_HEADER: \usetikzlibrary{arrows.meta,calc,patterns,positioning,shapes}
+#+LATEX_HEADER: \usetikzlibrary{decorations.pathmorphing}
+#+LATEX_HEADER: \tikzset{
+#+LATEX_HEADER: modal/.style={>=stealth,shorten >=1pt,shorten <=1pt,auto,
+#+LATEX_HEADER: node distance=1.5cm,semithick},
+#+LATEX_HEADER: world/.style={circle,draw=grau,minimum size=1cm},
+#+LATEX_HEADER: point/.style={circle,draw=grau,inner sep=0.5mm},
+#+LATEX_HEADER: reflexive/.style={->,draw=grau,in=60,out=120,loop,looseness=#1},
+#+LATEX_HEADER: reflexive/.default={5},
+#+LATEX_HEADER: reflexive point/.style={->,draw=grau,in=135,out=45,loop,looseness=#1},
+#+LATEX_HEADER: reflexive point/.default={25},
+#+LATEX_HEADER: }
+#+LATEX_HEADER: \color{grau}
+
+#+LATEX_HEADER: \usepackage[tableaux]{prooftrees}
+#+LATEX_HEADER:%%%%% Definition der Standardpräambel für Tableaux %%%%%
+#+LATEX_HEADER:\forestset{% Hiermit legen wir den Font im Tableaux fest: sans serif ohne italics!
+#+LATEX_HEADER:mathsf content/.style={content
+#+LATEX_HEADER:format={\noexpand\ensuremath{\noexpand\mathsf{\forestoption{content}}}}}}
+
+#+LATEX_HEADER:\forestset{
+#+LATEX_HEADER:default preamble=
+#+LATEX_HEADER:{% Beginn der Standardpräambel 
+#+LATEX_HEADER:line no sep=5mm, % Abstand Baum - Nummerierung
+#+LATEX_HEADER:single branches=true, % auch vertikale Striche werden angezeigt
+#+LATEX_HEADER:for tree={mathsf content, s sep'=10mm}, % Wie weit gehen die Striche zur Seite?
+#+LATEX_HEADER:close with={$\bigtimes$} % Mit Kreuz schließen
+#+LATEX_HEADER:}, %Ende der Standardpräambel 
+#+LATEX_HEADER:}
+
+#+LATEX_HEADER:%%% Nummerierung der Tableaux in Klammern  %%%
+#+LATEX_HEADER:\renewcommand*\linenumberstyle[1]{(#1)}
 
 
+#+toc: headlines 2
+
+* Why the our approach is preferable
+** =svg= preview images vs =Mathjax= 
+Before we get into /how/ we're doing things, let us first get an idea of /why/ it is preferable to do so. This is an important question since there are other (and less complicated) ways to get LaTeX formulas typeset in =html=. Speficially, there is =Mathjax= -- a javascript application which allows typesetting LaTeX formulas in html. Now don't get me wrong, =Mathjax= is a great tool, but it has severe limitations. 
+
+In comparison to the approach we are choosing, =Mathjax= is much less flexible. Specifically, there are just a few LaTeX packages out there that you can actually use with =Mathjax=. This was the most important reason for me to switch to =svg= images: I was not able to typeset my formulas upright. In philosophical logic, it is common practice to write actual formulas upright, whilst preserving italicization for scheme letters. To do that correctly, you will need the package =unicode-math= with the package option =math-style=upright=, but this simply does not work with =Mathjax=. And even if this had not been a problem, there were still some metalogical signs missing. For example, the shadow brackets $\llbracket \ldots \rrbracket$ and turned iota $\turnediota $$\,$.
+
+Things are getting even worse if you want to typeset very specific formulas. The most obvious case for me was trying to get the formulas of Frege's /Begriffsschrift/ working. This is simply not possible in =Mathjax=, whilst with our approach, we can write things like
+
+#+ATTR_HTML: :class img-newline
+$\Fcdt[\Fa]{\F \Fcdt {\F \Fcdt{\F\mathit{a}}{\F \mathit{c}}}{\F \Fcdt{\F \mathit{b}}{\F \mathit{c}}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{c}}}$
+
+which would not be possible with =Mathjax=. We can now even use a =tabular= environment to group these formulas:
+
+#+ATTR_HTML: :class img-newline
+\begin{center}
+  \begin{tblr}{colspec={XXX}, row{1}={c}}
+    \scalebox{1.2}{$\Fcdt[\Fa]{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{a}}$} & 
+
+    \scalebox{1.2}{$\Fcdt[\Fa]{\F \Fcdt {\F \Fcdt{\F\mathit{a}}{\F \mathit{c}}}{\F \Fcdt{\F \mathit{b}}{\F \mathit{c}}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{c}}}$} &
+
+    \scalebox{1.2}{$\Fcdt[\Fa]{\F \Fcdt{\F\Fcdt{\F \mathit{a}}{\F \mathit{d}}}{\F \mathit{b}}}{\F \Fcdt{\F\Fcdt{\F\mathit{a}}{\F \mathit{b}}}{\F \mathit{d}}}$} \\
+
+\hskip 5.5em    $\mathit{a} \to (\mathit{b} \to \mathit{a})$ & 
+\hskip 5.2em     $(\mathit{c} \to (\mathit{b} \to \mathit{a})) \to $ &
+\hskip 3.5em   $((\mathit{c} \to \mathit{b}) \to (\mathit{c} \to \mathit{a})) \to $ \\ & 
+\hskip 5.2em     $(\mathit{d} \to (\mathit{b} \to \mathit{a}))$  &
+\hskip 3.5em    $(\mathit{b} \to (\mathit{d} \to \mathit{a}))$
+  \end{tblr}
+\end{center}
+
+As you can see, our approach is /much/ more flexible, which, if you need or want to be capable of getting down everything you want, this is great.
+** =svg= preview images vs =Tikzjax= 
+When typesetting logic or math, especially in texts which aim at explaining a matter in-depth, it happens more than often that you need to draw diagrams -- and LaTeX offers a great solution here, too. With the help of the =pgf/tikz= package, you can describe exactly how your diagram of choice should look like, and LaTeX draws it for you. 
+
+In order to draw diagrams in html, next to =Mathjax=, there is also the javascript application =Tikzjax=, with which you can draw basic =tikz= diagrams. Problematically, though, the operative word ist /basic/. You cannot even [[https://github.com/kisonecat/tikzjax/issues/2][load tikz-libraries]]. But what if you want to draw a modal diagram? Images like
+
+#+attr_html: :class img-newline 
+\begin{figure} 
+\centering 
+  \begin{subfigure}[b]{0.46\linewidth}
+   	 \begin{tikzpicture}[modal] % Den modus [modal] haben wir in der Präambel definiert. Hiermit zeichnen wir die Modaldiagremme! 
+	\node[world] (w1)  {$a$}; % [world] gibt an, dass wir Welten zeichnen.  (w1) ist der Name für die Welt, {$w_1$) die Beschriftung.
+	\node[world] (w2) [right=of w1] {$b$}; 
+	\path[->] (w1) edge[reflexive] (w1);
+	\path[->] (w2) edge[reflexive] (w2);
+	\end{tikzpicture}
+    \centering \caption{Reflexive Instances}   \label{fig:A}  
+  \end{subfigure}
+\begin{subfigure}[b]{0.46\linewidth}
+  \begin{tikzpicture}[modal]
+\node[world] (w1)  {$a$}; % [world] gibt an, dass wir Welten zeichnen. (w1) ist der Name für die Welt, {$w_1$) die Beschriftung.
+\node[world] (w2) [right=of w1] {$b$}; 
+\path[->] (w1) edge (w2);
+\path[->] (w2) edge (w1);
+\end{tikzpicture}
+\centering \caption{Symmetric Instances} \label{fig:B}  
+\end{subfigure}
+\end{figure}
+
+can't be typeset with =Tikzjax=. Neither can more complex ones as
+
+# #+attr_html: equation-definition
+\begin{tableau}
+{to prove={\text{proof goal: }\sdtstile{PL}{} \textcolor{grau}{\forall x Fx \to \exists x Fx}}}
+[\neg (\forall x Fx \to \exists x Fx), just=reductio
+[\forall x Fx,  just=(1) ($\neg \text{,}\to$)
+[\neg \exists x Fx, just=(1) ($\neg \text{,}\to$) % Komma muss als Text ausgegeben werden, weil prooftree sonst denkt, es käme ein weiteres Argument!
+[\forall x \neg Fx,               just=(3) Swap
+[Fa,               just=(2) \text{UI: a/x}
+[\neg Fa,               just=(4) \text{UI: a/x}, , close={(5),(6)}
+]
+]
+]
+]
+]
+]
+\end{tableau} 
+But, as you can see, this is possible with =svg= images produced by emacs.
+* The basic idea of our approach
+Now that we know /why/ our approach is preferable to =Mathjax= and =Tikzjax=, let us continue with the /how/. First of all, I am going to sketch the overall idea, then we will have a look at all the details. So let's get going!
+** Using =org-mode= and =LaTeX= to generate =svg= preview images
+In order to get our =LaTeX= into our =h
+** Using =ox-hugo= and =hugo= to embed the images into =html=
+** Using =css= to change alignment and styling
+** Optional: Using =org-mode= to create hyperlinks to the images
+
+* Getting dvisvgm to work
+* Getting the colors right
+#+BEGIN_SRC lisp
+(with-eval-after-load 'org
+  (plist-put org-format-latex-options :html-foreground "#AAA7B3")
+  (plist-put org-format-latex-options :html-background nil))
+#+END_SRC
 * Linking equations with target links:
 - set target <<eq1>>
 - refer with link: =[[eq1][Link to eq1]]= (span class="org-target")
@@ -26,6 +159,42 @@
 
 * 
 
-  
+Die html-attribute ändern nicht die syntax, nur die Klasse
+** 1 Alles, WAS in dollar signs gewarppt ist - egal ob inline oder nicht. kriegt diese syntax:
+
+#+BEGIN_SRC html :exports code
+<div class="...">
+<img src="..." alt="..." class="class" />
+</div>
+#+END_SRC
+
+#+BEGIN_SRC css :exports code
+.class img {
+[css-content]
+}
+#+END_SRC
+
+** 2
+Alles, was NICHT in dollar signs gewrappt ist, kriegt diese Syntax:
+syntax im Markdown:
+
+#+BEGIN_SRC elisp :exports code
+<div class="...">
+<span class="class1">
+<img src="..." alt="..." class="class2" />
+</span>
+</div>
+#+END_SRC
+selection in CSS:
+#+BEGIN_SRC css :exports code
+.equation-container .equation img[class="equation-double"] {
+  display: block       !important;
+  max-width: 100%;
+  margin-left: -0,1cm  !important;
+  margin-right: -0,1cm !important;
+  margin-bottom: 0.3cm !important;
+}
+#+END_SRC
+ 
 
 
